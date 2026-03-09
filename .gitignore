@@ -7,3 +7,4 @@ dist/
 .agent/
 attached_assets/
 .vercel/
+.vercel

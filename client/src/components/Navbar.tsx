@@ -36,20 +36,17 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled
-        ? "bg-white/95 backdrop-blur-md shadow-lg shadow-black/5"
-        : "bg-transparent"
+      ? "bg-white/95 backdrop-blur-md shadow-lg shadow-black/5"
+      : "bg-transparent"
       }`}>
       {/* Progress bar */}
       <div className="absolute bottom-0 left-0 h-[2px] nav-progress" style={{ width: `${scrollProgress}%` }} />
 
       <div className="container mx-auto px-4 h-[72px] flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <img
-            src="/assets/khoi-logo.png"
-            alt="FNB ECO SYSTEM"
-            className="h-9 object-contain"
-            loading="eager"
-          />
+          <span className={`text-lg font-extrabold tracking-tight transition-colors duration-300 ${isScrolled ? 'text-primary' : 'text-white'}`}>
+            FNB <span className="text-secondary">ECO SYSTEM</span>
+          </span>
         </div>
 
         <div className="hidden md:flex items-center gap-1">
@@ -58,8 +55,8 @@ export default function Navbar() {
               key={link.id}
               onClick={() => handleNavClick(link.id)}
               className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${isScrolled
-                  ? "text-gray-700 hover:text-primary hover:bg-primary/5"
-                  : "text-white/80 hover:text-white hover:bg-white/10"
+                ? "text-gray-700 hover:text-primary hover:bg-primary/5"
+                : "text-white/80 hover:text-white hover:bg-white/10"
                 }`}
             >
               {link.label}

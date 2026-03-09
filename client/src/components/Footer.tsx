@@ -9,12 +9,9 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row gap-10 md:gap-16">
           {/* Brand */}
           <div className="md:w-1/3">
-            <img
-              src="/assets/khoi-logo.png"
-              alt="FNB ECO SYSTEM"
-              className="h-12 object-contain mb-4"
-              loading="lazy"
-            />
+            <span className="text-xl font-extrabold tracking-tight text-white mb-4 block">
+              FNB <span className="text-secondary">ECO SYSTEM</span>
+            </span>
             <p className="text-white/50 text-sm leading-relaxed max-w-xs">
               Chuỗi workshop quy tụ hàng ngàn chủ quán, đại lý, nhà phân phối và các thương hiệu hoạt động trong ngành FnB. Kết nối kinh doanh và cập nhật xu hướng mới nhất.
             </p>
