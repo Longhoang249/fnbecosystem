@@ -50,7 +50,6 @@ function CountdownTimer() {
 }
 
 export default function HeroSection({ eventDate, eventTime, eventLocation }: HeroSectionProps) {
-  const videoSrc = "https://res.cloudinary.com/djsbltelg/video/upload/v1748233793/knkay6nlmsavlw4jonj5.mp4";
 
   const infoBadges = [
     { icon: Calendar, text: eventDate },
@@ -61,14 +60,17 @@ export default function HeroSection({ eventDate, eventTime, eventLocation }: Her
 
   return (
     <section className="hero-section relative flex items-center justify-center text-white">
-      {/* Video background */}
-      <video
-        autoPlay muted loop playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-        poster="/images/hero-bg.jpg"
-      >
-        <source src={videoSrc} type="video/mp4" />
-      </video>
+      {/* Vimeo background video */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <iframe
+          src="https://player.vimeo.com/video/1171624958?background=1&autoplay=1&loop=1&muted=1&quality=720p"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-[177.78vh] min-h-[56.25vw] w-auto h-auto"
+          style={{ width: '177.78vh', height: '100vh' }}
+          frameBorder="0"
+          allow="autoplay; fullscreen"
+          title="FNB ECO SYSTEM Background"
+        />
+      </div>
 
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0D1B14]/70 via-[#0D1B14]/50 to-[#0D1B14]/80 z-10" />
