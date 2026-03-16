@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:w-1/3">
             <span className="text-xl font-extrabold tracking-tight text-white mb-4 block">
-              FNB <span className="text-secondary">ECO SYSTEM</span>
+              FNB <span className="text-secondary">CONNECT</span>
             </span>
             <p className="text-white/50 text-sm leading-relaxed max-w-xs">
               Chuỗi workshop quy tụ hàng ngàn chủ quán, đại lý, nhà phân phối và các thương hiệu hoạt động trong ngành FnB. Kết nối kinh doanh và cập nhật xu hướng mới nhất.
@@ -57,7 +57,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/40 text-sm">
-            © {currentYear} FNB ECO SYSTEM. All rights reserved.
+            © {currentYear} FNB CONNECT. All rights reserved.
           </p>
           <p className="text-white/30 text-xs">
             Được tổ chức bởi <span className="text-secondary/60">AUTOSHOP - Vua Máy Pha Chế</span>

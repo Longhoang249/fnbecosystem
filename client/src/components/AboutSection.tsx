@@ -46,7 +46,7 @@ export default function AboutSection() {
           </h2>
           <div className="w-16 h-1 bg-secondary mx-auto rounded-full mb-6" />
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Workshop FnB Eco System quy tụ hàng ngàn chủ quán, đại lý, nhà phân phối và các thương hiệu hoạt động trong ngành FnB. Là sân chơi hàng đầu để kết nối kinh doanh và cập nhật xu hướng mới nhất ngành đồ uống Việt Nam.
+            Workshop FnB Connect quy tụ hàng ngàn chủ quán, đại lý, nhà phân phối và các thương hiệu hoạt động trong ngành FnB. Là sân chơi hàng đầu để kết nối kinh doanh và cập nhật xu hướng mới nhất ngành đồ uống Việt Nam.
           </p>
         </motion.div>
 

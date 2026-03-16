@@ -76,7 +76,7 @@ export default function HeroSection({ eventDate, eventTime, eventLocation }: Her
             transform: 'translate(-50%, -50%)',
           }}
           allow="autoplay; fullscreen"
-          title="FNB ECO SYSTEM Background"
+          title="FNB CONNECT Background"
         />
       </div>
 
@@ -103,7 +103,7 @@ export default function HeroSection({ eventDate, eventTime, eventLocation }: Her
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
         >
-          FNB ECO SYSTEM
+          FNB CONNECT
         </motion.h1>
 
         {/* Tagline */}

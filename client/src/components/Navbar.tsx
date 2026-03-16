@@ -45,7 +45,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4 h-[72px] flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className={`text-lg font-extrabold tracking-tight transition-colors duration-300 ${isScrolled ? 'text-primary' : 'text-white'}`}>
-            FNB <span className="text-secondary">ECO SYSTEM</span>
+            FNB <span className="text-secondary">CONNECT</span>
           </span>
         </div>
 

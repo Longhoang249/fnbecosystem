@@ -16,10 +16,10 @@ export default function SpeakersSection() {
 
   const speakers: Speaker[] = [
     {
-      name: "Mr. Thông Phan",
-      role: "10 năm kinh nghiệm marketing thực chiến FnB",
-      bio: "Giám đốc Marketing của Saffron Vietnam, iCheck Corp, Autoshop. Được biết đến qua Cà Phê Sáng VTV3, The Quoc Kanh Show, Yeah1 TV.",
-      image: "/speakers/thong-phan-final2.png",
+      name: "Chuyên Gia Trà Từ Trung Quốc",
+      role: "Chuyên gia trà quốc tế",
+      bio: "Chuyên gia trà đến từ Trung Quốc, chia sẻ xu hướng FnB 2026 và những kiến thức chuyên sâu về trà.",
+      image: "https://placehold.co/400x400/1B4332/D4A853?text=Tea+Expert",
     },
     {
       name: "Mr. Nguyễn Hữu Quyết",

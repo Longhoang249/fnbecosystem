@@ -19,15 +19,15 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>FNB ECO SYSTEM | Chương mới trong ngành FnB 2026</title>
+        <title>FNB CONNECT | Chương mới trong ngành FnB 2026</title>
         <meta
           name="description"
-          content="FNB ECO SYSTEM - Chuỗi workshop quy tụ hàng ngàn chủ quán, đại lý, nhà phân phối và các thương hiệu FnB. Kết nối kinh doanh và cập nhật xu hướng mới nhất."
+          content="FNB CONNECT - Chuỗi workshop quy tụ hàng ngàn chủ quán, đại lý, nhà phân phối và các thương hiệu FnB. Kết nối kinh doanh và cập nhật xu hướng mới nhất."
         />
-        <meta property="og:title" content="FNB ECO SYSTEM | Chương mới trong ngành FnB 2026" />
+        <meta property="og:title" content="FNB CONNECT | Chương mới trong ngành FnB 2026" />
         <meta
           property="og:description"
-          content="FNB ECO SYSTEM - Chuỗi workshop quy tụ hàng ngàn chủ quán, đại lý, nhà phân phối. 22/04/2026 tại Trống Đồng Place, Hà Nội."
+          content="FNB CONNECT - Chuỗi workshop quy tụ hàng ngàn chủ quán, đại lý, nhà phân phối. 22/04/2026 tại Trống Đồng Place, Hà Nội."
         />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://i.imgur.com/LDcB2DA.png" />
@@ -54,7 +54,7 @@ export default function Home() {
             <iframe
               className="w-full h-full"
               src="https://www.youtube.com/embed/KypVYxaosI0"
-              title="Video giới thiệu FNB ECO SYSTEM"
+              title="Video giới thiệu FNB CONNECT"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
