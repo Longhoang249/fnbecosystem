@@ -64,9 +64,17 @@ export default function HeroSection({ eventDate, eventTime, eventLocation }: Her
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <iframe
           src="https://player.vimeo.com/video/1171624958?background=1&autoplay=1&loop=1&muted=1&quality=720p"
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-[177.78vh] min-h-[56.25vw] w-auto h-auto"
-          style={{ width: '177.78vh', height: '100vh' }}
-          frameBorder="0"
+          className="absolute top-0 left-0 w-full h-full border-0 pointer-events-none"
+          style={{
+            width: '100vw',
+            height: '56.25vw', /* 16:9 ratio */
+            minHeight: '100vh',
+            minWidth: '177.78vh', /* 16:9 ratio inverse */
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+          }}
           allow="autoplay; fullscreen"
           title="FNB ECO SYSTEM Background"
         />
