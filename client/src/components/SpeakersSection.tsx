@@ -28,16 +28,16 @@ export default function SpeakersSection() {
       image: "/speakers/nguyen-huu-quyet-final2.png",
     },
     {
-      name: "Sắp Công Bố",
-      role: "Diễn giả sẽ được công bố sớm",
-      bio: "Chúng tôi đang hoàn tất xác nhận diễn giả cho sự kiện. Hãy theo dõi để cập nhật thông tin mới nhất!",
-      image: "https://placehold.co/400x400/1B4332/D4A853?text=%3F",
+      name: "iPOS",
+      role: "Thông tin chưa cập nhật",
+      bio: "Thông tin diễn giả đang được cập nhật. Hãy theo dõi để biết thêm chi tiết!",
+      image: "https://placehold.co/400x400/1B4332/D4A853?text=iPOS",
     },
     {
-      name: "Sắp Công Bố",
-      role: "Diễn giả sẽ được công bố sớm",
-      bio: "Chúng tôi đang hoàn tất xác nhận diễn giả cho sự kiện. Hãy theo dõi để cập nhật thông tin mới nhất!",
-      image: "https://placehold.co/400x400/1B4332/D4A853?text=%3F",
+      name: "Mr. Tuấn Anh",
+      role: "Giám đốc vận hành chuỗi cà phê An Kinh Bắc",
+      bio: "Giám đốc vận hành chuỗi cà phê An Kinh Bắc với 20 cửa hàng. Chia sẻ chiến lược đóng gói để nhân bản thương hiệu.",
+      image: "https://placehold.co/400x400/1B4332/D4A853?text=TA",
     },
   ];
 
