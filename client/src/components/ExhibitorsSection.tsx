@@ -20,6 +20,7 @@ export default function ExhibitorsSection() {
     { name: "Holyon Tea", description: "Chuyên cung cấp các dòng trà chất lượng cao cho thị trường đồ uống.", products: ["Trà oolong cao cấp", "Trà xanh nguyên lá", "Trà hoa quả thượng hạng"], image: "https://placehold.co/600x400/1B4332/D4A853?text=HOLYON+TEA" },
     { name: "Sen Việt", description: "Nhà cung cấp nguyên liệu và giải pháp kinh doanh cho ngành đồ uống.", products: ["Nguyên liệu pha chế", "Giải pháp kinh doanh F&B"], image: "https://placehold.co/600x400/1B4332/D4A853?text=SEN+VIET" },
     { name: "Nhất Hương", description: "Doanh nghiệp Việt Nam tiên phong trong lĩnh vực sản xuất và phân phối nguyên liệu ngành bánh và pha chế.", products: ["Kem Béo Pha Chế", "Kem Whipping Base", "Sốt Caramen, Sốt Sô Cô La Cacao Talk"], image: "https://i.postimg.cc/m26BxFBk/Post-Landing-Page-01.jpg" },
+    { name: "iPOS", description: "Giải pháp quản lý bán hàng và vận hành toàn diện cho ngành F&B.", products: ["Phần mềm quản lý bán hàng POS", "Giải pháp quản lý nhà hàng, quán café", "Hệ thống báo cáo & phân tích kinh doanh"], image: "https://placehold.co/600x400/1B4332/D4A853?text=iPOS" },
   ];
 
   return (
