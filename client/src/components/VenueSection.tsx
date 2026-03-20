@@ -35,7 +35,7 @@ export default function VenueSection() {
             </div>
             <div className="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 px-5 py-3 rounded-xl">
               <MapPin className="w-5 h-5 text-primary" />
-              <span className="font-semibold text-foreground">Trống Đồng Place - 489 Hoàng Quốc Việt, P.Nghĩa Đô, Tp.Hà Nội</span>
+              <span className="font-semibold text-foreground">Tầng 3 toà nhà The Zei - Số 8 Lê Đức Thọ, Tp.Hà Nội</span>
             </div>
           </div>
         </motion.div>

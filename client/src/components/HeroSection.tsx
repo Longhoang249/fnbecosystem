@@ -55,7 +55,7 @@ export default function HeroSection({ eventDate, eventTime, eventLocation }: Her
     { icon: Calendar, text: eventDate },
     { icon: Clock, text: eventTime },
     { icon: Ticket, text: "Miễn Phí" },
-    { icon: MapPin, text: "Trống Đồng Place, Tp. Hà Nội" },
+    { icon: MapPin, text: "Tầng 3 toà nhà The Zei, Số 8 Lê Đức Thọ, Hà Nội" },
   ];
 
   return (

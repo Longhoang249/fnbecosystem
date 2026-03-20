@@ -27,7 +27,7 @@ export default function Home() {
         <meta property="og:title" content="FNB CONNECT | Chương mới trong ngành FnB 2026" />
         <meta
           property="og:description"
-          content="FNB CONNECT - Chuỗi workshop quy tụ hàng ngàn chủ quán, đại lý, nhà phân phối. 22/04/2026 tại Trống Đồng Place, Hà Nội."
+          content="FNB CONNECT - Chuỗi workshop quy tụ hàng ngàn chủ quán, đại lý, nhà phân phối. 22/04/2026 tại Tầng 3 toà nhà The Zei, số 8 Lê Đức Thọ, Hà Nội."
         />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://i.imgur.com/LDcB2DA.png" />
@@ -37,7 +37,7 @@ export default function Home() {
       <HeroSection
         eventDate="22 tháng 4, 2026"
         eventTime="9:00 - 17:00"
-        eventLocation="Trống Đồng Place - 489 Hoàng Quốc Việt, P.Nghĩa Đô, Tp.Hà Nội"
+        eventLocation="Tầng 3 toà nhà The Zei - Số 8 Lê Đức Thọ, Tp.Hà Nội"
       />
       <AboutSection />
 
@@ -73,7 +73,7 @@ export default function Home() {
       <RegistrationSection
         eventDate="22 tháng 4, 2026"
         eventTime="9:00 - 17:00"
-        eventLocation="Trống Đồng Place - 489 Hoàng Quốc Việt, P.Nghĩa Đô, Tp.Hà Nội"
+        eventLocation="Tầng 3 toà nhà The Zei - Số 8 Lê Đức Thọ, Tp.Hà Nội"
         eventPrice="Miễn phí"
         onSuccessfulRegistration={() => setShowThankYouModal(true)}
       />

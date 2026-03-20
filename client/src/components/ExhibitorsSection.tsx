@@ -22,6 +22,11 @@ export default function ExhibitorsSection() {
     { name: "Sen Việt", description: "Nhà cung cấp nguyên liệu và giải pháp kinh doanh cho ngành đồ uống.", products: ["Nguyên liệu pha chế", "Giải pháp kinh doanh F&B"], image: "https://placehold.co/600x400/1B4332/D4A853?text=SEN+VIET" },
     { name: "Nhất Hương", description: "Doanh nghiệp Việt Nam tiên phong trong lĩnh vực sản xuất và phân phối nguyên liệu ngành bánh và pha chế.", products: ["Kem Béo Pha Chế", "Kem Whipping Base", "Sốt Caramen, Sốt Sô Cô La Cacao Talk"], image: "https://i.postimg.cc/m26BxFBk/Post-Landing-Page-01.jpg" },
     { name: "iPOS", description: "Giải pháp quản lý bán hàng và vận hành toàn diện cho ngành F&B.", products: ["Phần mềm quản lý bán hàng POS", "Giải pháp quản lý nhà hàng, quán café", "Hệ thống báo cáo & phân tích kinh doanh"], image: "https://placehold.co/600x400/1B4332/D4A853?text=iPOS" },
+    { name: "Cốc Giấy KK", description: "Chuyên cung cấp cốc giấy, ly giấy chất lượng cao cho ngành F&B.", products: ["Cốc giấy các loại", "Ly giấy in logo thương hiệu", "Giải pháp bao bì đồ uống"], image: "https://placehold.co/600x400/1B4332/D4A853?text=C%E1%BB%91c+Gi%E1%BA%A5y+KK" },
+    { name: "NLPC Bốn Phương", description: "Nhà cung cấp nguyên liệu pha chế uy tín, đa dạng sản phẩm cho ngành đồ uống.", products: ["Nguyên liệu pha chế đa dạng", "Siro & Topping", "Giải pháp nguyên liệu trọn gói"], image: "https://placehold.co/600x400/1B4332/D4A853?text=NLPC+B%E1%BB%91n+Ph%C6%B0%C6%A1ng" },
+    { name: "VBM", description: "Thương hiệu máy pha cà phê chuyên nghiệp đến từ Ý, phục vụ ngành F&B cao cấp.", products: ["Máy pha cà phê chuyên nghiệp", "Máy xay cà phê", "Giải pháp pha chế cao cấp"], image: "https://placehold.co/600x400/1B4332/D4A853?text=VBM" },
+    { name: "Wazuka", description: "Thương hiệu trà Nhật Bản chất lượng cao, mang hương vị trà truyền thống đến thị trường Việt Nam.", products: ["Trà Matcha Nhật Bản", "Trà xanh cao cấp", "Nguyên liệu trà Nhật"], image: "https://placehold.co/600x400/1B4332/D4A853?text=Wazuka" },
+    { name: "Minh Hạnh Food", description: "Nhà sản xuất và cung cấp nguyên liệu thực phẩm, pha chế cho ngành F&B.", products: ["Nguyên liệu thực phẩm F&B", "Sản phẩm pha chế", "Giải pháp nguyên liệu cho quán"], image: "https://placehold.co/600x400/1B4332/D4A853?text=Minh+H%E1%BA%A1nh+Food" },
   ];
 
   return (

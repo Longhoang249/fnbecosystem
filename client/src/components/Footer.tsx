@@ -23,7 +23,7 @@ export default function Footer() {
             <div className="space-y-3 text-sm">
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" />
-                <span>Trống Đồng Place - 489 Hoàng Quốc Việt, P.Nghĩa Đô, Tp.Hà Nội</span>
+                <span>Tầng 3 toà nhà The Zei - Số 8 Lê Đức Thọ, Tp.Hà Nội</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-secondary flex-shrink-0" />
