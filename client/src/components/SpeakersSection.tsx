@@ -22,16 +22,16 @@ export default function SpeakersSection() {
       image: "https://placehold.co/400x400/1B4332/D4A853?text=Tea+Expert",
     },
     {
-      name: "Mr. Nguyễn Hữu Quyết",
-      role: "26 năm kinh nghiệm tài chính kế toán",
-      bio: "Giám Đốc Tài Chính: Vinawind (Thuộc T&T Group), XNK vs Đầu Tư Hà Nội, STP Group, Cosmos, ATS Vietnam...",
-      image: "/speakers/nguyen-huu-quyet-final2.png",
-    },
-    {
-      name: "iPOS",
+      name: "Mr. Đỗ Hải",
       role: "Thông tin chưa cập nhật",
       bio: "Thông tin diễn giả đang được cập nhật. Hãy theo dõi để biết thêm chi tiết!",
-      image: "https://placehold.co/400x400/1B4332/D4A853?text=iPOS",
+      image: "https://placehold.co/400x400/1B4332/D4A853?text=DH",
+    },
+    {
+      name: "Mrs. Đinh Thị Lan Phương",
+      role: "Giám đốc Khối sản phẩm Kế toán - iPOS.vn",
+      bio: "21 năm kinh nghiệm trong nghiệp vụ Kế toán và 12 năm kinh nghiệm trong lĩnh vực phát triển giải pháp kế toán ngành FnB.",
+      image: "https://placehold.co/400x400/1B4332/D4A853?text=LPH",
     },
     {
       name: "Mr. Tuấn Anh",
