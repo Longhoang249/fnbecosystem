@@ -1,0 +1,181 @@
+import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { ChevronDown, ArrowRight, Award, Star } from "lucide-react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+
+interface Exhibitor {
+  name: string;
+  description: string;
+  products: string[];
+  image: string;
+}
+
+export default function ExhibitorsSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const [expanded, setExpanded] = useState<{ [key: number]: boolean }>({});
+
+  const exhibitors: Exhibitor[] = [
+    { name: "AUTOSHOP - Vua Máy Pha Chế", description: "Nhà phân phối máy móc pha chế và giải pháp kinh doanh đồ uống trọn gói hàng đầu Việt Nam", products: ["Máy pha chế tự động, pha trà sữa chỉ 10 giây", "Máy pha trà tươi, 1 chạm pha 9 công nền trà", "Máy làm đá lạnh, 15 phút có đá già"], image: "/exhibitors/autoshop.jpg" },
+    { name: "Dẻo - Giải pháp Ăn vặt", description: "Dẻo cung cấp đa dạng giải pháp cho quán: Ăn vặt - Chè - Kem. Quán cần món Ngon, nhanh gọn - Cứ để Dẻo lo", products: ["Giải pháp ăn vặt cho quán", "Chè & Kem đa dạng", "Món ngon, nhanh gọn"], image: "https://i.ibb.co/PvShsyZt/A-nh-thie-t-ke-De-o.jpg" },
+    { name: "BODUO VIỆT NAM", description: "Tập đoàn sản xuất nguyên liệu pha chế hàng đầu Trung Quốc, với hơn 20 năm kinh nghiệm và hệ thống 4 nhà máy hiện đại, cung cấp sản phẩm chất lượng cao cho ngành F&B toàn cầu.", products: ["Nguyên liệu pha chế cao cấp", "Giải pháp đồ uống sáng tạo", "Hơn 20 năm kinh nghiệm"], image: "https://i.ibb.co/93GTGmph/A-nh.jpg" },
+    { name: "HOLYON TEA", description: "Đại diện chính thức của Holyon Tea tại thị trường Việt Nam. Mang đến các sản phẩm trà chất lượng cao, cung cấp giải pháp tổng thể cho thị trường trà, từ blending chuyên nghiệp đến OEM cho các thương hiệu lớn.", products: ["Trà chất lượng cao", "Blending chuyên nghiệp", "OEM cho thương hiệu lớn"], image: "https://i.ibb.co/qFpYPzTh/Holyon-tea-600x400-01.png" },
+    { name: "Sen Việt", description: "Nhà cung cấp nguyên liệu và giải pháp kinh doanh cho ngành đồ uống.", products: ["Nguyên liệu pha chế", "Giải pháp kinh doanh F&B"], image: "https://placehold.co/600x400/1B4332/D4A853?text=SEN+VIET" },
+    { name: "Nhất Hương", description: "Doanh nghiệp Việt Nam tiên phong trong lĩnh vực sản xuất và phân phối nguyên liệu ngành bánh và pha chế.", products: ["Kem Béo Pha Chế", "Kem Whipping Base", "Sốt Caramen, Sốt Sô Cô La Cacao Talk"], image: "https://i.postimg.cc/m26BxFBk/Post-Landing-Page-01.jpg" },
+    { name: "iPOS", description: "Giải pháp quản lý bán hàng và vận hành toàn diện cho ngành F&B.", products: ["Phần mềm quản lý bán hàng POS", "Giải pháp quản lý nhà hàng, quán café", "Hệ thống báo cáo & phân tích kinh doanh"], image: "/ipos.jpg" },
+    { name: "Cốc Giấy KK", description: "Chuyên cung cấp cốc giấy, ly giấy chất lượng cao cho ngành F&B.", products: ["Cốc giấy các loại", "Ly giấy in logo thương hiệu", "Giải pháp bao bì đồ uống"], image: "https://placehold.co/600x400/1B4332/D4A853?text=C%E1%BB%91c+Gi%E1%BA%A5y+KK" },
+    { name: "NLPC Bốn Phương", description: "Nhà cung cấp nguyên liệu pha chế uy tín, đa dạng sản phẩm cho ngành đồ uống.", products: ["Nguyên liệu pha chế đa dạng", "Siro & Topping", "Giải pháp nguyên liệu trọn gói"], image: "https://placehold.co/600x400/1B4332/D4A853?text=NLPC+B%E1%BB%91n+Ph%C6%B0%C6%A1ng" },
+    { name: "VBM", description: "Thương hiệu máy pha cà phê chuyên nghiệp đến từ Ý, phục vụ ngành F&B cao cấp.", products: ["Máy pha cà phê chuyên nghiệp", "Máy xay cà phê", "Giải pháp pha chế cao cấp"], image: "https://placehold.co/600x400/1B4332/D4A853?text=VBM" },
+    { name: "Wazuka", description: "Thương hiệu trà Nhật Bản chất lượng cao, mang hương vị trà truyền thống đến thị trường Việt Nam.", products: ["Trà Matcha Nhật Bản", "Trà xanh cao cấp", "Nguyên liệu trà Nhật"], image: "https://placehold.co/600x400/1B4332/D4A853?text=Wazuka" },
+    { name: "Minh Hạnh Food", description: "Nhà sản xuất và cung cấp nguyên liệu thực phẩm, pha chế cho ngành F&B.", products: ["Nguyên liệu thực phẩm F&B", "Sản phẩm pha chế", "Giải pháp nguyên liệu cho quán"], image: "https://placehold.co/600x400/1B4332/D4A853?text=Minh+H%E1%BA%A1nh+Food" },
+  ];
+
+  return (
+    <section id="exhibitors" className="py-20 md:py-28 bg-background" ref={ref}>
+      <div className="container mx-auto px-4">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="inline-block text-secondary font-semibold text-sm uppercase tracking-wider mb-3">Đối tác</span>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4">Gian Hàng Sự Kiện</h2>
+          <div className="w-16 h-1 bg-secondary mx-auto rounded-full mb-6" />
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Những mắt xích không thể thiếu của chủ quán
+          </p>
+        </motion.div>
+
+        {/* Mobile Slider using Swiper */}
+        <div className="block sm:hidden w-full pb-8 overflow-hidden">
+          <Swiper
+            modules={[Autoplay, Navigation]}
+            spaceBetween={20}
+            slidesPerView={1.2}
+            centeredSlides={true}
+            loop={true}
+            speed={800}
+            navigation={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            className="w-full relative [&_.swiper-button-next]:text-primary [&_.swiper-button-prev]:text-primary [&_.swiper-button-next]:w-10 [&_.swiper-button-next]:h-10 [&_.swiper-button-next]:bg-white/80 [&_.swiper-button-next]:rounded-full [&_.swiper-button-next:after]:text-lg [&_.swiper-button-prev]:w-10 [&_.swiper-button-prev]:h-10 [&_.swiper-button-prev]:bg-white/80 [&_.swiper-button-prev]:rounded-full [&_.swiper-button-prev:after]:text-lg [&_.swiper-button-next]:shadow-md [&_.swiper-button-prev]:shadow-md"
+          >
+            {exhibitors.map((exhibitor, index) => (
+              <SwiperSlide key={index} className="h-auto">
+                <div className="exhibitor-card bg-white rounded-2xl overflow-hidden shadow-sm border border-border flex flex-col h-full">
+                  <div className="relative aspect-[3/2] overflow-hidden">
+                    <img
+                      src={exhibitor.image}
+                      alt={exhibitor.name}
+                      className="w-full h-full object-cover transition-transform duration-500"
+                      loading="lazy"
+                      onError={(e) => { (e.target as HTMLImageElement).src = "https://placehold.co/600x400/1B4332/D4A853?text=" + encodeURIComponent(exhibitor.name); }}
+                    />
+                  </div>
+                  <div className="p-5 flex flex-col flex-grow">
+                    <h3 className="text-base font-bold text-foreground mb-1.5">{exhibitor.name}</h3>
+                    <p className="text-muted-foreground text-sm mb-3 flex-grow">{exhibitor.description}</p>
+                    <button
+                      onClick={() => setExpanded((p) => ({ ...p, [index]: !p[index] }))}
+                      className="flex items-center gap-1 text-primary hover:text-secondary text-sm font-medium transition-colors"
+                    >
+                      {expanded[index] ? "Thu gọn" : "Xem sản phẩm"}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${expanded[index] ? "rotate-180" : ""}`} />
+                    </button>
+                    {expanded[index] && (
+                      <motion.ul
+                        className="mt-3 space-y-1.5 text-sm text-muted-foreground border-t border-border pt-3"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {exhibitor.products.map((p, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 bg-secondary rounded-full mt-1.5 flex-shrink-0" />
+                            {p}
+                          </li>
+                        ))}
+                      </motion.ul>
+                    )}
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {exhibitors.map((exhibitor, index) => (
+            <motion.div
+              key={index}
+              className="exhibitor-card bg-white rounded-2xl overflow-hidden shadow-sm border border-border flex flex-col"
+              initial={{ opacity: 0, y: 24 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+            >
+              <div className="relative aspect-[3/2] overflow-hidden">
+                <img
+                  src={exhibitor.image}
+                  alt={exhibitor.name}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  loading="lazy"
+                  onError={(e) => { (e.target as HTMLImageElement).src = "https://placehold.co/600x400/1B4332/D4A853?text=" + encodeURIComponent(exhibitor.name); }}
+                />
+
+              </div>
+              <div className="p-5 flex flex-col flex-grow">
+                <h3 className="text-base font-bold text-foreground mb-1.5">{exhibitor.name}</h3>
+                <p className="text-muted-foreground text-sm mb-3 flex-grow">{exhibitor.description}</p>
+                <button
+                  onClick={() => setExpanded((p) => ({ ...p, [index]: !p[index] }))}
+                  className="flex items-center gap-1 text-primary hover:text-secondary text-sm font-medium transition-colors"
+                >
+                  {expanded[index] ? "Thu gọn" : "Xem sản phẩm"}
+                  <ChevronDown className={`w-4 h-4 transition-transform ${expanded[index] ? "rotate-180" : ""}`} />
+                </button>
+                {expanded[index] && (
+                  <motion.ul
+                    className="mt-3 space-y-1.5 text-sm text-muted-foreground border-t border-border pt-3"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {exhibitor.products.map((p, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-secondary rounded-full mt-1.5 flex-shrink-0" />
+                        {p}
+                      </li>
+                    ))}
+                  </motion.ul>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          className="text-center mt-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <button
+            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold py-3.5 px-8 rounded-xl transition-all duration-300 shadow-lg shadow-primary/20 hover:-translate-y-0.5"
+            onClick={() => document.getElementById("register")?.scrollIntoView({ behavior: "smooth" })}
+          >
+            Đăng Ký Trải Nghiệm
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
