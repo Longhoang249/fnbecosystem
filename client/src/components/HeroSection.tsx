@@ -113,7 +113,7 @@ export default function HeroSection({ eventDate, eventTime, eventLocation }: Her
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Chương mới trong ngành FnB 2026
+          Kết nối nguồn lực, mở rộng cơ hội
         </motion.p>
 
         {/* Countdown */}
