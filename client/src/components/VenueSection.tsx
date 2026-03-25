@@ -33,6 +33,20 @@ export default function VenueSection() {
             </div>
           </div>
         </motion.div>
+
+        <motion.div
+          className="mt-8 md:mt-12 max-w-5xl mx-auto rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border border-border"
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <img 
+            src="https://i.ibb.co/vxfFn0nv/so-o-su-kie-n.png" 
+            alt="Sơ đồ sự kiện" 
+            className="w-full h-auto object-cover"
+            loading="lazy"
+          />
+        </motion.div>
       </div>
     </section>
   );

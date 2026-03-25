@@ -21,26 +21,26 @@ export default function SpeakersSection() {
   const speakers: Speaker[] = [
     {
       name: "Mr. Đỗ Hải",
-      role: "Viral Marketing",
-      bio: "Thông tin diễn giả đang được cập nhật. Hãy theo dõi để biết thêm chi tiết!",
+      role: "Founder Học viện Lan Truyền CoreViral - Hải Đây",
+      bio: "5 Năm kinh nghiệm Brand Manager.\n6 Tỷ view viral cho các doanh nghiệp trên nền tảng social media.\n1 Nút vàng 7 nút bạc Youtube.\nTOP 20 nhà sáng tạo nội dung xuất sắc nhất Việt Nam Youtube Short.\nHợp tác huấn luyện hơn 100+ doanh nghiệp như FPT Polytechnic, The Bad God, Nerman, The Orbit...",
       image: "/do_hai.jpg",
     },
     {
-      name: "Mr. Hàn Cương",
-      role: "Chuyên gia trà Trung Quốc",
-      bio: "Xu hướng FnB châu Á",
+      name: "Mr. Hán Cương",
+      role: "Nhà sáng lập Công ty Trà Hậu Đường Hà Nam",
+      bio: "Cung cấp trà chất lượng cao hàng đầu trong ngành, là đối tác của nhiều chuỗi nhà hàng và thương hiệu đồ uống nổi tiếng tại Trung Quốc như:\nShuyi Shao Xiancao, Juan Tea, Mixue Bingcheng, Guming, Ningji, Jilatuo, Chagee (Bawang Chaji), Bingchun Tea, 7FenTian, Bingo Fresh Tea, Banu Hotpot, Jiediliang cùng nhiều thương hiệu khác.",
       image: "/han_cuong.jpg",
     },
     {
       name: "Mrs. Đinh Thị Lan Phương",
-      role: "Giám đốc khối sản phẩm kế toán iPOS",
-      bio: "Trao đổi thêm về chủ đề iPOS:\n- Chia sẻ thêm về những thay đổi chính sách thuế cho hộ kinh doanh và hoá đơn điện tử",
+      role: "Giám đốc Khối sản phẩm Kế toán của iPOS.vn",
+      bio: "21 năm kinh nghiệm trong nghiệp vụ Kế toán và 12 năm Kinh nghiệm trong lĩnh vực phát triển giải pháp kế toán ngành FnB",
       image: "/lan_phuong.jpg",
     },
     {
       name: "Phạm Văn Tuấn Anh",
-      role: "Giám Đốc vận hành chuỗi An Kinh Bắc",
-      bio: "Quản lý nhân sự và đóng gói chuỗi hệ thống.\nChủ chuỗi 20 cửa hàng - Đóng gói mô hình để nhân bản",
+      role: "Giám đốc vận hành chuỗi cà phê An Kinh Bắc",
+      bio: "Giám đốc vận hành chuỗi cà phê An Kinh Bắc với 15+ cửa hàng.",
       image: "/tuan_anh.jpg",
     },
   ];
@@ -90,7 +90,7 @@ export default function SpeakersSection() {
                       loading="lazy"
                     />
                     <div className="speaker-overlay absolute inset-0 flex items-end p-5">
-                      <p className="text-white/90 text-sm leading-relaxed">{speaker.bio}</p>
+                      <p className="text-white/90 text-sm leading-relaxed whitespace-pre-line">{speaker.bio}</p>
                     </div>
                   </div>
                   <div className="p-5">
@@ -121,7 +121,7 @@ export default function SpeakersSection() {
                   loading="lazy"
                 />
                 <div className="speaker-overlay absolute inset-0 flex items-end p-5">
-                  <p className="text-white/90 text-sm leading-relaxed">{speaker.bio}</p>
+                  <p className="text-white/90 text-sm leading-relaxed whitespace-pre-line">{speaker.bio}</p>
                 </div>
               </div>
               <div className="p-5">

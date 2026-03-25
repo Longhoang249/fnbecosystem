@@ -40,7 +40,7 @@ export default function ScheduleSection() {
       time: "13:30 - 14:30",
       title: "Xu Hướng FnB 2026",
       description: "Khám phá những xu hướng mới nhất trong ngành FnB năm 2026",
-      speaker: { name: "Mr. Hàn Cương", image: "/han_cuong.jpg" },
+      speaker: { name: "Mr. Hán Cương", image: "/han_cuong.jpg" },
     },
     {
       time: "14:40 - 15:40",
