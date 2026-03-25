@@ -1,6 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Quote } from "lucide-react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 interface Testimonial {
   content: string;
@@ -50,7 +54,42 @@ export default function TestimonialsSection() {
           <p className="text-lg text-white/60 max-w-2xl mx-auto">Chia sẻ từ khách mời đã tham gia các workshop trước đây</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {/* Mobile Slider using Swiper */}
+        <div className="block md:hidden w-full pb-8 overflow-hidden">
+          <Swiper
+            modules={[Autoplay, Navigation]}
+            spaceBetween={20}
+            slidesPerView={1.15}
+            centeredSlides={true}
+            loop={true}
+            speed={800}
+            navigation={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            className="w-full relative [&_.swiper-button-next]:text-secondary [&_.swiper-button-prev]:text-secondary [&_.swiper-button-next]:w-10 [&_.swiper-button-next]:h-10 [&_.swiper-button-next]:bg-white/10 [&_.swiper-button-next]:backdrop-blur-sm [&_.swiper-button-next]:rounded-full [&_.swiper-button-next:after]:text-lg [&_.swiper-button-prev]:w-10 [&_.swiper-button-prev]:h-10 [&_.swiper-button-prev]:bg-white/10 [&_.swiper-button-prev]:backdrop-blur-sm [&_.swiper-button-prev]:rounded-full [&_.swiper-button-prev:after]:text-lg hover:[&_.swiper-button-next]:bg-white/20 hover:[&_.swiper-button-prev]:bg-white/20"
+          >
+            {[...testimonials, ...testimonials].map((testimonial, index) => (
+              <SwiperSlide key={index} className="h-auto">
+                <div className="testimonial-glass rounded-2xl p-6 flex flex-col h-full">
+                  <Quote className="w-8 h-8 text-secondary/40 mb-4" />
+                  <p className="text-white/80 leading-relaxed mb-6 text-sm flex-grow">
+                    "{testimonial.content}"
+                  </p>
+                  <div className="border-t border-white/10 pt-4 mt-auto">
+                    <h4 className="font-bold text-secondary">{testimonial.author.name}</h4>
+                    <p className="text-white/50 text-sm mt-0.5">{testimonial.author.role}</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden md:grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}

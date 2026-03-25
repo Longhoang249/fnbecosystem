@@ -8,8 +8,3 @@ dist/
 attached_assets/
 .vercel/
 .vercel
-
-# Windows
-Thumbs.db
-desktop.ini
-ehthumbs.db

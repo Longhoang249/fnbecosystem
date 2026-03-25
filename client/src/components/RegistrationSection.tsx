@@ -45,7 +45,7 @@ export default function RegistrationSection({
       } catch { /* continue */ }
 
       try {
-        const url = "https://script.google.com/macros/s/AKfycby02CON5xPoePykTVHVk9XtmIQdFcJUu7pmxl4zssiec9l2Jk0KDx2r4AYPyGNfX0c/exec";
+        const url = "https://script.google.com/macros/s/AKfycbwRq8jrxnxMOe90xR2Jm8IbwLY4KveRVkaw616nhg4gOi9jP7CIIq2Xwj7JezjRvHIhLQ/exec";
         const formData = new FormData();
         formData.append("fullName", data.fullName);
         formData.append("phone", data.phone);
@@ -196,12 +196,12 @@ export default function RegistrationSection({
                   <button
                     type="submit"
                     disabled={isRegistering}
-                    className="w-full flex items-center justify-center gap-2 bg-secondary hover:bg-secondary/90 disabled:opacity-50 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all duration-300 shadow-lg shadow-secondary/25 hover:shadow-xl hover:shadow-secondary/30 hover:-translate-y-0.5"
+                    className="w-full flex items-center justify-center gap-2 bg-secondary hover:bg-secondary/90 disabled:opacity-50 text-white font-bold py-4 px-2 sm:px-8 rounded-xl text-[15px] sm:text-lg whitespace-nowrap transition-all duration-300 shadow-lg shadow-secondary/25 hover:shadow-xl hover:shadow-secondary/30 hover:-translate-y-0.5"
                   >
                     {isRegistering ? "Đang xử lý..." : (
                       <>
-                        Nhận vé tham dự miễn phí
-                        <Send className="w-5 h-5" />
+                        <span className="truncate">Nhận vé tham dự miễn phí</span>
+                        <Send className="w-5 h-5 flex-shrink-0" />
                       </>
                     )}
                   </button>

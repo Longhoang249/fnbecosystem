@@ -19,10 +19,13 @@ export default function Navbar() {
 
   const handleNavClick = (sectionId: string) => {
     setMobileMenuOpen(false);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      window.scrollTo({ top: element.offsetTop - 72, behavior: "smooth" });
-    }
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const top = element.getBoundingClientRect().top + window.scrollY - 72;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    }, 10);
   };
 
   const navLinks = [

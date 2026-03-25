@@ -10,6 +10,7 @@ import GallerySection from "@/components/GallerySection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import RegistrationSection from "@/components/RegistrationSection";
 import Footer from "@/components/Footer";
+import SponsorsSection from "@/components/SponsorsSection";
 import { useState } from "react";
 import ThankYouModal from "@/components/ThankYouModal";
 
@@ -41,33 +42,13 @@ export default function Home() {
       />
       <AboutSection />
 
-      {/* Video Section */}
-      <div className="relative py-20 md:py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <span className="inline-block text-secondary font-semibold text-sm uppercase tracking-wider mb-3">Video</span>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground">
-              Chủ Quán Không Thể Bỏ Lỡ
-            </h3>
-          </div>
-          <div className="max-w-4xl mx-auto aspect-video rounded-2xl overflow-hidden shadow-xl border border-border">
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/KypVYxaosI0"
-              title="Video giới thiệu FNB CONNECT"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </div>
+
 
       <VenueSection />
       <ScheduleSection />
       <SpeakersSection />
       <ExhibitorsSection />
+      <SponsorsSection />
       <GallerySection />
       <TestimonialsSection />
       <RegistrationSection

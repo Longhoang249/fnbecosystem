@@ -1,6 +1,10 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { ChevronDown, ArrowRight, Award, Star } from "lucide-react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 interface Exhibitor {
   name: string;
@@ -13,20 +17,65 @@ export default function ExhibitorsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
   const [expanded, setExpanded] = useState<{ [key: number]: boolean }>({});
+  const [swiperInstance, setSwiperInstance] = useState<any>(null);
+
+  useEffect(() => {
+    const handleSelect = (e: any) => {
+      const brandName = e.detail;
+      let matchIndex = -1;
+      
+      if (brandName.includes("AutoShop")) matchIndex = 0;
+      else if (brandName.includes("Dẻo")) matchIndex = 1;
+      else if (brandName.includes("BODUO")) matchIndex = 2;
+      else if (brandName.includes("HOLYON")) matchIndex = 3;
+      else if (brandName.includes("Nhất Hương")) matchIndex = 5;
+      else if (brandName.includes("iPos") || brandName.includes("iPOS")) matchIndex = 6;
+      else if (brandName.includes("Cốc Giấy")) matchIndex = 7;
+      else if (brandName.includes("Bốn Phương")) matchIndex = 8;
+      else if (brandName.includes("VBM")) matchIndex = 9;
+      else if (brandName.includes("Wazuka")) matchIndex = 10;
+      else if (brandName.includes("Minh Hạnh")) matchIndex = 11;
+
+      if (matchIndex !== -1) {
+        setExpanded(p => ({ ...p, [matchIndex]: true }));
+        
+        if (window.innerWidth < 640 && swiperInstance) {
+          swiperInstance.slideToLoop(matchIndex);
+          const top = document.getElementById("exhibitors")?.getBoundingClientRect().top;
+          if (top !== undefined) window.scrollTo({ top: top + window.scrollY - 72, behavior: "smooth" });
+        } else {
+          setTimeout(() => {
+            const card = document.getElementById(`exhibitor-card-${matchIndex}`);
+            if (card) {
+               const top = card.getBoundingClientRect().top + window.scrollY - 100;
+               window.scrollTo({ top, behavior: "smooth" });
+            }
+          }, 50);
+        }
+      } else {
+        const top = document.getElementById("exhibitors")?.getBoundingClientRect().top;
+        if (top !== undefined) window.scrollTo({ top: top + window.scrollY - 72, behavior: "smooth" });
+      }
+    };
+    
+    window.addEventListener('selectExhibitor', handleSelect);
+    return () => window.removeEventListener('selectExhibitor', handleSelect);
+  }, [swiperInstance]);
 
   const exhibitors: Exhibitor[] = [
     { name: "AUTOSHOP - Vua Máy Pha Chế", description: "Nhà phân phối máy móc pha chế và giải pháp kinh doanh đồ uống trọn gói hàng đầu Việt Nam", products: ["Máy pha chế tự động, pha trà sữa chỉ 10 giây", "Máy pha trà tươi, 1 chạm pha 9 công nền trà", "Máy làm đá lạnh, 15 phút có đá già"], image: "/exhibitors/autoshop.jpg" },
     { name: "Dẻo - Giải pháp Ăn vặt", description: "Dẻo cung cấp đa dạng giải pháp cho quán: Ăn vặt - Chè - Kem. Quán cần món Ngon, nhanh gọn - Cứ để Dẻo lo", products: ["Giải pháp ăn vặt cho quán", "Chè & Kem đa dạng", "Món ngon, nhanh gọn"], image: "https://i.ibb.co/PvShsyZt/A-nh-thie-t-ke-De-o.jpg" },
     { name: "BODUO VIỆT NAM", description: "Tập đoàn sản xuất nguyên liệu pha chế hàng đầu Trung Quốc, với hơn 20 năm kinh nghiệm và hệ thống 4 nhà máy hiện đại, cung cấp sản phẩm chất lượng cao cho ngành F&B toàn cầu.", products: ["Nguyên liệu pha chế cao cấp", "Giải pháp đồ uống sáng tạo", "Hơn 20 năm kinh nghiệm"], image: "https://i.ibb.co/93GTGmph/A-nh.jpg" },
     { name: "HOLYON TEA", description: "Đại diện chính thức của Holyon Tea tại thị trường Việt Nam. Mang đến các sản phẩm trà chất lượng cao, cung cấp giải pháp tổng thể cho thị trường trà, từ blending chuyên nghiệp đến OEM cho các thương hiệu lớn.", products: ["Trà chất lượng cao", "Blending chuyên nghiệp", "OEM cho thương hiệu lớn"], image: "https://i.ibb.co/qFpYPzTh/Holyon-tea-600x400-01.png" },
-    { name: "Sen Việt", description: "Nhà cung cấp nguyên liệu và giải pháp kinh doanh cho ngành đồ uống.", products: ["Nguyên liệu pha chế", "Giải pháp kinh doanh F&B"], image: "https://placehold.co/600x400/1B4332/D4A853?text=SEN+VIET" },
+    { name: "Nobita Food", description: "Nhà cung cấp nguyên liệu và giải pháp kinh doanh cho ngành đồ uống.", products: ["Nguyên liệu pha chế", "Giải pháp kinh doanh F&B"], image: "https://placehold.co/600x400/1B4332/D4A853?text=NOBITA+FOOD" },
     { name: "Nhất Hương", description: "Doanh nghiệp Việt Nam tiên phong trong lĩnh vực sản xuất và phân phối nguyên liệu ngành bánh và pha chế.", products: ["Kem Béo Pha Chế", "Kem Whipping Base", "Sốt Caramen, Sốt Sô Cô La Cacao Talk"], image: "https://i.postimg.cc/m26BxFBk/Post-Landing-Page-01.jpg" },
-    { name: "iPOS", description: "Giải pháp quản lý bán hàng và vận hành toàn diện cho ngành F&B.", products: ["Phần mềm quản lý bán hàng POS", "Giải pháp quản lý nhà hàng, quán café", "Hệ thống báo cáo & phân tích kinh doanh"], image: "https://placehold.co/600x400/1B4332/D4A853?text=iPOS" },
-    { name: "Cốc Giấy KK", description: "Chuyên cung cấp cốc giấy, ly giấy chất lượng cao cho ngành F&B.", products: ["Cốc giấy các loại", "Ly giấy in logo thương hiệu", "Giải pháp bao bì đồ uống"], image: "https://placehold.co/600x400/1B4332/D4A853?text=C%E1%BB%91c+Gi%E1%BA%A5y+KK" },
-    { name: "NLPC Bốn Phương", description: "Nhà cung cấp nguyên liệu pha chế uy tín, đa dạng sản phẩm cho ngành đồ uống.", products: ["Nguyên liệu pha chế đa dạng", "Siro & Topping", "Giải pháp nguyên liệu trọn gói"], image: "https://placehold.co/600x400/1B4332/D4A853?text=NLPC+B%E1%BB%91n+Ph%C6%B0%C6%A1ng" },
-    { name: "VBM", description: "Thương hiệu máy pha cà phê chuyên nghiệp đến từ Ý, phục vụ ngành F&B cao cấp.", products: ["Máy pha cà phê chuyên nghiệp", "Máy xay cà phê", "Giải pháp pha chế cao cấp"], image: "https://placehold.co/600x400/1B4332/D4A853?text=VBM" },
-    { name: "Wazuka", description: "Thương hiệu trà Nhật Bản chất lượng cao, mang hương vị trà truyền thống đến thị trường Việt Nam.", products: ["Trà Matcha Nhật Bản", "Trà xanh cao cấp", "Nguyên liệu trà Nhật"], image: "https://placehold.co/600x400/1B4332/D4A853?text=Wazuka" },
-    { name: "Minh Hạnh Food", description: "Nhà sản xuất và cung cấp nguyên liệu thực phẩm, pha chế cho ngành F&B.", products: ["Nguyên liệu thực phẩm F&B", "Sản phẩm pha chế", "Giải pháp nguyên liệu cho quán"], image: "https://placehold.co/600x400/1B4332/D4A853?text=Minh+H%E1%BA%A1nh+Food" },
+    { name: "iPOS", description: "iPOS.vn — 15 năm tiên phong cung cấp hệ sinh thái giải pháp quản trị và bán hàng chuyên biệt cho ngành F&B Việt Nam, đáp ứng mọi mô hình kinh doanh ẩm thực. Hiện diện tại 13 chi nhánh và mạng lưới đối tác phủ 34 tỉnh thành. Đội ngũ nhiệt huyết, tận tâm — luôn sẵn sàng đồng hành cùng chủ quán để vận hành hiệu quả và bứt phá doanh thu.", products: ["Phần mềm quản lý bán hàng POS", "Giải pháp quản lý nhà hàng, quán café", "Hệ thống báo cáo & phân tích kinh doanh"], image: "https://i.ibb.co/pBLxnkKR/i-POS-vn-nh-thumb.jpg" },
+    { name: "Cốc Giấy Hk", description: "KKGROUP — 7 năm sản xuất ly giấy, tô giấy và bao bì thực phẩm dùng một lần. Quy trình khép kín 100%, tiên phong xu hướng sáng tạo trong branding F&B. Đối tác tin cậy của hơn 200 thương hiệu chuỗi coffee & tea trên toàn quốc.", products: ["Cốc giấy các loại", "Ly giấy in logo thương hiệu", "Giải pháp bao bì đồ uống"], image: "/c_c_gi_y_hk.png" },
+    { name: "NLPC Bốn Phương", description: "Phân phối độc quyền miền Bắc: WAO, No.1, SG, Vạn Thành, LongBeach — nguồn gốc rõ ràng, giá hợp lý, sản lượng ổn định. Nguyên liệu đầy đủ, công thức liên tục cập nhật. Chiết khấu cao, trả thưởng hấp dẫn. Nhượng quyền \"3 Không\" và hỗ trợ setup quán từ A–Z.", products: ["Nguyên liệu pha chế đa dạng", "Siro & Topping", "Giải pháp nguyên liệu trọn gói"], image: "https://i.ibb.co/nqyVx1B0/2048x1152-1.png" },
+    { name: "VBM", description: "VBM Việt Nam — 15 năm tiên phong trong tư vấn, thiết kế và thi công chuỗi quán F&B. Hơn 1.000 dự án thành công trên khắp cả nước, mỗi công trình là một câu chuyện sáng tạo được đo ni đóng giày theo cá tính riêng của từng thương hiệu. Sự hài lòng của khách hàng là động lực để VBM không ngừng đổi mới mỗi ngày.", products: ["Máy pha cà phê chuyên nghiệp", "Máy xay cà phê", "Giải pháp pha chế cao cấp"], image: "https://i.ibb.co/Q7bVtKKB/nh-cover-website-s-ki-n.png" },
+    { name: "Wazuka", description: "Matcha không chỉ là nguyên liệu, mà là ngôn ngữ của vị giác. Wazuka Matcha khác biệt nhờ lá trà che nắng nhiều tuần tăng L-theanine và umami, nghiền cối đá truyền thống, phân hạng rõ ràng giúp quán chọn đúng dòng cho menu", products: ["Trà Matcha Nhật Bản", "Trà xanh cao cấp", "Nguyên liệu trà Nhật"], image: "https://i.ibb.co/DPgybTzL/z7652198383209-7649acbcc0e135d869c29bf7ccbe5746.jpg" },
+    { name: "Minh Hạnh Food", description: "Minh Hạnh Food & IQ Food — hơn 20 năm dẫn đầu thị trường nguyên liệu pha chế Việt Nam với 70% thị phần bán buôn. Nổi bật với topping chất lượng cao: trân châu Kun Han, Sea 3Q, thạch, nha đam, siro Tomoxi và trà sữa uống liền IQ Food. 4 nhà máy chuẩn ISO 22000, ứng dụng công nghệ hiện đại từ nông sản nội địa. Cam kết đồng hành cùng nông dân và mang sản phẩm tốt với \"giá cho người Việt\".", products: ["Nguyên liệu thực phẩm F&B", "Sản phẩm pha chế", "Giải pháp nguyên liệu cho quán"], image: "https://i.ibb.co/pvt1rh8J/A-nh-thie-t-ke-MHF-600-x-400-px-1.png" },
+    { name: "Trendy", description: "Trendy ra đời với sứ mệnh đem lại những sản phẩm phù hợp với việc kinh doanh và pha chế đồ uống, đặc biệt được tin dùng bởi các Barista đầu ngành. Mỗi sản phẩm của Trendy đều được tỉ mỉ và cẩn thận trong từng khâu thiết kế, chế biến, đóng gói và vận chuyển, mang đến hương vị của thiên nhiên cùng sự tin tưởng về những ly đồ uống ngon sắp được ra đời.", products: [], image: "https://i.ibb.co/WpGMXKCY/z7652198082890-cba4e0258765d89e75fceda55730f40b.jpg" }
   ];
 
   return (
@@ -46,53 +95,84 @@ export default function ExhibitorsSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {exhibitors.map((exhibitor, index) => (
-            <motion.div
-              key={index}
-              className="exhibitor-card bg-white rounded-2xl overflow-hidden flex flex-col"
-              initial={{ opacity: 0, y: 24 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-            >
-              <div className="relative aspect-[3/2] overflow-hidden">
-                <img
-                  src={exhibitor.image}
-                  alt={exhibitor.name}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  loading="lazy"
-                  onError={(e) => { (e.target as HTMLImageElement).src = "https://placehold.co/600x400/1B4332/D4A853?text=" + encodeURIComponent(exhibitor.name); }}
-                />
-
-              </div>
-              <div className="p-5 flex flex-col flex-grow">
-                <h3 className="text-base font-bold text-foreground mb-1.5">{exhibitor.name}</h3>
-                <p className="text-muted-foreground text-sm mb-3 flex-grow">{exhibitor.description}</p>
-                <button
-                  onClick={() => setExpanded((p) => ({ ...p, [index]: !p[index] }))}
-                  className="flex items-center gap-1 text-primary hover:text-secondary text-sm font-medium transition-colors"
+        {/* Unified Exhibitors Slider for Mobile & Desktop */}
+        <div className="w-full pb-8 overflow-hidden px-1 sm:px-4">
+          <Swiper
+            onSwiper={setSwiperInstance}
+            modules={[Autoplay, Navigation]}
+            spaceBetween={20}
+            slidesPerView={1.2}
+            centeredSlides={true}
+            loop={true}
+            speed={1000}
+            navigation={true}
+            autoplay={{
+              delay: 3500,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true, // Pause when user hovers to read
+            }}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+                centeredSlides: false,
+                spaceBetween: 24,
+              },
+              1024: {
+                slidesPerView: 3,
+                centeredSlides: false,
+                spaceBetween: 24,
+              },
+            }}
+            className="w-full relative py-4 [&_.swiper-button-next]:text-primary [&_.swiper-button-prev]:text-primary [&_.swiper-button-next]:w-10 [&_.swiper-button-next]:h-10 [&_.swiper-button-next]:bg-white/90 [&_.swiper-button-next]:rounded-full [&_.swiper-button-next:after]:text-lg [&_.swiper-button-prev]:w-10 [&_.swiper-button-prev]:h-10 [&_.swiper-button-prev]:bg-white/90 [&_.swiper-button-prev]:rounded-full [&_.swiper-button-prev:after]:text-lg [&_.swiper-button-next]:shadow-md [&_.swiper-button-prev]:shadow-md [&_.swiper-button-next]:absolute [&_.swiper-button-next]:-right-2 md:[&_.swiper-button-next]:-right-4 [&_.swiper-button-prev]:absolute [&_.swiper-button-prev]:-left-2 md:[&_.swiper-button-prev]:-left-4"
+          >
+            {exhibitors.map((exhibitor, index) => (
+              <SwiperSlide key={index} className="h-auto">
+                <motion.div
+                  id={`exhibitor-card-${index}`}
+                  className="exhibitor-card bg-white rounded-2xl overflow-hidden shadow-sm border border-border flex flex-col h-full hover:shadow-md transition-shadow"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
                 >
-                  {expanded[index] ? "Thu gọn" : "Xem sản phẩm"}
-                  <ChevronDown className={`w-4 h-4 transition-transform ${expanded[index] ? "rotate-180" : ""}`} />
-                </button>
-                {expanded[index] && (
-                  <motion.ul
-                    className="mt-3 space-y-1.5 text-sm text-muted-foreground border-t border-border pt-3"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {exhibitor.products.map((p, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 bg-secondary rounded-full mt-1.5 flex-shrink-0" />
-                        {p}
-                      </li>
-                    ))}
-                  </motion.ul>
-                )}
-              </div>
-            </motion.div>
-          ))}
+                  <div className="relative aspect-[3/2] overflow-hidden bg-white/50 border-b border-border/40 flex items-center justify-center p-2">
+                    <img
+                      src={exhibitor.image}
+                      alt={exhibitor.name}
+                      className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
+                      loading="lazy"
+                      onError={(e) => { (e.target as HTMLImageElement).src = "https://placehold.co/600x400/1B4332/D4A853?text=" + encodeURIComponent(exhibitor.name); }}
+                    />
+                  </div>
+                  <div className="p-5 flex flex-col flex-grow">
+                    <h3 className="text-base font-bold text-foreground mb-1.5">{exhibitor.name}</h3>
+                    <p className="text-muted-foreground text-sm mb-3 flex-grow">{exhibitor.description}</p>
+                    <button
+                      onClick={() => setExpanded((p) => ({ ...p, [index]: !p[index] }))}
+                      className="flex items-center gap-1 text-primary hover:text-secondary text-sm font-medium transition-colors"
+                    >
+                      {expanded[index] ? "Thu gọn" : "Xem sản phẩm"}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${expanded[index] ? "rotate-180" : ""}`} />
+                    </button>
+                    {expanded[index] && (
+                      <motion.ul
+                        className="mt-3 space-y-1.5 text-sm text-muted-foreground border-t border-border pt-3"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {exhibitor.products.map((p, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 bg-secondary rounded-full mt-1.5 flex-shrink-0" />
+                            {p}
+                          </li>
+                        ))}
+                      </motion.ul>
+                    )}
+                  </div>
+                </motion.div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
         <motion.div

@@ -1,6 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 interface Speaker {
   name: string;
@@ -16,28 +20,28 @@ export default function SpeakersSection() {
 
   const speakers: Speaker[] = [
     {
-      name: "Chuyên Gia Trà Từ Trung Quốc",
-      role: "Chuyên gia trà quốc tế",
-      bio: "Chuyên gia trà đến từ Trung Quốc, chia sẻ xu hướng FnB 2026 và những kiến thức chuyên sâu về trà.",
-      image: "https://placehold.co/400x400/1B4332/D4A853?text=Tea+Expert",
+      name: "Mr. Đỗ Hải",
+      role: "Founder Học viện Lan Truyền CoreViral - Hải Đây",
+      bio: "5 Năm kinh nghiệm Brand Manager.\n6 Tỷ view viral cho các doanh nghiệp trên nền tảng social media.\n1 Nút vàng 7 nút bạc Youtube.\nTOP 20 nhà sáng tạo nội dung xuất sắc nhất Việt Nam Youtube Short.\nHợp tác huấn luyện hơn 100+ doanh nghiệp như FPT Polytechnic, The Bad God, Nerman, The Orbit...",
+      image: "/do_hai.jpg",
     },
     {
-      name: "Mr. Đỗ Hải",
-      role: "Thông tin chưa cập nhật",
-      bio: "Thông tin diễn giả đang được cập nhật. Hãy theo dõi để biết thêm chi tiết!",
-      image: "https://placehold.co/400x400/1B4332/D4A853?text=DH",
+      name: "Mr. Hán Cương",
+      role: "Nhà sáng lập Công ty Trà Hậu Đường Hà Nam",
+      bio: "Cung cấp trà chất lượng cao hàng đầu trong ngành, là đối tác của nhiều chuỗi nhà hàng và thương hiệu đồ uống nổi tiếng tại Trung Quốc như:\nShuyi Shao Xiancao, Juan Tea, Mixue Bingcheng, Guming, Ningji, Jilatuo, Chagee (Bawang Chaji), Bingchun Tea, 7FenTian, Bingo Fresh Tea, Banu Hotpot, Jiediliang cùng nhiều thương hiệu khác.",
+      image: "/han_cuong.jpg",
     },
     {
       name: "Mrs. Đinh Thị Lan Phương",
-      role: "Giám đốc Khối sản phẩm Kế toán - iPOS.vn",
-      bio: "21 năm kinh nghiệm trong nghiệp vụ Kế toán và 12 năm kinh nghiệm trong lĩnh vực phát triển giải pháp kế toán ngành FnB.",
-      image: "https://placehold.co/400x400/1B4332/D4A853?text=LPH",
+      role: "Giám đốc Khối sản phẩm Kế toán của iPOS.vn",
+      bio: "21 năm kinh nghiệm trong nghiệp vụ Kế toán và 12 năm Kinh nghiệm trong lĩnh vực phát triển giải pháp kế toán ngành FnB",
+      image: "/lan_phuong.jpg",
     },
     {
-      name: "Mr. Tuấn Anh",
+      name: "Phạm Văn Tuấn Anh",
       role: "Giám đốc vận hành chuỗi cà phê An Kinh Bắc",
-      bio: "Giám đốc vận hành chuỗi cà phê An Kinh Bắc với 20 cửa hàng. Chia sẻ chiến lược đóng gói để nhân bản thương hiệu.",
-      image: "https://placehold.co/400x400/1B4332/D4A853?text=TA",
+      bio: "Giám đốc vận hành chuỗi cà phê An Kinh Bắc với 15+ cửa hàng.",
+      image: "/tuan_anh.jpg",
     },
   ];
 
@@ -58,7 +62,49 @@ export default function SpeakersSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Mobile Slider using Swiper */}
+        <div className="block sm:hidden w-full pb-8 overflow-hidden">
+          <Swiper
+            modules={[Autoplay, Navigation]}
+            spaceBetween={20}
+            slidesPerView={1.2}
+            centeredSlides={true}
+            loop={true}
+            speed={800}
+            navigation={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            className="w-full relative [&_.swiper-button-next]:text-primary [&_.swiper-button-prev]:text-primary [&_.swiper-button-next]:w-10 [&_.swiper-button-next]:h-10 [&_.swiper-button-next]:bg-white/80 [&_.swiper-button-next]:rounded-full [&_.swiper-button-next:after]:text-lg [&_.swiper-button-prev]:w-10 [&_.swiper-button-prev]:h-10 [&_.swiper-button-prev]:bg-white/80 [&_.swiper-button-prev]:rounded-full [&_.swiper-button-prev:after]:text-lg [&_.swiper-button-next]:shadow-md [&_.swiper-button-prev]:shadow-md"
+          >
+            {[...speakers, ...speakers].map((speaker, index) => (
+              <SwiperSlide key={index} className="h-auto">
+                <div className="speaker-card group bg-white rounded-2xl overflow-hidden shadow-sm border border-border h-full">
+                  <div className="relative h-72 overflow-hidden">
+                    <img
+                      src={speaker.image}
+                      alt={speaker.name}
+                      className="w-full h-full object-cover object-center transition-transform duration-700"
+                      loading="lazy"
+                    />
+                    <div className="speaker-overlay absolute inset-0 flex items-end p-5">
+                      <p className="text-white/90 text-sm leading-relaxed whitespace-pre-line">{speaker.bio}</p>
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="text-lg font-bold text-foreground mb-1">{speaker.name}</h3>
+                    <p className="text-secondary text-sm font-medium">{speaker.role}</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {speakers.map((speaker, index) => (
             <motion.div
               key={index}
@@ -75,7 +121,7 @@ export default function SpeakersSection() {
                   loading="lazy"
                 />
                 <div className="speaker-overlay absolute inset-0 flex items-end p-5">
-                  <p className="text-white/90 text-sm leading-relaxed">{speaker.bio}</p>
+                  <p className="text-white/90 text-sm leading-relaxed whitespace-pre-line">{speaker.bio}</p>
                 </div>
               </div>
               <div className="p-5">
