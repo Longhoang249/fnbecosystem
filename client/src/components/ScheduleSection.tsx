@@ -45,8 +45,8 @@ export default function ScheduleSection() {
     },
     {
       time: "14:40 - 15:40",
-      title: "Đóng Gói Để Nhân Bản Thương Hiệu",
-      description: "Chiến lược đóng gói và nhân rộng mô hình kinh doanh thương hiệu",
+      title: "Đóng Gói Để Nhân Bản Thương Hiệu FnB",
+      description: "Chia sẻ cách chuẩn hoá nhân sự, vận hành và quy trình thành hệ thống rõ ràng, giúp chủ quán mở rộng và nhân bản thương hiệu bền vững",
       speaker: { name: "Phạm Văn Tuấn Anh", image: "/tuan_anh.jpg" },
     },
     { time: "15:50 - 16:00", title: "Giao Lưu Kết Nối", description: "Kết thúc sự kiện" },
