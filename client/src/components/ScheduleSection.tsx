@@ -26,7 +26,7 @@ export default function ScheduleSection() {
       title: "Thuế 2026 – Hiểu Đúng Và Làm Đúng",
       description: "Hiểu đúng và làm đúng về thuế trong ngành FnB năm 2026",
       detailedDescription: "Thông tin diễn giả đang được cập nhật. Hãy theo dõi để biết thêm chi tiết!",
-      speaker: { name: "Mr. Đỗ Hải", image: "" },
+      speaker: { name: "Mr. Đỗ Hải", image: "/do_hai.jpg" },
     },
     {
       time: "10:35 - 11:35",

@@ -6,12 +6,6 @@ export default function VenueSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
-  const venues = [
-    { src: "/venue/sanh-tiec.jpg", title: "Cửa chào Gold Palace", desc: "Địa chỉ dễ tìm, dễ nhận biết" },
-    { src: "/venue/sanh-don.jpg", title: "Sảnh đón tiếp", desc: "Không gian tiệc sang trọng và tinh tế" },
-    { src: "/venue/hoi-truong.jpg", title: "Hội trường", desc: "Sức chứa 1000 người" },
-  ];
-
   return (
     <section id="venue" className="py-20 md:py-28 bg-white" ref={ref}>
       <div className="container mx-auto px-4">
@@ -39,31 +33,6 @@ export default function VenueSection() {
             </div>
           </div>
         </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {venues.map((venue, index) => (
-            <motion.div
-              key={index}
-              className="group bg-white rounded-2xl shadow-sm border border-border p-3 flex flex-row items-center gap-4 hover:shadow-md transition-all duration-300"
-              initial={{ opacity: 0, y: 24 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-            >
-              <div className="relative w-28 sm:w-1/3 aspect-square sm:aspect-[4/3] rounded-xl overflow-hidden flex-shrink-0">
-                <img
-                  src={venue.src}
-                  alt={venue.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
-              </div>
-              <div className="flex flex-col">
-                <h4 className="font-bold text-foreground text-base sm:text-lg mb-1 leading-tight">{venue.title}</h4>
-                <p className="text-muted-foreground text-xs sm:text-sm">{venue.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );

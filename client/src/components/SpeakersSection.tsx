@@ -23,7 +23,7 @@ export default function SpeakersSection() {
       name: "Mr. Đỗ Hải",
       role: "Viral Marketing",
       bio: "Thông tin diễn giả đang được cập nhật. Hãy theo dõi để biết thêm chi tiết!",
-      image: "https://placehold.co/400x400/1B4332/D4A853?text=DH",
+      image: "/do_hai.jpg",
     },
     {
       name: "Mr. Hàn Cương",

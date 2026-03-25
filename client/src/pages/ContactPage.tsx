@@ -28,10 +28,10 @@ const brands = [
     image: "https://placehold.co/120x120/1B4332/D4A853?text=HOLYON",
   },
   {
-    id: "senviet",
-    name: "Sen Việt",
+    id: "nobitafood",
+    name: "Nobita Food",
     subtitle: "Giải pháp F&B",
-    image: "https://placehold.co/120x120/1B4332/D4A853?text=SEN+VIET",
+    image: "https://placehold.co/120x120/1B4332/D4A853?text=NOBITA+FOOD",
   },
   {
     id: "nhathuong",

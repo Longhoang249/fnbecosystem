@@ -9,7 +9,7 @@ export default function AboutSection() {
   const values = [
     {
       icon: FileText,
-      title: "Cập Nhật Chính Sách Thuế, Hoá Đơn Điện Tử, Chuẩn Hoá Mô Hình Kinh Doanh và Xu Hướng Kinh Doanh Ngành FnB",
+      title: "Cập nhật chính sách thuế, hoá đơn điện tử, chuẩn hoá mô hình kinh doanh và xu hướng kinh doanh ngành FnB",
       bullets: [
         // Thêm gạch đầu dòng ở đây sau
       ],
@@ -18,21 +18,21 @@ export default function AboutSection() {
     },
     {
       icon: Users,
-      title: "Gặp Mặt Chuyên Gia Đầu Ngành: Giải Đáp Về Thuế, Vận Hành Và Marketing Thời Chuyển Đổi",
+      title: "Gặp mặt chuyên gia đầu ngành: Giải đáp về thuế, vận hành và marketing thời chuyển đổi",
       bullets: [],
       image: "/images/feature2.jpg",
       accent: "from-amber-500/20 to-amber-600/5",
     },
     {
       icon: Store,
-      title: "Trải Nghiệm Hàng Chục Gian Hàng Ẩm Thực, Đồ Uống Và Giải Pháp Kinh Doanh Ngành FnB",
+      title: "Trải nghiệm hàng chục gian hàng ẩm thực, đồ uống và giải pháp kinh doanh ngành FnB",
       bullets: [],
       image: "https://i.ibb.co/C3Yy91V7/VAN03500.jpg",
       accent: "from-sky-500/20 to-sky-600/5",
     },
     {
       icon: Gift,
-      title: "Hàng Ngàn Phần Quà Hấp Dẫn: Hơn 1000+ Phần Quà Từ Ban Tổ Chức",
+      title: "Hàng ngàn phần quà hấp dẫn: Hơn 1000+ phần quà từ ban tổ chức",
       bullets: [],
       image: "/images/feature3.jpg",
       accent: "from-rose-500/20 to-rose-600/5",
@@ -87,7 +87,7 @@ export default function AboutSection() {
 
                 {/* Text Section */}
                 <div className="w-full md:w-[55%] flex flex-col justify-center py-2">
-                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4 uppercase tracking-wide leading-snug">
+                  <h3 className="text-lg md:text-2xl font-semibold md:font-bold text-foreground mb-3 md:mb-4 leading-snug">
                     {item.title}
                   </h3>
                   
