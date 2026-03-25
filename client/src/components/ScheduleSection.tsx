@@ -23,9 +23,9 @@ export default function ScheduleSection() {
     { time: "9:00 - 9:30", title: "Khai Mạc", description: "Tham quan và trải nghiệm các gian hàng" },
     {
       time: "09:30 - 10:30",
-      title: "Thuế 2026 – Hiểu Đúng Và Làm Đúng",
-      description: "Hiểu đúng và làm đúng về thuế trong ngành FnB năm 2026",
-      detailedDescription: "Thông tin diễn giả đang được cập nhật. Hãy theo dõi để biết thêm chi tiết!",
+      title: "LỢI DỤNG THUẬT TOÁN TĂNG TRƯỞNG TỶ VIEWS - XÂY KÊNH VIRAL ĐA NỀN TẢNG",
+      description: "Được thiết kế nhằm giúp doanh nghiệp hiểu và khai thác thuật toán như một đòn bẩy tăng trưởng hệ thống. Chương trình tập trung chia sẻ tư duy, mô hình và kinh nghiệm triển khai đã được kiểm chứng, giúp doanh nghiệp xây dựng hệ thống kênh truyền thông tăng trưởng bền vững, thay vì phụ thuộc vào các kết quả ngắn hạn.",
+      detailedDescription: "Hiểu rõ thuật toán phi tập chung trên các nền tảng social (Tiktok, Youtube, Instagram,..)\n- Tổng quan xu hướng thuật toán các nền tảng mạng xã hội hiện nay\n- Cách thuật toán “quả cầu tuyết” vận hành và phân phối nội dung\n- Ứng dụng mô hình quả cầu tuyết để xây dựng hệ thống kênh vệ tinh cho thương hiệu",
       speaker: { name: "Mr. Đỗ Hải", image: "/do_hai.jpg" },
     },
     {
