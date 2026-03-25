@@ -27,7 +27,7 @@ export default function AboutSection() {
       icon: Store,
       title: "Trải nghiệm hàng chục gian hàng ẩm thực, đồ uống và giải pháp kinh doanh ngành FnB",
       bullets: [],
-      image: "https://i.ibb.co/B29Q4wtW/VAN03500.jpg",
+      image: "/images/exhibition.jpg",
       accent: "from-sky-500/20 to-sky-600/5",
     },
     {
