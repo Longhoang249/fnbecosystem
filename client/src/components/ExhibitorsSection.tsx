@@ -115,7 +115,7 @@ export default function ExhibitorsSection() {
                 <div className="relative aspect-[3/2] overflow-hidden bg-white/50 border-b border-border/40 flex items-center justify-center p-2">
                   <div className="absolute top-2 left-2 z-10 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-[10px] md:text-xs font-bold px-2 py-0.5 md:px-2.5 md:py-1 rounded-full shadow-md flex items-center gap-1">
                     <Star className="w-2.5 h-2.5 md:w-3 md:h-3 fill-current text-yellow-100" />
-                    <span>VIP</span>
+                    <span>Ban Tổ Chức</span>
                   </div>
                   <img
                     src={exhibitor.image}
@@ -175,7 +175,7 @@ export default function ExhibitorsSection() {
                     <div className="relative aspect-[3/2] overflow-hidden bg-white/50 border-b border-border/40 flex items-center justify-center p-2">
                       <div className="absolute top-2 left-2 z-10 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-[10px] md:text-xs font-bold px-2 py-0.5 md:px-2.5 md:py-1 rounded-full shadow-md flex items-center gap-1">
                         <Star className="w-2.5 h-2.5 md:w-3 md:h-3 fill-current text-yellow-100" />
-                        <span>VIP</span>
+                        <span>Ban Tổ Chức</span>
                       </div>
                       <img
                         src={exhibitor.image}
@@ -260,7 +260,11 @@ export default function ExhibitorsSection() {
                     </div>
                     <div className="p-4 flex flex-col flex-grow">
                       <h3 className="text-sm font-bold text-foreground mb-1">{exhibitor.name}</h3>
-                      <p className="text-muted-foreground text-xs mb-2 flex-grow">{exhibitor.description}</p>
+                      <p className="text-muted-foreground text-xs mb-2 flex-grow">
+                        {exhibitor.description.split(' ').length > 25 
+                          ? exhibitor.description.split(' ').slice(0, 25).join(' ') + '...' 
+                          : exhibitor.description}
+                      </p>
                       
                       {exhibitor.products.length > 0 && (
                         <div>
