@@ -17,7 +17,8 @@ export default function ExhibitorsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
   const [expanded, setExpanded] = useState<{ [key: number]: boolean }>({});
-  const [swiperInstance, setSwiperInstance] = useState<any>(null);
+  const [swiperOrg, setSwiperOrg] = useState<any>(null);
+  const [swiperGuest, setSwiperGuest] = useState<any>(null);
 
   useEffect(() => {
     const handleSelect = (e: any) => {
@@ -39,8 +40,9 @@ export default function ExhibitorsSection() {
       if (matchIndex !== -1) {
         setExpanded(p => ({ ...p, [matchIndex]: true }));
         
-        if (window.innerWidth < 640 && swiperInstance) {
-          swiperInstance.slideToLoop(matchIndex);
+        if (window.innerWidth < 640) {
+          if (matchIndex < 6 && swiperOrg) swiperOrg.slideToLoop(matchIndex);
+          else if (matchIndex >= 6 && swiperGuest) swiperGuest.slideToLoop(matchIndex - 6);
           const top = document.getElementById("exhibitors")?.getBoundingClientRect().top;
           if (top !== undefined) window.scrollTo({ top: top + window.scrollY - 72, behavior: "smooth" });
         } else {
@@ -60,7 +62,7 @@ export default function ExhibitorsSection() {
     
     window.addEventListener('selectExhibitor', handleSelect);
     return () => window.removeEventListener('selectExhibitor', handleSelect);
-  }, [swiperInstance]);
+  }, [swiperOrg, swiperGuest]);
 
   const exhibitors: Exhibitor[] = [
     { name: "AUTOSHOP - Vua Máy Pha Chế", description: "Nhà phân phối máy móc pha chế và giải pháp kinh doanh đồ uống trọn gói hàng đầu Việt Nam", products: ["Máy pha chế tự động, pha trà sữa chỉ 10 giây", "Máy pha trà tươi, 1 chạm pha 9 công nền trà", "Máy làm đá lạnh, 15 phút có đá già"], image: "/exhibitors/autoshop.jpg" },
@@ -95,84 +97,149 @@ export default function ExhibitorsSection() {
           </p>
         </motion.div>
 
-        {/* Unified Exhibitors Slider for Mobile & Desktop */}
-        <div className="w-full pb-8 overflow-hidden px-1 sm:px-4">
-          <Swiper
-            onSwiper={setSwiperInstance}
-            modules={[Autoplay, Navigation]}
-            spaceBetween={20}
-            slidesPerView={1.2}
-            centeredSlides={true}
-            loop={true}
-            speed={1000}
-            navigation={true}
-            autoplay={{
-              delay: 3500,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true, // Pause when user hovers to read
-            }}
-            breakpoints={{
-              640: {
-                slidesPerView: 2,
-                centeredSlides: false,
-                spaceBetween: 24,
-              },
-              1024: {
-                slidesPerView: 3,
-                centeredSlides: false,
-                spaceBetween: 24,
-              },
-            }}
-            className="w-full relative py-4 [&_.swiper-button-next]:text-primary [&_.swiper-button-prev]:text-primary [&_.swiper-button-next]:w-10 [&_.swiper-button-next]:h-10 [&_.swiper-button-next]:bg-white/90 [&_.swiper-button-next]:rounded-full [&_.swiper-button-next:after]:text-lg [&_.swiper-button-prev]:w-10 [&_.swiper-button-prev]:h-10 [&_.swiper-button-prev]:bg-white/90 [&_.swiper-button-prev]:rounded-full [&_.swiper-button-prev:after]:text-lg [&_.swiper-button-next]:shadow-md [&_.swiper-button-prev]:shadow-md [&_.swiper-button-next]:absolute [&_.swiper-button-next]:-right-2 md:[&_.swiper-button-next]:-right-4 [&_.swiper-button-prev]:absolute [&_.swiper-button-prev]:-left-2 md:[&_.swiper-button-prev]:-left-4"
-          >
-            {exhibitors.map((exhibitor, index) => (
-              <SwiperSlide key={index} className="h-auto">
-                <motion.div
-                  id={`exhibitor-card-${index}`}
-                  className="exhibitor-card bg-white rounded-2xl overflow-hidden shadow-sm border border-border flex flex-col h-full hover:shadow-md transition-shadow"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                >
-                  <div className="relative aspect-[3/2] overflow-hidden bg-white/50 border-b border-border/40 flex items-center justify-center p-2">
-                    <img
-                      src={exhibitor.image}
-                      alt={exhibitor.name}
-                      className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
-                      loading="lazy"
-                      onError={(e) => { (e.target as HTMLImageElement).src = "https://placehold.co/600x400/1B4332/D4A853?text=" + encodeURIComponent(exhibitor.name); }}
-                    />
-                  </div>
-                  <div className="p-5 flex flex-col flex-grow">
-                    <h3 className="text-base font-bold text-foreground mb-1.5">{exhibitor.name}</h3>
-                    <p className="text-muted-foreground text-sm mb-3 flex-grow">{exhibitor.description}</p>
-                    <button
-                      onClick={() => setExpanded((p) => ({ ...p, [index]: !p[index] }))}
-                      className="flex items-center gap-1 text-primary hover:text-secondary text-sm font-medium transition-colors"
-                    >
-                      {expanded[index] ? "Thu gọn" : "Xem sản phẩm"}
-                      <ChevronDown className={`w-4 h-4 transition-transform ${expanded[index] ? "rotate-180" : ""}`} />
-                    </button>
-                    {expanded[index] && (
-                      <motion.ul
-                        className="mt-3 space-y-1.5 text-sm text-muted-foreground border-t border-border pt-3"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}
+        {/* Exhibitors Sliders Split by Category */}
+        <div className="mb-14">
+          <h3 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center uppercase">Thương Hiệu Tổ Chức</h3>
+          <div className="w-full pb-8 overflow-hidden px-1 sm:px-4">
+            <Swiper
+              onSwiper={setSwiperOrg}
+              modules={[Autoplay, Navigation]}
+              spaceBetween={20}
+              slidesPerView={1.2}
+              centeredSlides={true}
+              loop={true}
+              speed={1000}
+              navigation={true}
+              autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
+              breakpoints={{
+                640: { slidesPerView: 2, centeredSlides: false, spaceBetween: 24 },
+                1024: { slidesPerView: 3, centeredSlides: false, spaceBetween: 24 },
+              }}
+              className="w-full relative py-4 [&_.swiper-button-next]:text-primary [&_.swiper-button-prev]:text-primary [&_.swiper-button-next]:w-10 [&_.swiper-button-next]:h-10 [&_.swiper-button-next]:bg-white/90 [&_.swiper-button-next]:rounded-full [&_.swiper-button-next:after]:text-lg [&_.swiper-button-prev]:w-10 [&_.swiper-button-prev]:h-10 [&_.swiper-button-prev]:bg-white/90 [&_.swiper-button-prev]:rounded-full [&_.swiper-button-prev:after]:text-lg [&_.swiper-button-next]:shadow-md [&_.swiper-button-prev]:shadow-md [&_.swiper-button-next]:absolute [&_.swiper-button-next]:-right-2 md:[&_.swiper-button-next]:-right-4 [&_.swiper-button-prev]:absolute [&_.swiper-button-prev]:-left-2 md:[&_.swiper-button-prev]:-left-4"
+            >
+              {exhibitors.slice(0, 6).map((exhibitor, idx) => {
+                const index = idx;
+                return (
+                <SwiperSlide key={index} className="h-auto">
+                  <motion.div
+                    id={`exhibitor-card-${index}`}
+                    className="exhibitor-card bg-white rounded-2xl overflow-hidden shadow-sm border border-border flex flex-col h-full hover:shadow-md transition-shadow"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ duration: 0.4, delay: idx * 0.05 }}
+                  >
+                    <div className="relative aspect-[3/2] overflow-hidden bg-white/50 border-b border-border/40 flex items-center justify-center p-2">
+                      <img
+                        src={exhibitor.image}
+                        alt={exhibitor.name}
+                        className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
+                        loading="lazy"
+                        onError={(e) => { (e.target as HTMLImageElement).src = "https://placehold.co/600x400/1B4332/D4A853?text=" + encodeURIComponent(exhibitor.name); }}
+                      />
+                    </div>
+                    <div className="p-5 flex flex-col flex-grow">
+                      <h3 className="text-base font-bold text-foreground mb-1.5">{exhibitor.name}</h3>
+                      <p className="text-muted-foreground text-sm mb-3 flex-grow">{exhibitor.description}</p>
+                      <button
+                        onClick={() => setExpanded((p) => ({ ...p, [index]: !p[index] }))}
+                        className="flex items-center gap-1 text-primary hover:text-secondary text-sm font-medium transition-colors"
                       >
-                        {exhibitor.products.map((p, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 bg-secondary rounded-full mt-1.5 flex-shrink-0" />
-                            {p}
-                          </li>
-                        ))}
-                      </motion.ul>
-                    )}
-                  </div>
-                </motion.div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+                        {expanded[index] ? "Thu gọn" : "Xem sản phẩm"}
+                        <ChevronDown className={`w-4 h-4 transition-transform ${expanded[index] ? "rotate-180" : ""}`} />
+                      </button>
+                      {expanded[index] && (
+                        <motion.ul
+                          className="mt-3 space-y-1.5 text-sm text-muted-foreground border-t border-border pt-3"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          {exhibitor.products.map((p, i) => (
+                            <li key={i} className="flex items-start gap-2">
+                              <span className="w-1.5 h-1.5 bg-secondary rounded-full mt-1.5 flex-shrink-0" />
+                              {p}
+                            </li>
+                          ))}
+                        </motion.ul>
+                      )}
+                    </div>
+                  </motion.div>
+                </SwiperSlide>
+              )})}
+            </Swiper>
+          </div>
+        </div>
+
+        <div className="mb-8">
+          <h3 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center uppercase">Thương Hiệu Khách Mời</h3>
+          <div className="w-full pb-8 overflow-hidden px-1 sm:px-4">
+            <Swiper
+              onSwiper={setSwiperGuest}
+              modules={[Autoplay, Navigation]}
+              spaceBetween={20}
+              slidesPerView={1.2}
+              centeredSlides={true}
+              loop={true}
+              speed={1000}
+              navigation={true}
+              autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
+              breakpoints={{
+                640: { slidesPerView: 2, centeredSlides: false, spaceBetween: 24 },
+                1024: { slidesPerView: 3, centeredSlides: false, spaceBetween: 24 },
+              }}
+              className="w-full relative py-4 [&_.swiper-button-next]:text-primary [&_.swiper-button-prev]:text-primary [&_.swiper-button-next]:w-10 [&_.swiper-button-next]:h-10 [&_.swiper-button-next]:bg-white/90 [&_.swiper-button-next]:rounded-full [&_.swiper-button-next:after]:text-lg [&_.swiper-button-prev]:w-10 [&_.swiper-button-prev]:h-10 [&_.swiper-button-prev]:bg-white/90 [&_.swiper-button-prev]:rounded-full [&_.swiper-button-prev:after]:text-lg [&_.swiper-button-next]:shadow-md [&_.swiper-button-prev]:shadow-md [&_.swiper-button-next]:absolute [&_.swiper-button-next]:-right-2 md:[&_.swiper-button-next]:-right-4 [&_.swiper-button-prev]:absolute [&_.swiper-button-prev]:-left-2 md:[&_.swiper-button-prev]:-left-4"
+            >
+              {exhibitors.slice(6).map((exhibitor, idx) => {
+                const index = idx + 6;
+                return (
+                <SwiperSlide key={index} className="h-auto">
+                  <motion.div
+                    id={`exhibitor-card-${index}`}
+                    className="exhibitor-card bg-white rounded-2xl overflow-hidden shadow-sm border border-border flex flex-col h-full hover:shadow-md transition-shadow"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ duration: 0.4, delay: idx * 0.05 }}
+                  >
+                    <div className="relative aspect-[3/2] overflow-hidden bg-white/50 border-b border-border/40 flex items-center justify-center p-2">
+                      <img
+                        src={exhibitor.image}
+                        alt={exhibitor.name}
+                        className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
+                        loading="lazy"
+                        onError={(e) => { (e.target as HTMLImageElement).src = "https://placehold.co/600x400/1B4332/D4A853?text=" + encodeURIComponent(exhibitor.name); }}
+                      />
+                    </div>
+                    <div className="p-5 flex flex-col flex-grow">
+                      <h3 className="text-base font-bold text-foreground mb-1.5">{exhibitor.name}</h3>
+                      <p className="text-muted-foreground text-sm mb-3 flex-grow">{exhibitor.description}</p>
+                      <button
+                        onClick={() => setExpanded((p) => ({ ...p, [index]: !p[index] }))}
+                        className="flex items-center gap-1 text-primary hover:text-secondary text-sm font-medium transition-colors"
+                      >
+                        {expanded[index] ? "Thu gọn" : "Xem sản phẩm"}
+                        <ChevronDown className={`w-4 h-4 transition-transform ${expanded[index] ? "rotate-180" : ""}`} />
+                      </button>
+                      {expanded[index] && (
+                        <motion.ul
+                          className="mt-3 space-y-1.5 text-sm text-muted-foreground border-t border-border pt-3"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          {exhibitor.products.map((p, i) => (
+                            <li key={i} className="flex items-start gap-2">
+                              <span className="w-1.5 h-1.5 bg-secondary rounded-full mt-1.5 flex-shrink-0" />
+                              {p}
+                            </li>
+                          ))}
+                        </motion.ul>
+                      )}
+                    </div>
+                  </motion.div>
+                </SwiperSlide>
+              )})}
+            </Swiper>
+          </div>
         </div>
 
         <motion.div
