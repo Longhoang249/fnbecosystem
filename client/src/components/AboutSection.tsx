@@ -86,7 +86,7 @@ export default function AboutSection() {
           <div className="flex items-center justify-center gap-3 mb-8">
             <div className="h-px flex-1 max-w-[60px] bg-border" />
             <h3 className="text-lg md:text-xl font-bold text-foreground text-center">
-              4 chủ đề chuyên sâu từ chuyên gia đầu ngành
+              Giúp chủ quán trả lời những câu hỏi
             </h3>
             <div className="h-px flex-1 max-w-[60px] bg-border" />
           </div>
@@ -101,8 +101,8 @@ export default function AboutSection() {
                 transition={{ duration: 0.5, delay: 0.15 + i * 0.08 }}
               >
                 {/* Speech Bubble Popup */}
-                <div className="flex justify-start pl-14 md:pl-20 mb-[-12px] relative z-20">
-                  <div className="bg-primary text-white border border-primary/20 px-4 py-2 rounded-2xl rounded-bl-sm text-xs md:text-[13px] font-semibold shadow-md inline-block">
+                <div className="flex justify-start pl-14 md:pl-20 mb-[-10px] relative z-20">
+                  <div className="bg-primary text-white border border-primary/20 px-2.5 py-1 rounded-2xl rounded-bl-sm text-[10px] md:text-[11px] font-medium shadow-sm inline-block opacity-90">
                     {topic.question}
                   </div>
                 </div>
