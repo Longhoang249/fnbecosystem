@@ -95,20 +95,29 @@ export default function AboutSection() {
             {speakerTopics.map((topic, i) => (
               <motion.div
                 key={i}
-                className="flex items-start gap-4 md:gap-5 bg-gray-50 rounded-xl p-5 md:p-6 border border-gray-100 hover:border-primary/20 hover:bg-primary/[0.02] transition-all duration-300"
+                className="relative group mt-4 md:mt-6"
                 initial={{ opacity: 0, x: i % 2 === 0 ? -16 : 16 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.15 + i * 0.08 }}
               >
-                <img
-                  src={topic.avatar}
-                  alt="Diễn giả"
-                  className="w-11 h-11 rounded-full object-cover border-2 border-primary/20 flex-shrink-0"
-                />
-                <div className="flex-1 min-w-0">
-                  <h4 className="font-bold text-foreground text-sm md:text-[15px] leading-snug mb-1.5">{topic.title}</h4>
-                  <p className="text-primary font-medium text-sm italic mb-1.5">{topic.question}</p>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{topic.desc}</p>
+                {/* Speech Bubble Popup */}
+                <div className="flex justify-start pl-14 md:pl-20 mb-[-12px] relative z-20">
+                  <div className="bg-primary text-white border border-primary/20 px-4 py-2 rounded-2xl rounded-bl-sm text-xs md:text-[13px] font-semibold shadow-md inline-block">
+                    {topic.question}
+                  </div>
+                </div>
+
+                {/* Speaker Box */}
+                <div className="relative z-10 flex items-start gap-4 md:gap-5 bg-gray-50 rounded-xl p-5 md:p-6 border border-gray-100 hover:border-primary/20 hover:bg-white hover:shadow-lg transition-all duration-300">
+                  <img
+                    src={topic.avatar}
+                    alt="Diễn giả"
+                    className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-primary/20 flex-shrink-0"
+                  />
+                  <div className="flex-1 min-w-0 md:pt-1">
+                    <h4 className="font-bold text-foreground text-[15px] md:text-base leading-snug mb-1.5">{topic.title}</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{topic.desc}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}
