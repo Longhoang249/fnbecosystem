@@ -39,13 +39,18 @@ export default function RegisterPage() {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
-      const formData = new FormData();
+      const formData = new URLSearchParams();
       formData.append("fullName", data.fullName);
       formData.append("phone", data.phone);
       formData.append("ticketCount", data.ticketCount);
       formData.append("message", data.message || "");
       formData.append("source", "QR-DangKy");
-      await fetch(GOOGLE_SHEET_URL, { method: "POST", mode: "no-cors", body: formData });
+      await fetch(GOOGLE_SHEET_URL, { 
+        method: "POST", 
+        mode: "no-cors", 
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formData.toString() 
+      });
       setSubmitted(true);
       toast({ title: "Đăng Ký Thành Công! 🎉", description: "Chúng tôi sẽ liên hệ với bạn sớm nhất." });
     } catch {
