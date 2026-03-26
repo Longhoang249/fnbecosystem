@@ -101,7 +101,46 @@ export default function ExhibitorsSection() {
         {/* Exhibitors Sliders Split by Category */}
         <div className="mb-14">
           <h3 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center uppercase">Thương Hiệu Tổ Chức</h3>
-          <div className="w-full pb-8 overflow-hidden px-1 sm:px-4">
+          {/* Desktop Grid View */}
+          <div className="hidden md:flex flex-wrap justify-center gap-6 w-full pb-8 px-1 sm:px-4">
+            {exhibitors.slice(0, 5).map((exhibitor, index) => (
+              <motion.div
+                key={`desktop-${index}`}
+                id={`exhibitor-card-desktop-${index}`}
+                className="exhibitor-card bg-white rounded-2xl overflow-hidden shadow-sm border border-border flex flex-col hover:shadow-md transition-shadow w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(20%-19.2px)]"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+              >
+                <div className="relative aspect-[3/2] overflow-hidden bg-white/50 border-b border-border/40 flex items-center justify-center p-2">
+                  <img
+                    src={exhibitor.image}
+                    alt={exhibitor.name}
+                    className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
+                    loading="lazy"
+                    onError={(e) => { (e.target as HTMLImageElement).src = "https://placehold.co/600x400/1B4332/D4A853?text=" + encodeURIComponent(exhibitor.name); }}
+                  />
+                </div>
+                <div className="p-5 flex flex-col flex-grow">
+                  <h3 className="text-base font-bold text-foreground mb-1.5">{exhibitor.name}</h3>
+                  <p className="text-muted-foreground text-sm mb-3 flex-grow">{exhibitor.description}</p>
+                  {exhibitor.products.length > 0 && (
+                    <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground border-t border-border pt-3">
+                      {exhibitor.products.map((p, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 bg-secondary rounded-full mt-1 flex-shrink-0" />
+                          <span className="leading-snug">{p}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Mobile Swiper View */}
+          <div className="w-full pb-8 overflow-hidden px-1 sm:px-4 md:hidden">
             <Swiper
               onSwiper={setSwiperOrg}
               modules={[Autoplay, Navigation]}
@@ -186,17 +225,18 @@ export default function ExhibitorsSection() {
               autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
               breakpoints={{
                 640: { slidesPerView: 2, centeredSlides: false, spaceBetween: 24 },
-                1024: { slidesPerView: 3, centeredSlides: false, spaceBetween: 24 },
+                1024: { slidesPerView: 4, centeredSlides: false, spaceBetween: 20 },
+                1280: { slidesPerView: 5, centeredSlides: false, spaceBetween: 20 },
               }}
-              className="w-full relative py-4 [&_.swiper-button-next]:text-primary [&_.swiper-button-prev]:text-primary [&_.swiper-button-next]:w-10 [&_.swiper-button-next]:h-10 [&_.swiper-button-next]:bg-white/90 [&_.swiper-button-next]:rounded-full [&_.swiper-button-next:after]:text-lg [&_.swiper-button-prev]:w-10 [&_.swiper-button-prev]:h-10 [&_.swiper-button-prev]:bg-white/90 [&_.swiper-button-prev]:rounded-full [&_.swiper-button-prev:after]:text-lg [&_.swiper-button-next]:shadow-md [&_.swiper-button-prev]:shadow-md [&_.swiper-button-next]:absolute [&_.swiper-button-next]:-right-2 md:[&_.swiper-button-next]:-right-4 [&_.swiper-button-prev]:absolute [&_.swiper-button-prev]:-left-2 md:[&_.swiper-button-prev]:-left-4"
+              className="w-full relative py-4 [&_.swiper-button-next]:text-primary [&_.swiper-button-prev]:text-primary [&_.swiper-button-next]:w-8 [&_.swiper-button-next]:h-8 [&_.swiper-button-next]:bg-white/90 [&_.swiper-button-next]:rounded-full [&_.swiper-button-next:after]:text-base [&_.swiper-button-prev]:w-8 [&_.swiper-button-prev]:h-8 [&_.swiper-button-prev]:bg-white/90 [&_.swiper-button-prev]:rounded-full [&_.swiper-button-prev:after]:text-base [&_.swiper-button-next]:shadow-md [&_.swiper-button-prev]:shadow-md [&_.swiper-button-next]:absolute [&_.swiper-button-next]:-right-2 md:[&_.swiper-button-next]:-right-3 [&_.swiper-button-prev]:absolute [&_.swiper-button-prev]:-left-2 md:[&_.swiper-button-prev]:-left-3"
             >
               {exhibitors.slice(5).map((exhibitor, idx) => {
                 const index = idx + 5;
                 return (
-                <SwiperSlide key={index} className="h-auto">
+                <SwiperSlide key={index} className="h-auto scale-[0.95] transform origin-top hover:scale-100 transition-transform duration-300">
                   <motion.div
                     id={`exhibitor-card-${index}`}
-                    className="exhibitor-card bg-white rounded-2xl overflow-hidden shadow-sm border border-border flex flex-col h-full hover:shadow-md transition-shadow"
+                    className="exhibitor-card bg-white rounded-2xl overflow-hidden shadow-sm border border-border flex flex-col h-full hover:shadow-md transition-shadow cursor-default"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={isInView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.4, delay: idx * 0.05 }}
@@ -205,35 +245,40 @@ export default function ExhibitorsSection() {
                       <img
                         src={exhibitor.image}
                         alt={exhibitor.name}
-                        className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
+                        className="w-full h-full object-contain transition-transform duration-500 hover:scale-[1.03]"
                         loading="lazy"
                         onError={(e) => { (e.target as HTMLImageElement).src = "https://placehold.co/600x400/1B4332/D4A853?text=" + encodeURIComponent(exhibitor.name); }}
                       />
                     </div>
-                    <div className="p-5 flex flex-col flex-grow">
-                      <h3 className="text-base font-bold text-foreground mb-1.5">{exhibitor.name}</h3>
-                      <p className="text-muted-foreground text-sm mb-3 flex-grow">{exhibitor.description}</p>
-                      <button
-                        onClick={() => setExpanded((p) => ({ ...p, [index]: !p[index] }))}
-                        className="flex items-center gap-1 text-primary hover:text-secondary text-sm font-medium transition-colors"
-                      >
-                        {expanded[index] ? "Thu gọn" : "Xem sản phẩm"}
-                        <ChevronDown className={`w-4 h-4 transition-transform ${expanded[index] ? "rotate-180" : ""}`} />
-                      </button>
-                      {expanded[index] && (
-                        <motion.ul
-                          className="mt-3 space-y-1.5 text-sm text-muted-foreground border-t border-border pt-3"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          {exhibitor.products.map((p, i) => (
-                            <li key={i} className="flex items-start gap-2">
-                              <span className="w-1.5 h-1.5 bg-secondary rounded-full mt-1.5 flex-shrink-0" />
-                              {p}
-                            </li>
-                          ))}
-                        </motion.ul>
+                    <div className="p-4 flex flex-col flex-grow">
+                      <h3 className="text-sm font-bold text-foreground mb-1">{exhibitor.name}</h3>
+                      <p className="text-muted-foreground text-xs mb-2 flex-grow">{exhibitor.description}</p>
+                      
+                      {exhibitor.products.length > 0 && (
+                        <div>
+                          <button
+                            onClick={() => setExpanded((p) => ({ ...p, [index]: !p[index] }))}
+                            className="flex items-center gap-1 text-primary hover:text-secondary text-xs font-semibold transition-colors mt-1"
+                          >
+                            {expanded[index] ? "Thu gọn" : "Xem sản phẩm"}
+                            <ChevronDown className={`w-3.5 h-3.5 transition-transform ${expanded[index] ? "rotate-180" : ""}`} />
+                          </button>
+                          {expanded[index] && (
+                            <motion.ul
+                              className="mt-2 space-y-1 text-xs text-muted-foreground border-t border-border pt-2"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              {exhibitor.products.map((p, i) => (
+                                <li key={i} className="flex items-start gap-1.5">
+                                  <span className="w-1 h-1 bg-secondary rounded-full mt-1.5 flex-shrink-0" />
+                                  <span className="leading-tight">{p}</span>
+                                </li>
+                              ))}
+                            </motion.ul>
+                          )}
+                        </div>
                       )}
                     </div>
                   </motion.div>
