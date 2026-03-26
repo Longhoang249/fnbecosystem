@@ -41,7 +41,11 @@ export default function GallerySection() {
     { src: "https://i.imgur.com/Ez4k6Ib.jpg", alt: "Diễn giả chia sẻ tại workshop" },
     { src: "https://i.imgur.com/6tSlEKl.jpg", alt: "Diễn giả 1 tại workshop" },
     { src: "https://i.imgur.com/LEENQun.jpg", alt: "Diễn giả 2 phát biểu" },
-
+    { src: "https://i.imgur.com/Qp339BS.jpg", alt: "Gian hàng tại sự kiện" },
+    { src: "https://i.imgur.com/Wsrbsxi.jpg", alt: "Khu vực trưng bày sản phẩm" },
+    { src: "https://i.imgur.com/JaIESCK.jpg", alt: "Hội thảo chuyên đề" },
+    { src: "https://i.imgur.com/PxhKEBp.jpg", alt: "Toàn cảnh hội trường" },
+    { src: "https://i.imgur.com/bXkXb4D.jpg", alt: "Khách hàng kết nối với chuyên gia" },
     { src: "https://i.imgur.com/YyetSeg.jpg", alt: "Trải nghiệm sản phẩm" },
     { src: "https://i.imgur.com/0Td0BrV.jpg", alt: "Dùng thử sản phẩm mới" },
     { src: "https://i.imgur.com/pGA8KDp.jpg", alt: "Máy pha chế hiện đại" },
