@@ -46,12 +46,17 @@ export default function RegistrationSection({
 
       try {
         const url = "https://script.google.com/macros/s/AKfycbwRq8jrxnxMOe90xR2Jm8IbwLY4KveRVkaw616nhg4gOi9jP7CIIq2Xwj7JezjRvHIhLQ/exec";
-        const formData = new FormData();
+        const formData = new URLSearchParams();
         formData.append("fullName", data.fullName);
         formData.append("phone", data.phone);
         formData.append("ticketCount", data.ticketCount);
         formData.append("message", data.message || "");
-        await fetch(url, { method: "POST", mode: "no-cors", body: formData });
+        await fetch(url, { 
+          method: "POST", 
+          mode: "no-cors", 
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: formData.toString() 
+        });
       } catch { /* continue */ }
 
       toast({ title: "Đăng Ký Thành Công! 🎉", description: "Chúng tôi sẽ liên hệ với bạn sớm nhất." });

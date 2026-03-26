@@ -88,7 +88,7 @@ export default function ContactPage() {
         .filter(Boolean)
         .join(", ");
 
-      const formData = new window.FormData();
+      const formData = new URLSearchParams();
       formData.append("fullName", data.fullName);
       formData.append("phone", data.phone);
       formData.append("area", data.area);
@@ -96,7 +96,13 @@ export default function ContactPage() {
       formData.append("notes", data.notes || "");
       formData.append("source", "QR-LienHe");
 
-      await fetch(GOOGLE_SHEET_URL, { method: "POST", mode: "no-cors", body: formData });
+      // Ensure explicit headers and stringified body
+      await fetch(GOOGLE_SHEET_URL, { 
+        method: "POST", 
+        mode: "no-cors", 
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formData.toString() 
+      });
       setSubmitted(true);
       toast({ title: "Gửi Thành Công! 🎉", description: "Cảm ơn bạn đã để lại thông tin." });
     } catch {
