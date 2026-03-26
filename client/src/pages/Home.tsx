@@ -10,7 +10,6 @@ import GallerySection from "@/components/GallerySection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import RegistrationSection from "@/components/RegistrationSection";
 import Footer from "@/components/Footer";
-import SponsorsSection from "@/components/SponsorsSection";
 import { useState } from "react";
 import ThankYouModal from "@/components/ThankYouModal";
 
@@ -48,7 +47,6 @@ export default function Home() {
       <ScheduleSection />
       <SpeakersSection />
       <ExhibitorsSection />
-      <SponsorsSection />
       <GallerySection />
       <TestimonialsSection />
       <RegistrationSection
