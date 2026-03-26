@@ -46,6 +46,11 @@ export default function GallerySection() {
     { src: "https://i.imgur.com/bXkXb4D.jpg", alt: "Khách hàng kết nối với chuyên gia" },
     { src: "https://i.imgur.com/YyetSeg.jpg", alt: "Trải nghiệm sản phẩm" },
     { src: "https://i.imgur.com/0Td0BrV.jpg", alt: "Dùng thử sản phẩm mới" },
+    { src: "https://i.ibb.co/LdXhX64h/g.jpg", alt: "Sự kiện FNB 1" },
+    { src: "https://i.ibb.co/q2zcdQP/s.jpg", alt: "Sự kiện FNB 2" },
+    { src: "https://i.ibb.co/VphSq9GB/a.jpg", alt: "Sự kiện FNB 3" },
+    { src: "https://i.ibb.co/274kvqZf/d.jpg", alt: "Sự kiện FNB 4" },
+    { src: "https://i.ibb.co/r2p2QZWw/f.jpg", alt: "Sự kiện FNB 5" },
   ];
 
   return (
