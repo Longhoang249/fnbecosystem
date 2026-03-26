@@ -219,7 +219,7 @@ export default function ExhibitorsSection() {
         </div>
 
         <div className="mb-8">
-          <h3 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center uppercase">Thương Hiệu Khách Mời</h3>
+          <h3 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center uppercase">Thương Hiệu Đồng Hành</h3>
           <div className="w-full pb-8 overflow-hidden px-1 sm:px-4">
             <Swiper
               onSwiper={setSwiperGuest}

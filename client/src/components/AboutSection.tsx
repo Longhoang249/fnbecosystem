@@ -10,21 +10,25 @@ export default function AboutSection() {
     {
       avatar: "/do_hai.jpg",
       title: "Lợi Dụng Thuật Toán Tăng Trưởng Tỷ Views, Xây Kênh Viral Đa Nền Tảng",
+      question: "Muốn xây kênh hút khách mà không biết bắt đầu từ đâu?",
       desc: "Bí quyết từ chuyên gia sở hữu 6 tỷ views và 1 nút vàng YouTube, giúp quán của bạn bùng nổ trên mạng xã hội.",
     },
     {
       avatar: "/lan_phuong.jpg",
       title: "Chuyển Đổi Số Trong Quản Lý Thuế: Từ Tuân Thủ Đến Tối Ưu Vận Hành",
+      question: "Không biết quán đã chuẩn hoá pháp lý và thuế chưa, cần lưu ý gì để kinh doanh đúng pháp luật?",
       desc: "21 năm kinh nghiệm kế toán FnB, cập nhật chính sách thuế mới nhất, hoá đơn điện tử và cách tối ưu chi phí vận hành.",
     },
     {
       avatar: "/han_cuong.jpg",
       title: "Giải Mã Cơn Sốt Trà Hoa Ướp Hương Tại Trung Quốc 2026",
+      question: "Muốn nâng cấp menu, cập nhật đồ uống mới mà chưa biết cái nào ra tiền?",
       desc: "Xu hướng đang chiếm sóng thị trường tỷ đô. Phân tích từ nhà cung cấp trà hàng đầu cho Mixue, Chagee, Guming.",
     },
     {
       avatar: "/tuan_anh.jpg",
       title: "Đóng Gói Để Nhân Bản Thương Hiệu FnB",
+      question: "Quán có khách nhưng vận hành cực quá, làm một quán không nổi sao mở thêm cơ sở mới?",
       desc: "Kinh nghiệm thực chiến vận hành 15+ cửa hàng chuỗi, từ 1 quán nhỏ đến mô hình nhượng quyền bài bản.",
     },
   ];
@@ -64,7 +68,7 @@ export default function AboutSection() {
           <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-6" />
           <div className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed space-y-4">
             <p>
-              <strong className="text-foreground">F&B Connect</strong> là sự kiện FnB quy mô bậc nhất Việt Nam, được đồng tổ chức bởi 5 đơn vị uy tín trong ngành F&B: <strong className="text-foreground">Autoshop, Boduo, Nhất Hương, Dẻo và Holyon Tea</strong> với mong muốn xây dựng cộng đồng chủ quán ăn uống Việt Nam phát triển vượt trội và thích ứng tốt giữa những biến động thị trường.
+              <strong className="text-foreground">F&B Connect</strong> là sự kiện FnB quy mô bậc nhất Việt Nam, được đồng tổ chức bởi 5 đơn vị uy tín trong ngành F&B: <strong className="text-foreground">Autoshop, Boduo, Nhất Hương, Holyon Tea và Dẻo - Giải Pháp Ăn Vặt</strong> với mong muốn xây dựng cộng đồng chủ quán ăn uống Việt Nam phát triển vượt trội và thích ứng tốt giữa những biến động thị trường.
             </p>
             <p>
               Với chủ đề <strong className="text-foreground">"Kết nối nguồn lực, mở rộng cơ hội"</strong>, <strong className="text-foreground">F&B Connect 2026</strong> mang tới thông điệp mạnh mẽ về sự liên kết những mắt xích khác nhau trong ngành ăn uống để tạo nên hệ sinh thái toàn diện, hỗ trợ lẫn nhau phát triển kinh doanh, phòng tránh rủi ro, cùng hướng tới thành công bền vững.
@@ -102,7 +106,8 @@ export default function AboutSection() {
                   className="w-11 h-11 rounded-full object-cover border-2 border-primary/20 flex-shrink-0"
                 />
                 <div className="flex-1 min-w-0">
-                  <h4 className="font-bold text-foreground text-sm md:text-[15px] leading-snug mb-1">{topic.title}</h4>
+                  <h4 className="font-bold text-foreground text-sm md:text-[15px] leading-snug mb-1.5">{topic.title}</h4>
+                  <p className="text-primary font-medium text-sm italic mb-1.5">{topic.question}</p>
                   <p className="text-muted-foreground text-sm leading-relaxed">{topic.desc}</p>
                 </div>
               </motion.div>
