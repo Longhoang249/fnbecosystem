@@ -58,13 +58,18 @@ export default function AboutSection() {
         >
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-3">Giá trị dành cho bạn</span>
           <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4 leading-tight">
-            Bạn Sẽ Nhận Được Gì<br />
-            <span className="gradient-text">Khi Tới Sự Kiện?</span>
+            Tại Sao Chủ Quán<br />
+            <span className="gradient-text">Không Nên Bỏ Lỡ<br className="md:hidden" /> F&B Connect?</span>
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-6" />
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            <strong className="text-foreground">FNB Connect</strong> được <strong className="text-foreground">5 đơn vị hàng đầu</strong> đồng tổ chức: Autoshop, Boduo, Nhất Hương, Dẻo và Holyon Tea. Những thương hiệu đã tổ chức nhiều sự kiện lớn, quy tụ hàng nghìn chủ quán từ Nam ra Bắc.
-          </p>
+          <div className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed space-y-4">
+            <p>
+              <strong className="text-foreground">F&B Connect</strong> là sự kiện FnB quy mô bậc nhất Việt Nam, được đồng tổ chức bởi 5 đơn vị uy tín trong ngành F&B: <strong className="text-foreground">Autoshop, Boduo, Nhất Hương, Dẻo và Holyon Tea</strong> với mong muốn xây dựng cộng đồng chủ quán ăn uống Việt Nam phát triển vượt trội và thích ứng tốt giữa những biến động thị trường.
+            </p>
+            <p>
+              Với chủ đề <strong className="text-foreground">"Kết nối nguồn lực, mở rộng cơ hội"</strong>, <strong className="text-foreground">F&B Connect 2026</strong> mang tới thông điệp mạnh mẽ về sự liên kết những mắt xích khác nhau trong ngành ăn uống để tạo nên hệ sinh thái toàn diện, hỗ trợ lẫn nhau phát triển kinh doanh, phòng tránh rủi ro, cùng hướng tới thành công bền vững.
+            </p>
+          </div>
         </motion.div>
 
         {/* ── 4 Speaker Topics ── */}
@@ -115,7 +120,7 @@ export default function AboutSection() {
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="h-px flex-1 max-w-[60px] bg-border" />
             <h3 className="text-lg md:text-xl font-bold text-foreground text-center">
-              Hàng chục gian hàng trải nghiệm trực tiếp
+              Trải nghiệm hệ sinh thái F&B từ nhiều thương hiệu nổi tiếng
             </h3>
             <div className="h-px flex-1 max-w-[60px] bg-border" />
           </div>
@@ -160,14 +165,14 @@ export default function AboutSection() {
           </div>
         </motion.div>
 
-        {/* ── Highlights: Có được gì khi ra về? ── */}
+        {/* ── Highlights: Bạn nhận được gì khi ra về? ── */}
         <motion.div
           className="bg-primary/5 border border-primary/10 rounded-2xl p-6 md:p-8 mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <h3 className="text-lg font-bold text-foreground mb-5 text-center">Có được gì khi ra về?</h3>
+          <h3 className="text-lg font-bold text-foreground mb-5 text-center">Bạn nhận được gì khi ra về?</h3>
           <div className="grid sm:grid-cols-2 gap-3">
             {highlights.map((text, i) => (
               <div key={i} className="flex items-start gap-3 bg-white/70 rounded-lg p-3">

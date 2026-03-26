@@ -12,7 +12,7 @@ export default function Footer() {
             <img
               src="/fnb-connect-logo.png"
               alt="F&B Connect"
-              className="h-10 w-auto brightness-0 invert mb-4"
+              className="h-16 w-auto brightness-0 invert mb-4"
             />
             <p className="text-white/50 text-sm leading-relaxed max-w-xs">
               Chuỗi workshop quy tụ hàng ngàn chủ quán, đại lý, nhà phân phối và các thương hiệu hoạt động trong ngành FnB. Kết nối kinh doanh và cập nhật xu hướng mới nhất.
