@@ -96,6 +96,7 @@ export default function HeroSection({ eventDate, eventTime, eventLocation }: Her
             src="/fnb-connect-logo.png"
             alt="F&B Connect"
             className="h-56 md:h-80 lg:h-96 w-auto brightness-0 invert drop-shadow-2xl"
+            fetchPriority="high"
           />
         </motion.div>
 
