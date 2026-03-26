@@ -9,9 +9,11 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row gap-10 md:gap-16">
           {/* Brand */}
           <div className="md:w-1/3">
-            <span className="text-xl font-extrabold tracking-tight text-white mb-4 block">
-              FNB <span className="text-secondary">CONNECT</span>
-            </span>
+            <img
+              src="/fnb-connect-logo.png"
+              alt="F&B Connect"
+              className="h-10 w-auto brightness-0 invert mb-4"
+            />
             <p className="text-white/50 text-sm leading-relaxed max-w-xs">
               Chuỗi workshop quy tụ hàng ngàn chủ quán, đại lý, nhà phân phối và các thương hiệu hoạt động trong ngành FnB. Kết nối kinh doanh và cập nhật xu hướng mới nhất.
             </p>
@@ -55,14 +57,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/40 text-sm">
-            © {currentYear} FNB CONNECT. All rights reserved.
-          </p>
-          <p className="text-white/30 text-xs">
-            Được tổ chức bởi <span className="text-secondary/60">AUTOSHOP - Vua Máy Pha Chế</span>
-          </p>
-        </div>
+
       </div>
     </footer>
   );

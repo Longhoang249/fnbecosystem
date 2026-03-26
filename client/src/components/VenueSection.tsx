@@ -20,18 +20,6 @@ export default function VenueSection() {
             Thời Gian & Địa Điểm
           </h2>
           <div className="w-16 h-1 bg-secondary mx-auto rounded-full mb-6" />
-
-          {/* Info cards */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-4">
-            <div className="flex items-center justify-center gap-2 flex-shrink-0 bg-primary/5 border border-primary/10 px-5 py-3 rounded-xl w-full sm:w-auto">
-              <Clock className="w-5 h-5 text-primary flex-shrink-0" />
-              <span className="font-semibold text-foreground text-center">9:00 - 17:00 | Ngày 22/04/2026</span>
-            </div>
-            <div className="flex items-center justify-center gap-2 flex-shrink-0 bg-primary/5 border border-primary/10 px-5 py-3 rounded-xl w-full sm:w-auto">
-              <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
-              <span className="font-semibold text-foreground text-center">Tầng 3 toà nhà The Zei - Số 8 Lê Đức Thọ, Tp.Hà Nội</span>
-            </div>
-          </div>
         </motion.div>
 
         <motion.div
@@ -41,7 +29,7 @@ export default function VenueSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <img 
-            src="https://i.ibb.co/vxfFn0nv/so-o-su-kie-n.png" 
+            src="https://i.ibb.co/JF8mpTxJ/so-o-su-kie-n-final.png" 
             alt="Sơ đồ sự kiện" 
             className="w-full h-auto object-cover"
             loading="lazy"

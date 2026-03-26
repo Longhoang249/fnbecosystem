@@ -47,9 +47,11 @@ export default function Navbar() {
 
       <div className="container mx-auto px-4 h-[72px] flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className={`text-lg font-extrabold tracking-tight transition-colors duration-300 ${isScrolled ? 'text-primary' : 'text-white'}`}>
-            FNB <span className="text-secondary">CONNECT</span>
-          </span>
+          <img
+            src="/fnb-connect-logo.png"
+            alt="F&B Connect"
+            className={`h-12 w-auto transition-all duration-300 ${isScrolled ? '' : 'brightness-0 invert'}`}
+          />
         </div>
 
         <div className="hidden md:flex items-center gap-1">

@@ -86,11 +86,11 @@ export default function SpeakersSection() {
                     <img
                       src={speaker.image}
                       alt={speaker.name}
-                      className="w-full h-full object-cover object-center transition-transform duration-700"
+                      className="speaker-image w-full h-full object-cover object-center transition-all duration-700"
                       loading="lazy"
                     />
                     <div className="speaker-overlay absolute inset-0 flex items-end p-5">
-                      <p className="text-white/90 text-sm leading-relaxed whitespace-pre-line">{speaker.bio}</p>
+                      <p className="text-white font-semibold text-sm leading-relaxed whitespace-pre-line drop-shadow-md">{speaker.bio}</p>
                     </div>
                   </div>
                   <div className="p-5">
@@ -117,11 +117,11 @@ export default function SpeakersSection() {
                 <img
                   src={speaker.image}
                   alt={speaker.name}
-                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  className="speaker-image w-full h-full object-cover object-center transition-all duration-700"
                   loading="lazy"
                 />
                 <div className="speaker-overlay absolute inset-0 flex items-end p-5">
-                  <p className="text-white/90 text-sm leading-relaxed whitespace-pre-line">{speaker.bio}</p>
+                  <p className="text-white font-semibold text-sm leading-relaxed whitespace-pre-line drop-shadow-md">{speaker.bio}</p>
                 </div>
               </div>
               <div className="p-5">

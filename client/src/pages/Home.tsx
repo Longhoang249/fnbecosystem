@@ -45,8 +45,8 @@ export default function Home() {
 
 
       <VenueSection />
-      <ScheduleSection />
       <SpeakersSection />
+      <ScheduleSection />
       <ExhibitorsSection />
       <SponsorsSection />
       <GallerySection />
