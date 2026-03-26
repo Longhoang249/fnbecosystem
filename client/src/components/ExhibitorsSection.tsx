@@ -29,7 +29,8 @@ export default function ExhibitorsSection() {
       else if (brandName.includes("Dẻo")) matchIndex = 1;
       else if (brandName.includes("BODUO")) matchIndex = 2;
       else if (brandName.includes("HOLYON")) matchIndex = 3;
-      else if (brandName.includes("Nhất Hương")) matchIndex = 5;
+      else if (brandName.includes("Nhất Hương")) matchIndex = 4;
+      else if (brandName.includes("Nobita")) matchIndex = 5;
       else if (brandName.includes("iPos") || brandName.includes("iPOS")) matchIndex = 6;
       else if (brandName.includes("Cốc Giấy")) matchIndex = 7;
       else if (brandName.includes("Bốn Phương")) matchIndex = 8;
@@ -41,8 +42,8 @@ export default function ExhibitorsSection() {
         setExpanded(p => ({ ...p, [matchIndex]: true }));
         
         if (window.innerWidth < 640) {
-          if (matchIndex < 6 && swiperOrg) swiperOrg.slideToLoop(matchIndex);
-          else if (matchIndex >= 6 && swiperGuest) swiperGuest.slideToLoop(matchIndex - 6);
+          if (matchIndex < 5 && swiperOrg) swiperOrg.slideToLoop(matchIndex);
+          else if (matchIndex >= 5 && swiperGuest) swiperGuest.slideToLoop(matchIndex - 5);
           const top = document.getElementById("exhibitors")?.getBoundingClientRect().top;
           if (top !== undefined) window.scrollTo({ top: top + window.scrollY - 72, behavior: "smooth" });
         } else {
@@ -69,8 +70,8 @@ export default function ExhibitorsSection() {
     { name: "Dẻo - Giải pháp Ăn vặt", description: "Dẻo cung cấp đa dạng giải pháp cho quán: Ăn vặt - Chè - Kem. Quán cần món Ngon, nhanh gọn - Cứ để Dẻo lo", products: ["Giải pháp ăn vặt cho quán", "Chè & Kem đa dạng", "Món ngon, nhanh gọn"], image: "https://i.ibb.co/PvShsyZt/A-nh-thie-t-ke-De-o.jpg" },
     { name: "BODUO VIỆT NAM", description: "Tập đoàn sản xuất nguyên liệu pha chế hàng đầu Trung Quốc, với hơn 20 năm kinh nghiệm và hệ thống 4 nhà máy hiện đại, cung cấp sản phẩm chất lượng cao cho ngành F&B toàn cầu.", products: ["Nguyên liệu pha chế cao cấp", "Giải pháp đồ uống sáng tạo", "Hơn 20 năm kinh nghiệm"], image: "https://i.ibb.co/93GTGmph/A-nh.jpg" },
     { name: "HOLYON TEA", description: "Đại diện chính thức của Holyon Tea tại thị trường Việt Nam. Mang đến các sản phẩm trà chất lượng cao, cung cấp giải pháp tổng thể cho thị trường trà, từ blending chuyên nghiệp đến OEM cho các thương hiệu lớn.", products: ["Trà chất lượng cao", "Blending chuyên nghiệp", "OEM cho thương hiệu lớn"], image: "https://i.ibb.co/qFpYPzTh/Holyon-tea-600x400-01.png" },
-    { name: "Nobita Food", description: "Nhà cung cấp nguyên liệu và giải pháp kinh doanh cho ngành đồ uống.", products: ["Nguyên liệu pha chế", "Giải pháp kinh doanh F&B"], image: "https://placehold.co/600x400/1B4332/D4A853?text=NOBITA+FOOD" },
     { name: "Nhất Hương", description: "Doanh nghiệp Việt Nam tiên phong trong lĩnh vực sản xuất và phân phối nguyên liệu ngành bánh và pha chế.", products: ["Kem Béo Pha Chế", "Kem Whipping Base", "Sốt Caramen, Sốt Sô Cô La Cacao Talk"], image: "https://i.postimg.cc/m26BxFBk/Post-Landing-Page-01.jpg" },
+    { name: "Nobita Food", description: "Nhà cung cấp nguyên liệu và giải pháp kinh doanh cho ngành đồ uống.", products: ["Nguyên liệu pha chế", "Giải pháp kinh doanh F&B"], image: "https://placehold.co/600x400/1B4332/D4A853?text=NOBITA+FOOD" },
     { name: "iPOS", description: "iPOS.vn — 15 năm tiên phong cung cấp hệ sinh thái giải pháp quản trị và bán hàng chuyên biệt cho ngành F&B Việt Nam, đáp ứng mọi mô hình kinh doanh ẩm thực. Hiện diện tại 13 chi nhánh và mạng lưới đối tác phủ 34 tỉnh thành. Đội ngũ nhiệt huyết, tận tâm — luôn sẵn sàng đồng hành cùng chủ quán để vận hành hiệu quả và bứt phá doanh thu.", products: ["Phần mềm quản lý bán hàng POS", "Giải pháp quản lý nhà hàng, quán café", "Hệ thống báo cáo & phân tích kinh doanh"], image: "https://i.ibb.co/pBLxnkKR/i-POS-vn-nh-thumb.jpg" },
     { name: "Cốc Giấy Hk", description: "KKGROUP — 7 năm sản xuất ly giấy, tô giấy và bao bì thực phẩm dùng một lần. Quy trình khép kín 100%, tiên phong xu hướng sáng tạo trong branding F&B. Đối tác tin cậy của hơn 200 thương hiệu chuỗi coffee & tea trên toàn quốc.", products: ["Cốc giấy các loại", "Ly giấy in logo thương hiệu", "Giải pháp bao bì đồ uống"], image: "/c_c_gi_y_hk.png" },
     { name: "NLPC Bốn Phương", description: "Phân phối độc quyền miền Bắc: WAO, No.1, SG, Vạn Thành, LongBeach — nguồn gốc rõ ràng, giá hợp lý, sản lượng ổn định. Nguyên liệu đầy đủ, công thức liên tục cập nhật. Chiết khấu cao, trả thưởng hấp dẫn. Nhượng quyền \"3 Không\" và hỗ trợ setup quán từ A–Z.", products: ["Nguyên liệu pha chế đa dạng", "Siro & Topping", "Giải pháp nguyên liệu trọn gói"], image: "https://i.ibb.co/nqyVx1B0/2048x1152-1.png" },
@@ -117,7 +118,7 @@ export default function ExhibitorsSection() {
               }}
               className="w-full relative py-4 [&_.swiper-button-next]:text-primary [&_.swiper-button-prev]:text-primary [&_.swiper-button-next]:w-10 [&_.swiper-button-next]:h-10 [&_.swiper-button-next]:bg-white/90 [&_.swiper-button-next]:rounded-full [&_.swiper-button-next:after]:text-lg [&_.swiper-button-prev]:w-10 [&_.swiper-button-prev]:h-10 [&_.swiper-button-prev]:bg-white/90 [&_.swiper-button-prev]:rounded-full [&_.swiper-button-prev:after]:text-lg [&_.swiper-button-next]:shadow-md [&_.swiper-button-prev]:shadow-md [&_.swiper-button-next]:absolute [&_.swiper-button-next]:-right-2 md:[&_.swiper-button-next]:-right-4 [&_.swiper-button-prev]:absolute [&_.swiper-button-prev]:-left-2 md:[&_.swiper-button-prev]:-left-4"
             >
-              {exhibitors.slice(0, 6).map((exhibitor, idx) => {
+              {exhibitors.slice(0, 5).map((exhibitor, idx) => {
                 const index = idx;
                 return (
                 <SwiperSlide key={index} className="h-auto">
@@ -189,8 +190,8 @@ export default function ExhibitorsSection() {
               }}
               className="w-full relative py-4 [&_.swiper-button-next]:text-primary [&_.swiper-button-prev]:text-primary [&_.swiper-button-next]:w-10 [&_.swiper-button-next]:h-10 [&_.swiper-button-next]:bg-white/90 [&_.swiper-button-next]:rounded-full [&_.swiper-button-next:after]:text-lg [&_.swiper-button-prev]:w-10 [&_.swiper-button-prev]:h-10 [&_.swiper-button-prev]:bg-white/90 [&_.swiper-button-prev]:rounded-full [&_.swiper-button-prev:after]:text-lg [&_.swiper-button-next]:shadow-md [&_.swiper-button-prev]:shadow-md [&_.swiper-button-next]:absolute [&_.swiper-button-next]:-right-2 md:[&_.swiper-button-next]:-right-4 [&_.swiper-button-prev]:absolute [&_.swiper-button-prev]:-left-2 md:[&_.swiper-button-prev]:-left-4"
             >
-              {exhibitors.slice(6).map((exhibitor, idx) => {
-                const index = idx + 6;
+              {exhibitors.slice(5).map((exhibitor, idx) => {
+                const index = idx + 5;
                 return (
                 <SwiperSlide key={index} className="h-auto">
                   <motion.div
