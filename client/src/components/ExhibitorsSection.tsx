@@ -107,12 +107,16 @@ export default function ExhibitorsSection() {
               <motion.div
                 key={`desktop-${index}`}
                 id={`exhibitor-card-desktop-${index}`}
-                className="exhibitor-card bg-white rounded-2xl overflow-hidden shadow-sm border border-border flex flex-col hover:shadow-md transition-shadow w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(20%-19.2px)]"
+                className="exhibitor-card bg-white rounded-2xl overflow-hidden shadow-sm border-[1.5px] border-amber-400/60 flex flex-col hover:shadow-lg hover:shadow-amber-500/20 transition-all w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(20%-19.2px)] relative"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
               >
                 <div className="relative aspect-[3/2] overflow-hidden bg-white/50 border-b border-border/40 flex items-center justify-center p-2">
+                  <div className="absolute top-2 left-2 z-10 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-[10px] md:text-xs font-bold px-2 py-0.5 md:px-2.5 md:py-1 rounded-full shadow-md flex items-center gap-1">
+                    <Star className="w-2.5 h-2.5 md:w-3 md:h-3 fill-current text-yellow-100" />
+                    <span>VIP</span>
+                  </div>
                   <img
                     src={exhibitor.image}
                     alt={exhibitor.name}
@@ -163,12 +167,16 @@ export default function ExhibitorsSection() {
                 <SwiperSlide key={index} className="h-auto">
                   <motion.div
                     id={`exhibitor-card-${index}`}
-                    className="exhibitor-card bg-white rounded-2xl overflow-hidden shadow-sm border border-border flex flex-col h-full hover:shadow-md transition-shadow"
+                    className="exhibitor-card bg-white rounded-2xl overflow-hidden shadow-sm border-[1.5px] border-amber-400/60 flex flex-col h-full hover:shadow-md hover:shadow-amber-500/20 transition-all relative"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={isInView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.4, delay: idx * 0.05 }}
                   >
                     <div className="relative aspect-[3/2] overflow-hidden bg-white/50 border-b border-border/40 flex items-center justify-center p-2">
+                      <div className="absolute top-2 left-2 z-10 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-[10px] md:text-xs font-bold px-2 py-0.5 md:px-2.5 md:py-1 rounded-full shadow-md flex items-center gap-1">
+                        <Star className="w-2.5 h-2.5 md:w-3 md:h-3 fill-current text-yellow-100" />
+                        <span>VIP</span>
+                      </div>
                       <img
                         src={exhibitor.image}
                         alt={exhibitor.name}
