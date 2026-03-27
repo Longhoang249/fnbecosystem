@@ -23,14 +23,14 @@ export default function ScheduleSection() {
     { time: "8:30 - 9:15", title: "Khai Mạc", description: "Tham quan và trải nghiệm các gian hàng" },
     {
       time: "09:15 - 10:15",
-      title: "LỢI DỤNG THUẬT TOÁN TĂNG TRƯỞNG TỶ VIEWS - XÂY KÊNH VIRAL ĐA NỀN TẢNG",
+      title: "Lợi Dụng Thuật Toán Tăng Trưởng Tỷ Views - Xây Kênh Viral Đa Nền Tảng",
       description: "Được thiết kế nhằm giúp doanh nghiệp hiểu và khai thác thuật toán như một đòn bẩy tăng trưởng hệ thống. Chương trình tập trung chia sẻ tư duy, mô hình và kinh nghiệm triển khai đã được kiểm chứng, giúp doanh nghiệp xây dựng hệ thống kênh truyền thông tăng trưởng bền vững, thay vì phụ thuộc vào các kết quả ngắn hạn.",
       detailedDescription: "Hiểu rõ thuật toán phi tập chung trên các nền tảng social (Tiktok, Youtube, Instagram,..)\n- Tổng quan xu hướng thuật toán các nền tảng mạng xã hội hiện nay\n- Cách thuật toán “quả cầu tuyết” vận hành và phân phối nội dung\n- Ứng dụng mô hình quả cầu tuyết để xây dựng hệ thống kênh vệ tinh cho thương hiệu",
       speaker: { name: "Mr. Đỗ Hải", image: "/do_hai.jpg" },
     },
     {
       time: "10:15 - 11:15",
-      title: "Ứng dụng công nghệ trong quản lý thuế và hóa đơn điện tử cho hộ kinh doanh F&B",
+      title: "Ứng Dụng Công Nghệ Trong Quản Lý Thuế Và Hóa Đơn Điện Tử Cho Hộ Kinh Doanh F&B",
       description: "Chia sẻ những thông tin cập nhật mới nhất về chính sách thuế, đồng thời phân tích các khó khăn phổ biến mà hộ kinh doanh F&B thường gặp phải.",
       detailedDescription: "Chia sẻ những thông tin cập nhật mới nhất về chính sách thuế, đồng thời phân tích các khó khăn phổ biến mà hộ kinh doanh F&B thường gặp phải. Bên cạnh đó, nội dung cũng đề cập đến cách chủ hộ ứng dụng công nghệ vào quy trình vận hành nhằm tối ưu thời gian và hạn chế sai sót.",
       speaker: { name: "Mrs. Đinh Thị Lan Phương", image: "/lan_phuong.jpg" },
@@ -45,7 +45,7 @@ export default function ScheduleSection() {
     },
     {
       time: "14:40 - 15:40",
-      title: "Đóng gói để nhân chuỗi thương hiệu F&B",
+      title: "Đóng Gói Để Nhân Chuỗi Thương Hiệu F&B",
       description: "Chia sẻ cách chuẩn hoá nhân sự, vận hành và quy trình thành hệ thống rõ ràng, giúp chủ quán mở rộng và nhân bản thương hiệu bền vững",
       speaker: { name: "Phạm Văn Tuấn Anh", image: "/tuan_anh.jpg" },
     },
