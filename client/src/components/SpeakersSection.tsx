@@ -26,7 +26,7 @@ export default function SpeakersSection() {
       image: "/do_hai.jpg",
     },
     {
-      name: "Mr. Hán Cương",
+      name: "Mr. Hàn Cương",
       role: "Nhà sáng lập Công ty Trà Hậu Đường Hà Nam",
       bio: "Cung cấp trà chất lượng cao hàng đầu trong ngành, là đối tác của nhiều chuỗi nhà hàng và thương hiệu đồ uống nổi tiếng tại Trung Quốc như:\nShuyi Shao Xiancao, Juan Tea, Mixue Bingcheng, Guming, Ningji, Jilatuo, Chagee (Bawang Chaji), Bingchun Tea, 7FenTian, Bingo Fresh Tea, Banu Hotpot, Jiediliang cùng nhiều thương hiệu khác.",
       image: "/han_cuong.jpg",

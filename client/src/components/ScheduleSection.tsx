@@ -41,7 +41,7 @@ export default function ScheduleSection() {
       title: "Giải Mã Cơn Sốt Trà Hoa Ướp Hương Tại Trung Quốc 2026",
       description: "Lý giải vì sao kỹ thuật ướp hương tự nhiên đang trở thành yếu tố tạo nên khác biệt trong trải nghiệm khách hàng.",
       detailedDescription: "Đưa ra góc nhìn dự đoán về tiềm năng bùng nổ của dòng trà này tại thị trường F&B Việt Nam trong thời gian tới.\nĐồng thời, phân tích cách các thương hiệu F&B có thể ứng dụng xu hướng này vào menu và vận hành, thông qua những giải pháp nguyên liệu giúp đảm bảo chất lượng hương vị một cách ổn định và tinh gọn.",
-      speaker: { name: "Mr. Hán Cương", image: "/han_cuong.jpg" },
+      speaker: { name: "Mr. Hàn Cương", image: "/han_cuong.jpg" },
     },
     {
       time: "14:40 - 15:40",
