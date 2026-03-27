@@ -45,7 +45,7 @@ export default function ScheduleSection() {
     },
     {
       time: "14:40 - 15:40",
-      title: "Đóng Gói Để Nhân Bản Thương Hiệu FnB",
+      title: "Đóng gói để nhân chuỗi thương hiệu F&B",
       description: "Chia sẻ cách chuẩn hoá nhân sự, vận hành và quy trình thành hệ thống rõ ràng, giúp chủ quán mở rộng và nhân bản thương hiệu bền vững",
       speaker: { name: "Phạm Văn Tuấn Anh", image: "/tuan_anh.jpg" },
     },

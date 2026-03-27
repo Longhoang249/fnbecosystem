@@ -27,7 +27,7 @@ export default function AboutSection() {
     },
     {
       avatar: "/tuan_anh.jpg",
-      title: "Đóng Gói Để Nhân Bản Thương Hiệu FnB",
+      title: "Đóng gói để nhân chuỗi thương hiệu F&B",
       question: "Quán có khách nhưng vận hành cực quá, làm một quán không nổi sao mở thêm cơ sở mới?",
       desc: "Kinh nghiệm thực chiến vận hành 15+ cửa hàng chuỗi, từ 1 quán nhỏ đến mô hình nhượng quyền bài bản.",
     },
