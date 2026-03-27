@@ -15,7 +15,7 @@ export default function AboutSection() {
     },
     {
       avatar: "/lan_phuong.jpg",
-      title: "Chuyển Đổi Số Trong Quản Lý Thuế: Từ Tuân Thủ Đến Tối Ưu Vận Hành",
+      title: "Ứng dụng công nghệ trong quản lý thuế và hóa đơn điện tử cho hộ kinh doanh F&B",
       question: "Không biết quán đã chuẩn hoá pháp lý và thuế chưa, cần lưu ý gì để kinh doanh đúng pháp luật?",
       desc: "21 năm kinh nghiệm kế toán FnB, cập nhật chính sách thuế mới nhất, hoá đơn điện tử và cách tối ưu chi phí vận hành.",
     },

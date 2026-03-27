@@ -30,7 +30,7 @@ export default function ScheduleSection() {
     },
     {
       time: "10:15 - 11:15",
-      title: "Chuyển Đổi Số Trong Quản Lý Thuế: Từ Tuân Thủ Đến Tối Ưu Vận Hành",
+      title: "Ứng dụng công nghệ trong quản lý thuế và hóa đơn điện tử cho hộ kinh doanh F&B",
       description: "Chia sẻ những thông tin cập nhật mới nhất về chính sách thuế, đồng thời phân tích các khó khăn phổ biến mà hộ kinh doanh F&B thường gặp phải.",
       detailedDescription: "Chia sẻ những thông tin cập nhật mới nhất về chính sách thuế, đồng thời phân tích các khó khăn phổ biến mà hộ kinh doanh F&B thường gặp phải. Bên cạnh đó, nội dung cũng đề cập đến cách chủ hộ ứng dụng công nghệ vào quy trình vận hành nhằm tối ưu thời gian và hạn chế sai sót.",
       speaker: { name: "Mrs. Đinh Thị Lan Phương", image: "/lan_phuong.jpg" },

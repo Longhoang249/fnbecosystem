@@ -29,7 +29,7 @@ export default function VenueSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <img 
-            src="https://i.ibb.co/JF8mpTxJ/so-o-su-kie-n-final.png" 
+            src="https://i.ibb.co/jPZ67sXm/so-o-web.png" 
             alt="Sơ đồ sự kiện" 
             className="w-full h-auto object-cover"
             loading="lazy"
