@@ -6,7 +6,7 @@ import { z } from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { useRegistration } from "@/hooks/use-registration";
-import { Calendar, Clock, MapPin, Ticket, Gift, Store, Users, MessageSquare, Phone, ArrowRight, Send } from "lucide-react";
+import { Calendar, Clock, MapPin, Ticket, Gift, Utensils, Users, MessageSquare, Phone, ArrowRight, Send, Armchair } from "lucide-react";
 
 const registrationSchema = z.object({
   fullName: z.string().min(2, { message: "Họ và tên phải có ít nhất 2 ký tự" }),
@@ -67,9 +67,14 @@ export default function RegistrationSection({
     }
   };
 
+  const totalSeats = 400;
+  const registeredSeats = 260;
+  const remainingSeats = totalSeats - registeredSeats;
+  const progressPercent = (registeredSeats / totalSeats) * 100;
+
   const highlights = [
     { icon: Gift, text: "Đến là có quà, 1000+ phần quà giá trị và thiết thực" },
-    { icon: Store, text: "Trải nghiệm 5+ gian hàng giải pháp kinh doanh đồ uống" },
+    { icon: Utensils, text: "Trải nghiệm xu hướng đồ ăn, uống mới nhất 2026" },
     { icon: Users, text: "Kết nối hàng ngàn chủ quán, đại lý kinh doanh" },
     { icon: MessageSquare, text: "Lắng nghe chuyên gia và được giải đáp mọi vấn đề" },
   ];
@@ -145,7 +150,26 @@ export default function RegistrationSection({
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="bg-white rounded-2xl border border-border p-8 shadow-xl shadow-black/5">
-              <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Đăng Ký Ngay</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-1 text-center">Đăng Ký Ngay</h3>
+              <p className="text-muted-foreground text-sm text-center mb-5">Để chắc chắn có chỗ ngồi</p>
+
+              {/* Seat counter */}
+              <div className="bg-gradient-to-r from-primary/5 to-secondary/5 border border-primary/15 rounded-xl p-4 mb-6">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <Armchair className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-semibold text-foreground">Ghế còn lại</span>
+                  </div>
+                  <span className="text-lg font-extrabold text-primary">{remainingSeats}<span className="text-sm font-medium text-muted-foreground">/{totalSeats}</span></span>
+                </div>
+                <div className="w-full h-2.5 bg-gray-200 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-1000"
+                    style={{ width: `${progressPercent}%` }}
+                  />
+                </div>
+                <p className="text-xs text-muted-foreground mt-2 text-center">⚡ {registeredSeats} người đã đăng ký</p>
+              </div>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
                   <FormField control={form.control} name="fullName" render={({ field }) => (

@@ -1,29 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+/* Google Fonts loaded via index.html (non-blocking) */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: 40 20% 98%;
-  --foreground: 150 30% 8%;
-  --muted: 40 10% 94%;
+  --background: 0 0% 100%;
+  --foreground: 150 20% 10%;
+  --muted: 140 10% 95%;
   --muted-foreground: 150 5% 45%;
   --popover: 0 0% 100%;
-  --popover-foreground: 150 30% 8%;
+  --popover-foreground: 150 20% 10%;
   --card: 0 0% 100%;
-  --card-foreground: 150 30% 8%;
-  --border: 40 15% 88%;
-  --input: 40 15% 88%;
-  --primary: 152 50% 18%;
-  --primary-foreground: 40 20% 98%;
-  --secondary: 39 60% 55%;
-  --secondary-foreground: 40 20% 98%;
-  --accent: 40 30% 92%;
-  --accent-foreground: 150 30% 8%;
+  --card-foreground: 150 20% 10%;
+  --border: 140 10% 90%;
+  --input: 140 10% 90%;
+  --primary: 152 50% 22%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 152 40% 38%;
+  --secondary-foreground: 0 0% 100%;
+  --accent: 145 20% 94%;
+  --accent-foreground: 150 20% 10%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
-  --ring: 152 50% 18%;
+  --ring: 152 50% 22%;
   --radius: 0.75rem;
 }
 
@@ -37,12 +37,14 @@
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-wrap: pretty;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', system-ui, sans-serif;
     font-weight: 700;
     letter-spacing: -0.02em;
+    text-wrap: balance;
   }
 
   html {
@@ -96,7 +98,7 @@
 
   /* Gradient text */
   .gradient-text {
-    background: linear-gradient(135deg, hsl(39, 60%, 55%), hsl(39, 80%, 65%));
+    background: linear-gradient(135deg, hsl(152, 50%, 22%), hsl(152, 40%, 38%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -165,10 +167,15 @@
     opacity: 1;
   }
 
+  .speaker-card:hover .speaker-image {
+    filter: blur(3px);
+    transform: scale(1.05);
+  }
+
   .speaker-overlay {
     opacity: 0;
     transition: opacity 0.4s ease;
-    background: linear-gradient(to top, rgba(13, 27, 20, 0.95) 0%, transparent 100%);
+    background: linear-gradient(to top, rgba(13, 27, 20, 0.95) 0%, rgba(13, 27, 20, 0.85) 60%, rgba(13, 27, 20, 0.5) 100%);
   }
 
   /* Exhibitor card */
@@ -179,7 +186,7 @@
 
   .exhibitor-card:hover {
     border-color: hsl(var(--secondary) / 0.5);
-    box-shadow: 0 12px 32px rgba(212, 168, 83, 0.1);
+    box-shadow: 0 12px 32px hsl(152, 40%, 38% / 0.1);
     transform: translateY(-4px);
   }
 
@@ -193,7 +200,7 @@
 
   .testimonial-glass:hover {
     background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(212, 168, 83, 0.3);
+    border-color: hsl(152, 40%, 38% / 0.3);
     transform: translateY(-4px);
   }
 

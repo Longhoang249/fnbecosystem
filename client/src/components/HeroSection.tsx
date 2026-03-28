@@ -84,62 +84,46 @@ export default function HeroSection({ eventDate, eventTime, eventLocation }: Her
       <div className="absolute inset-0 bg-gradient-to-b from-[#0D1B14]/70 via-[#0D1B14]/50 to-[#0D1B14]/80 z-10" />
 
       {/* Content */}
-      <div className="container mx-auto px-4 relative z-20 text-center py-32 md:py-0">
-        {/* Free badge */}
+      <div className="container mx-auto px-4 relative z-20 text-center py-28 md:py-0">
+        {/* Event logo - dominant focal point */}
         <motion.div
-          className="inline-flex items-center gap-2 bg-secondary/20 border border-secondary/30 text-secondary px-4 py-1.5 rounded-full text-sm font-medium mb-8 backdrop-blur-sm"
+          className="flex justify-center mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
         >
-          <Sparkles className="w-4 h-4" />
-          Vé vào cửa miễn phí
+          <img
+            src="/fnb-connect-logo.png"
+            alt="F&B Connect"
+            className="w-[85vw] max-w-[320px] md:max-w-[480px] lg:max-w-[560px] h-auto object-contain brightness-0 invert drop-shadow-2xl"
+            fetchPriority="high"
+          />
         </motion.div>
 
-        {/* Event name */}
-        <motion.h1
-          className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-2 tracking-tight"
+        {/* Countdown */}
+        <motion.div
+          className="flex justify-center mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
         >
-          FNB CONNECT
-        </motion.h1>
-
-        {/* Tagline */}
-        <motion.p
-          className="text-lg md:text-2xl mb-8 max-w-2xl mx-auto font-medium text-white/90 leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          Kết nối nguồn lực, mở rộng cơ hội
-        </motion.p>
-
-        {/* Countdown */}
-        <motion.div
-          className="flex justify-center mb-10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
           <CountdownTimer />
         </motion.div>
 
-        {/* Info badges */}
+        {/* Info badges - compact */}
         <motion.div
-          className="flex flex-wrap justify-center gap-3 mb-10"
+          className="flex flex-wrap justify-center gap-2 mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.25 }}
         >
           {infoBadges.map((badge, i) => (
             <div
               key={i}
-              className="stat-card flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm"
+              className="stat-card flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs md:text-sm"
             >
-              <badge.icon className="w-4 h-4 text-secondary" />
-              <span className="text-white/90">{badge.text}</span>
+              <badge.icon className="w-3.5 h-3.5 text-secondary" />
+              <span className="text-white/80">{badge.text}</span>
             </div>
           ))}
         </motion.div>
@@ -148,22 +132,23 @@ export default function HeroSection({ eventDate, eventTime, eventLocation }: Her
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.8, delay: 0.35 }}
         >
           <button
-            className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary/90 text-white font-bold py-4 px-10 rounded-2xl text-lg transition-all duration-300 shadow-xl shadow-secondary/25 hover:shadow-2xl hover:shadow-secondary/30 hover:-translate-y-1"
+            className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary/90 text-white font-bold py-3.5 px-8 rounded-xl text-base transition-all duration-300 shadow-xl shadow-secondary/25 hover:shadow-2xl hover:shadow-secondary/30 hover:-translate-y-1"
             onClick={() => document.getElementById("register")?.scrollIntoView({ behavior: "smooth" })}
           >
             Đăng Ký Tham Dự
             <ArrowRight className="w-5 h-5" />
           </button>
+          <p className="text-white/40 text-xs mt-3">Vé vào cửa miễn phí ✨</p>
         </motion.div>
       </div>
 
       {/* Bottom wave */}
       <div className="absolute bottom-0 left-0 w-full z-20">
         <svg viewBox="0 0 1440 80" className="w-full h-auto" preserveAspectRatio="none">
-          <path fill="hsl(40, 20%, 98%)" d="M0,40 C360,80 720,0 1080,40 C1260,60 1360,50 1440,40 L1440,80 L0,80 Z" />
+          <path fill="hsl(0, 0%, 100%)" d="M0,40 C360,80 720,0 1080,40 C1260,60 1360,50 1440,40 L1440,80 L0,80 Z" />
         </svg>
       </div>
     </section>

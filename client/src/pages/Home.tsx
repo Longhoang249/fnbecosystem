@@ -2,17 +2,18 @@ import { Helmet } from "react-helmet";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
-import VenueSection from "@/components/VenueSection";
-import ScheduleSection from "@/components/ScheduleSection";
-import SpeakersSection from "@/components/SpeakersSection";
-import ExhibitorsSection from "@/components/ExhibitorsSection";
-import GallerySection from "@/components/GallerySection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import RegistrationSection from "@/components/RegistrationSection";
-import Footer from "@/components/Footer";
-import SponsorsSection from "@/components/SponsorsSection";
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import ThankYouModal from "@/components/ThankYouModal";
+
+// Lazy load below-fold sections to reduce initial bundle
+const VenueSection = lazy(() => import("@/components/VenueSection"));
+const SpeakersSection = lazy(() => import("@/components/SpeakersSection"));
+const ScheduleSection = lazy(() => import("@/components/ScheduleSection"));
+const ExhibitorsSection = lazy(() => import("@/components/ExhibitorsSection"));
+const GallerySection = lazy(() => import("@/components/GallerySection"));
+const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
+const RegistrationSection = lazy(() => import("@/components/RegistrationSection"));
+const Footer = lazy(() => import("@/components/Footer"));
 
 export default function Home() {
   const [showThankYouModal, setShowThankYouModal] = useState(false);
@@ -42,23 +43,22 @@ export default function Home() {
       />
       <AboutSection />
 
-
-
-      <VenueSection />
-      <ScheduleSection />
-      <SpeakersSection />
-      <ExhibitorsSection />
-      <SponsorsSection />
-      <GallerySection />
-      <TestimonialsSection />
-      <RegistrationSection
-        eventDate="22 tháng 4, 2026"
-        eventTime="9:00 - 17:00"
-        eventLocation="Tầng 3 toà nhà The Zei - Số 8 Lê Đức Thọ, Tp.Hà Nội"
-        eventPrice="Miễn phí"
-        onSuccessfulRegistration={() => setShowThankYouModal(true)}
-      />
-      <Footer />
+      <Suspense fallback={null}>
+        <VenueSection />
+        <SpeakersSection />
+        <ScheduleSection />
+        <ExhibitorsSection />
+        <GallerySection />
+        <TestimonialsSection />
+        <RegistrationSection
+          eventDate="22 tháng 4, 2026"
+          eventTime="9:00 - 17:00"
+          eventLocation="Tầng 3 toà nhà The Zei - Số 8 Lê Đức Thọ, Tp.Hà Nội"
+          eventPrice="Miễn phí"
+          onSuccessfulRegistration={() => setShowThankYouModal(true)}
+        />
+        <Footer />
+      </Suspense>
       <ThankYouModal
         isOpen={showThankYouModal}
         onClose={() => setShowThankYouModal(false)}

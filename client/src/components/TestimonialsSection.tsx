@@ -25,7 +25,7 @@ export default function TestimonialsSection() {
       author: { name: "Mr. Quang Vinh", role: "CEO VinCent - Thiết bị Cà Phê & Trà Sữa Đà Nẵng" },
     },
     {
-      content: "Chị thấy sự kiện rất hoành tráng, môi trường thân thiện và chuyên nghiệp. Tích hợp cả máy móc, nguyên liệu và kiến thức kinh doanh trong cùng một sự kiện — rất bất ngờ!",
+      content: "Chị thấy sự kiện rất hoành tráng, môi trường thân thiện và chuyên nghiệp. Tích hợp cả máy móc, nguyên liệu và kiến thức kinh doanh trong cùng một sự kiện, rất bất ngờ!",
       author: { name: "Mrs. Nhung", role: "Chủ đại lý nguyên liệu pha chế Quỳnh Như, Lào Cai" },
     },
   ];
