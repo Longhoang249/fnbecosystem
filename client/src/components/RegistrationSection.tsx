@@ -45,7 +45,7 @@ export default function RegistrationSection({
       } catch { /* continue */ }
 
       try {
-        const url = "https://script.google.com/macros/s/AKfycbwRq8jrxnxMOe90xR2Jm8IbwLY4KveRVkaw616nhg4gOi9jP7CIIq2Xwj7JezjRvHIhLQ/exec";
+        const url = "https://script.google.com/macros/s/AKfycbyQ8csKhPILgS1dc_RmBx6KbZJg-DbfBL6ltOP_DlMS-1im0H8wtFA-fsMOEYKro7i6Ww/exec";
         const formData = new URLSearchParams();
         formData.append("fullName", data.fullName);
         formData.append("phone", data.phone);

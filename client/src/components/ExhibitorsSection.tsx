@@ -16,7 +16,7 @@ interface Exhibitor {
 export default function ExhibitorsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
-  const [expanded, setExpanded] = useState<{ [key: number]: boolean }>({});
+  const [expanded, setExpanded] = useState<{ [key: string | number]: boolean }>({});
   const [swiperOrg, setSwiperOrg] = useState<any>(null);
   const [swiperGuest, setSwiperGuest] = useState<any>(null);
 
@@ -71,11 +71,11 @@ export default function ExhibitorsSection() {
     { name: "BODUO VIỆT NAM", description: "Tập đoàn sản xuất nguyên liệu pha chế hàng đầu Trung Quốc, với hơn 20 năm kinh nghiệm và hệ thống 4 nhà máy hiện đại, cung cấp sản phẩm chất lượng cao cho ngành F&B toàn cầu.", products: ["Nguyên liệu pha chế cao cấp", "Giải pháp đồ uống sáng tạo", "Hơn 20 năm kinh nghiệm"], image: "https://i.ibb.co/93GTGmph/A-nh.jpg" },
     { name: "HOLYON TEA", description: "Đại diện chính thức của Holyon Tea tại thị trường Việt Nam. Mang đến các sản phẩm trà chất lượng cao, cung cấp giải pháp tổng thể cho thị trường trà với blending chuyên nghiệp.", products: ["Trà chất lượng cao", "Blending chuyên nghiệp"], image: "https://i.ibb.co/qFpYPzTh/Holyon-tea-600x400-01.png" },
     { name: "Nhất Hương", description: "Doanh nghiệp Việt Nam tiên phong trong lĩnh vực sản xuất và phân phối nguyên liệu ngành bánh và pha chế.", products: ["Kem Béo Pha Chế", "Kem Whipping Base", "Sốt Caramen, Sốt Sô Cô La Cacao Talk"], image: "https://i.postimg.cc/m26BxFBk/Post-Landing-Page-01.jpg" },
-    { name: "Nobita Food", description: "Nhà cung cấp nguyên liệu và giải pháp kinh doanh cho ngành đồ uống.", products: ["Nguyên liệu pha chế", "Giải pháp kinh doanh F&B"], image: "https://placehold.co/600x400/1B4332/D4A853?text=NOBITA+FOOD" },
+    { name: "Nobita Food", description: "Nobita Food là đơn vị chuyên sản xuất và cung cấp nguyên liệu pha chế và đồ ăn vặt trên thị trường. Doanh nghiệp tập trung vào các dòng sản phẩm chủ lực như bột kem béo, cùng các sản phẩm ăn vặt tiện lợi như khô gà, khô bò, khô heo. Ngoài ra, Nobita Food còn nhận gia công thương hiệu (OEM/ODM) cho các chuỗi kinh doanh và nhà phân phối (NPP), giúp đối tác xây dựng sản phẩm riêng với chất lượng ổn định, giá thành cạnh tranh và quy trình sản xuất chuyên nghiệp.", products: ["Bột kem béo nguyên liệu pha chế", "Khô gà, khô bò, khô heo ăn vặt", "Gia công thương hiệu OEM/ODM"], image: "https://i.ibb.co/zh5tbtqm/poster-c-c-s-n-ph-m-vuoong-page-0001.jpg" },
     { name: "iPOS", description: "iPOS.vn, 15 năm tiên phong cung cấp hệ sinh thái giải pháp quản trị và bán hàng chuyên biệt cho ngành F&B Việt Nam, đáp ứng mọi mô hình kinh doanh ẩm thực. Hiện diện tại 13 chi nhánh và mạng lưới đối tác phủ 34 tỉnh thành. Đội ngũ nhiệt huyết, tận tâm, luôn sẵn sàng đồng hành cùng chủ quán để vận hành hiệu quả và bứt phá doanh thu.", products: ["Phần mềm quản lý bán hàng POS", "Giải pháp quản lý nhà hàng, quán café", "Hệ thống báo cáo & phân tích kinh doanh"], image: "https://i.ibb.co/pBLxnkKR/i-POS-vn-nh-thumb.jpg" },
-    { name: "Cốc Giấy Hk", description: "KKGROUP, 7 năm sản xuất ly giấy, tô giấy và bao bì thực phẩm dùng một lần. Quy trình khép kín 100%, tiên phong xu hướng sáng tạo trong branding F&B. Đối tác tin cậy của hơn 200 thương hiệu chuỗi coffee & tea trên toàn quốc.", products: ["Cốc giấy các loại", "Ly giấy in logo thương hiệu", "Giải pháp bao bì đồ uống"], image: "/c_c_gi_y_hk.png" },
+    { name: "Cốc Giấy Hk", description: "KKGROUP, 7 năm sản xuất ly giấy, tô giấy và bao bì thực phẩm dùng một lần. Quy trình khép kín 100%, tiên phong xu hướng sáng tạo trong branding F&B. Đối tác tin cậy của hơn 200 thương hiệu chuỗi coffee & tea trên toàn quốc.", products: ["Cốc giấy các loại", "Ly giấy in logo thương hiệu", "Bộ giải pháp bao bì toàn diện cho ngành F&B"], image: "/c_c_gi_y_hk.png" },
     { name: "NLPC Bốn Phương", description: "Phân phối độc quyền miền Bắc: WAO, No.1, SG, Vạn Thành, LongBeach với nguồn gốc rõ ràng, giá hợp lý, sản lượng ổn định. Nguyên liệu đầy đủ, công thức liên tục cập nhật. Chiết khấu cao, trả thưởng hấp dẫn. Nhượng quyền \"3 Không\" và hỗ trợ setup quán từ A–Z.", products: ["Nguyên liệu pha chế đa dạng", "Siro & Topping", "Giải pháp nguyên liệu trọn gói"], image: "https://i.ibb.co/nqyVx1B0/2048x1152-1.png" },
-    { name: "VBM", description: "VBM Việt Nam, 15 năm tiên phong trong tư vấn, thiết kế và thi công chuỗi quán F&B. Hơn 1.000 dự án thành công trên khắp cả nước, mỗi công trình là một câu chuyện sáng tạo được đo ni đóng giày theo cá tính riêng của từng thương hiệu. Sự hài lòng của khách hàng là động lực để VBM không ngừng đổi mới mỗi ngày.", products: ["Máy pha cà phê chuyên nghiệp", "Máy xay cà phê", "Giải pháp pha chế cao cấp"], image: "https://i.ibb.co/Q7bVtKKB/nh-cover-website-s-ki-n.png" },
+    { name: "VBM", description: "VBM Việt Nam, 15 năm tiên phong trong tư vấn, thiết kế và thi công chuỗi quán F&B. Hơn 1.000 dự án thành công trên khắp cả nước, mỗi công trình là một câu chuyện sáng tạo được đo ni đóng giày theo cá tính riêng của từng thương hiệu. Sự hài lòng của khách hàng là động lực để VBM không ngừng đổi mới mỗi ngày.", products: ["Tư vấn mô hình", "Thiết kế bộ nhận diện", "Thiết kế 2D-3D", "Thi công bàn giao - hoàn thiện", "Đóng gói giải pháp kinh doanh thương hiệu F&B"], image: "https://i.ibb.co/Q7bVtKKB/nh-cover-website-s-ki-n.png" },
     { name: "Wazuka", description: "Matcha không chỉ là nguyên liệu, mà là ngôn ngữ của vị giác. Wazuka Matcha khác biệt nhờ lá trà che nắng nhiều tuần tăng L-theanine và umami, nghiền cối đá truyền thống, phân hạng rõ ràng giúp quán chọn đúng dòng cho menu", products: ["Trà Matcha Nhật Bản", "Trà xanh cao cấp", "Nguyên liệu trà Nhật"], image: "https://i.ibb.co/DPgybTzL/z7652198383209-7649acbcc0e135d869c29bf7ccbe5746.jpg" },
     { name: "Minh Hạnh Food", description: "Minh Hạnh Food & IQ Food, hơn 20 năm dẫn đầu thị trường nguyên liệu pha chế Việt Nam với 70% thị phần bán buôn. Nổi bật với topping chất lượng cao: trân châu Kun Han, Sea 3Q, thạch, nha đam, siro Tomoxi và trà sữa uống liền IQ Food. 4 nhà máy chuẩn ISO 22000, ứng dụng công nghệ hiện đại từ nông sản nội địa. Cam kết đồng hành cùng nông dân và mang sản phẩm tốt với \"giá cho người Việt\".", products: ["Nguyên liệu thực phẩm F&B", "Sản phẩm pha chế", "Giải pháp nguyên liệu cho quán"], image: "https://i.ibb.co/pvt1rh8J/A-nh-thie-t-ke-MHF-600-x-400-px-1.png" },
     { name: "Trendy", description: "Trendy ra đời với sứ mệnh đem lại những sản phẩm phù hợp với việc kinh doanh và pha chế đồ uống, đặc biệt được tin dùng bởi các Barista đầu ngành. Mỗi sản phẩm của Trendy đều được tỉ mỉ và cẩn thận trong từng khâu thiết kế, chế biến, đóng gói và vận chuyển, mang đến hương vị của thiên nhiên cùng sự tin tưởng về những ly đồ uống ngon sắp được ra đời.", products: [], image: "https://i.ibb.co/WpGMXKCY/z7652198082890-cba4e0258765d89e75fceda55730f40b.jpg" }
@@ -259,39 +259,72 @@ export default function ExhibitorsSection() {
                       />
                     </div>
                     <div className="p-4 flex flex-col flex-grow">
-                      <h3 className="text-sm font-bold text-foreground mb-1">{exhibitor.name}</h3>
-                      <p className="text-muted-foreground text-xs mb-2 flex-grow">
-                        {exhibitor.description.split(' ').length > 25 
-                          ? exhibitor.description.split(' ').slice(0, 25).join(' ') + '...' 
-                          : exhibitor.description}
-                      </p>
-                      
-                      {exhibitor.products.length > 0 && (
-                        <div>
-                          <button
-                            onClick={() => setExpanded((p) => ({ ...p, [index]: !p[index] }))}
-                            className="flex items-center gap-1 text-primary hover:text-secondary text-xs font-semibold transition-colors mt-1"
-                          >
-                            {expanded[index] ? "Thu gọn" : "Xem sản phẩm"}
-                            <ChevronDown className={`w-3.5 h-3.5 transition-transform ${expanded[index] ? "rotate-180" : ""}`} />
-                          </button>
-                          {expanded[index] && (
-                            <motion.ul
-                              className="mt-2 space-y-1 text-xs text-muted-foreground border-t border-border pt-2"
-                              initial={{ opacity: 0 }}
-                              animate={{ opacity: 1 }}
-                              transition={{ duration: 0.3 }}
+                      <h3 className="text-sm font-bold text-foreground mb-1.5">{exhibitor.name}</h3>
+                      {(() => {
+                        const words = exhibitor.description.split(' ');
+                        const isLong = words.length > 25;
+                        const descKey = `desc-${index}`;
+                        const isDescExpanded = expanded[descKey];
+                        return (
+                          <div className="flex-grow text-muted-foreground text-xs leading-relaxed">
+                            {isDescExpanded ? (
+                              <>
+                                {exhibitor.description}{' '}
+                                <button
+                                  onClick={() => setExpanded((p) => ({ ...p, [descKey]: false }))}
+                                  className="text-primary hover:text-secondary font-semibold whitespace-nowrap"
+                                >
+                                  Thu gọn
+                                </button>
+                              </>
+                            ) : (
+                              <>
+                                {isLong ? words.slice(0, 25).join(' ') : exhibitor.description}
+                                {isLong && (
+                                  <>
+                                    {'... '}
+                                    <button
+                                      onClick={() => setExpanded((p) => ({ ...p, [descKey]: true }))}
+                                      className="text-primary hover:text-secondary font-semibold whitespace-nowrap"
+                                    >
+                                      Xem thêm
+                                    </button>
+                                  </>
+                                )}
+                              </>
+                            )}
+                          </div>
+                        );
+                      })()}
+
+                      <div className="mt-auto pt-3">
+                        {exhibitor.products.length > 0 && (
+                          <div>
+                            <button
+                              onClick={() => setExpanded((p) => ({ ...p, [index]: !p[index] }))}
+                              className="flex items-center gap-1 text-primary hover:text-secondary text-xs font-semibold transition-colors border-t border-border pt-2 w-full"
                             >
-                              {exhibitor.products.map((p, i) => (
-                                <li key={i} className="flex items-start gap-1.5">
-                                  <span className="w-1 h-1 bg-secondary rounded-full mt-1.5 flex-shrink-0" />
-                                  <span className="leading-tight">{p}</span>
-                                </li>
-                              ))}
-                            </motion.ul>
-                          )}
-                        </div>
-                      )}
+                              {expanded[index] ? "Thu gọn" : "Xem sản phẩm"}
+                              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${expanded[index] ? "rotate-180" : ""}`} />
+                            </button>
+                            {expanded[index] && (
+                              <motion.ul
+                                className="mt-2 space-y-1 text-xs text-muted-foreground"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.3 }}
+                              >
+                                {exhibitor.products.map((p, i) => (
+                                  <li key={i} className="flex items-start gap-1.5">
+                                    <span className="w-1 h-1 bg-secondary rounded-full mt-1.5 flex-shrink-0" />
+                                    <span className="leading-tight">{p}</span>
+                                  </li>
+                                ))}
+                              </motion.ul>
+                            )}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </motion.div>
                 </SwiperSlide>
