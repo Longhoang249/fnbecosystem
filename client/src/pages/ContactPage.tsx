@@ -97,12 +97,13 @@ export default function ContactPage() {
       formData.append("source", "QR-LienHe");
 
       // Ensure explicit headers and stringified body
-      await fetch(GOOGLE_SHEET_URL, { 
+      fetch(GOOGLE_SHEET_URL, { 
         method: "POST", 
         mode: "no-cors", 
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: formData.toString() 
-      });
+      }).catch(console.error);
+
       setSubmitted(true);
       toast({ title: "Gửi Thành Công! 🎉", description: "Cảm ơn bạn đã để lại thông tin." });
     } catch {

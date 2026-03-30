@@ -45,12 +45,13 @@ export default function RegisterPage() {
       formData.append("ticketCount", data.ticketCount);
       formData.append("message", data.message || "");
       formData.append("source", "QR-DangKy");
-      await fetch(GOOGLE_SHEET_URL, { 
+      fetch(GOOGLE_SHEET_URL, { 
         method: "POST", 
         mode: "no-cors", 
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: formData.toString() 
-      });
+      }).catch(console.error);
+      
       setSubmitted(true);
       toast({ title: "Đăng Ký Thành Công! 🎉", description: "Chúng tôi sẽ liên hệ với bạn sớm nhất." });
     } catch {

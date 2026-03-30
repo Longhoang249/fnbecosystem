@@ -41,7 +41,7 @@ export default function RegistrationSection({
   const onSubmit = async (data: RegistrationFormData) => {
     try {
       try {
-        await registerUser({ ...data, email: "", company: "", position: "", interest: "" });
+        registerUser({ ...data, email: "", company: "", position: "", interest: "" });
       } catch { /* continue */ }
 
       try {
@@ -51,12 +51,12 @@ export default function RegistrationSection({
         formData.append("phone", data.phone);
         formData.append("ticketCount", data.ticketCount);
         formData.append("message", data.message || "");
-        await fetch(url, { 
+        fetch(url, { 
           method: "POST", 
           mode: "no-cors", 
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: formData.toString() 
-        });
+        }).catch(console.error);
       } catch { /* continue */ }
 
       toast({ title: "Đăng Ký Thành Công! 🎉", description: "Chúng tôi sẽ liên hệ với bạn sớm nhất." });
