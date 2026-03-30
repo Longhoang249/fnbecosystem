@@ -57,7 +57,7 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
-const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycby02CON5xPoePykTVHVk9XtmIQdFcJUu7pmxl4zssiec9l2Jk0KDx2r4AYPyGNfX0c/exec";
+const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbyQ8csKhPILgS1dc_RmBx6KbZJg-DbfBL6ltOP_DlMS-1im0H8wtFA-fsMOEYKro7i6Ww/exec";
 
 export default function ContactPage() {
   const { toast } = useToast();
