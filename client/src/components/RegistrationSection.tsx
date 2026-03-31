@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -67,8 +67,46 @@ export default function RegistrationSection({
     }
   };
 
-  const totalSeats = 400;
-  const registeredSeats = 260;
+  const totalSeats = 700;
+  const [registeredSeats, setRegisteredSeats] = useState(260);
+
+  useEffect(() => {
+    const targetDate = new Date("2026-04-22T09:00:00+07:00").getTime();
+    const fakeNames = [
+      "Nguyễn Văn An", "Trần Thị Bé", "Lê Hoàng Công", "Phạm Đình Duy",
+      "Hoàng Thu Hằng", "Phan Tuấn Kiệt", "Vũ Minh Quân", "Đặng Thùy Trang",
+      "Bùi Xuân Trường", "Đỗ Hải Yến", "Ngô Thành Nam", "Dương Phương Anh",
+      "Lý Thu Hà", "Mai Kim Liên", "Đào Văn Cường", "Đoàn Thị Lệ",
+      "Đặng Văn Tường", "Võ Kim Thanh", "Vũ Thị Hương", "Lâm Đình Tuấn"
+    ];
+
+    let timeoutId: NodeJS.Timeout;
+
+    const runFakeRegistration = () => {
+      const now = Date.now();
+      if (now >= targetDate) return;
+
+      setRegisteredSeats(prev => {
+        if (prev >= totalSeats - 4) return prev;
+        const tickets = Math.floor(Math.random() * 4) + 1;
+        
+        const randomName = fakeNames[Math.floor(Math.random() * fakeNames.length)];
+        toast({
+          title: "Đăng ký thành công! 🎉",
+          description: `${randomName} vừa đăng ký ${tickets} vé.`,
+        });
+
+        return prev + tickets;
+      });
+
+      const nextDelay = Math.floor(Math.random() * 12000) + 4000;
+      timeoutId = setTimeout(runFakeRegistration, nextDelay);
+    };
+
+    timeoutId = setTimeout(runFakeRegistration, Math.floor(Math.random() * 4000) + 2000);
+
+    return () => clearTimeout(timeoutId);
+  }, [toast, totalSeats]);
   const remainingSeats = totalSeats - registeredSeats;
   const progressPercent = (registeredSeats / totalSeats) * 100;
 
@@ -157,8 +195,8 @@ export default function RegistrationSection({
               <div className="bg-gradient-to-r from-primary/5 to-secondary/5 border border-primary/15 rounded-xl p-4 mb-6">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
-                    <Armchair className="w-4 h-4 text-primary" />
-                    <span className="text-sm font-semibold text-foreground">Ghế còn lại</span>
+                    <Ticket className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-semibold text-foreground">Vé còn lại</span>
                   </div>
                   <span className="text-lg font-extrabold text-primary">{remainingSeats}<span className="text-sm font-medium text-muted-foreground">/{totalSeats}</span></span>
                 </div>
