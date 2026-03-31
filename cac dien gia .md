@@ -1,6 +1,6 @@
 
 
-| 1\. Mr. Đỗ Hải \- Viral Marketing |  |  |
+| 1\. Mr. Hải Đây \- Viral Marketing |  |  |
 | :---- | :---- | :---- |
 | 2\. Mr. Hàn Cương \- Chuyên gia trà Trung Quốc | Xu hướng FnB châu Á | ![][image1] |
 | 3\. Mrs. Đinh Thị Lan Phương \- Giám đốc khối sản phẩm kế toán iPOS | Trao đổi thêm về chủ đề iPOS: \- Chia sẻ thêm về những thay đổi chính sách thuế cho hộ kinh doanh và hoá đơn điện tử  | ![][image2] |

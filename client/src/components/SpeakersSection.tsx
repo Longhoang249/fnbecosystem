@@ -20,7 +20,7 @@ export default function SpeakersSection() {
 
   const speakers: Speaker[] = [
     {
-      name: "Mr. Đỗ Hải",
+      name: "Mr. Hải Đây",
       role: "Nhà sáng lập Học viện Lan Truyền CoreViral - Hải Đây",
       bio: "5 Năm kinh nghiệm Brand Manager.\n6 Tỷ view viral cho các doanh nghiệp trên nền tảng social media.\n1 Nút vàng 7 nút bạc Youtube.\nTOP 20 nhà sáng tạo nội dung xuất sắc nhất Việt Nam Youtube Short.\nHợp tác huấn luyện hơn 100+ doanh nghiệp như FPT Polytechnic, The Bad God, Nerman, The Orbit...",
       image: "/do_hai.jpg",

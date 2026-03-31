@@ -26,7 +26,7 @@ export default function ScheduleSection() {
       title: "Lợi Dụng Thuật Toán Tăng Trưởng Tỷ Views - Xây Kênh Viral Đa Nền Tảng",
       description: "Được thiết kế nhằm giúp doanh nghiệp hiểu và khai thác thuật toán như một đòn bẩy tăng trưởng hệ thống. Chương trình tập trung chia sẻ tư duy, mô hình và kinh nghiệm triển khai đã được kiểm chứng, giúp doanh nghiệp xây dựng hệ thống kênh truyền thông tăng trưởng bền vững, thay vì phụ thuộc vào các kết quả ngắn hạn.",
       detailedDescription: "Hiểu rõ thuật toán phi tập chung trên các nền tảng social (Tiktok, Youtube, Instagram,..)\n- Tổng quan xu hướng thuật toán các nền tảng mạng xã hội hiện nay\n- Cách thuật toán “quả cầu tuyết” vận hành và phân phối nội dung\n- Ứng dụng mô hình quả cầu tuyết để xây dựng hệ thống kênh vệ tinh cho thương hiệu",
-      speaker: { name: "Mr. Đỗ Hải", image: "/do_hai.jpg" },
+      speaker: { name: "Mr. Hải Đây", image: "/do_hai.jpg" },
     },
     {
       time: "10:15 - 11:15",
