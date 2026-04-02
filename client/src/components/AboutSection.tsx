@@ -13,14 +13,14 @@ export default function AboutSection() {
       bullets: [
         // Thêm gạch đầu dòng ở đây sau
       ],
-      image: "/images/feature1.jpg",
+      image: "/images/feature1.webp",
       accent: "from-emerald-500/20 to-emerald-600/5",
     },
     {
       icon: Users,
       title: "Gặp mặt chuyên gia đầu ngành: Giải đáp về thuế, vận hành và marketing thời chuyển đổi",
       bullets: [],
-      image: "/images/feature2.jpg",
+      image: "/images/feature2.webp",
       accent: "from-amber-500/20 to-amber-600/5",
     },
     {
@@ -34,7 +34,7 @@ export default function AboutSection() {
       icon: Gift,
       title: "Hàng ngàn phần quà hấp dẫn: Hơn 1000+ phần quà từ ban tổ chức",
       bullets: [],
-      image: "/images/feature3.jpg",
+      image: "/images/feature3.webp",
       accent: "from-rose-500/20 to-rose-600/5",
     },
   ];

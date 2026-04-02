@@ -13,7 +13,7 @@ const brands = [
     id: "autoshop",
     name: "AUTOSHOP",
     subtitle: "Vua Máy Pha Chế",
-    image: "/exhibitors/autoshop.jpg",
+    image: "/exhibitors/autoshop.webp",
   },
   {
     id: "boduo",

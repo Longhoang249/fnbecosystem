@@ -26,14 +26,14 @@ export default function ScheduleSection() {
       title: "LỢI DỤNG THUẬT TOÁN TĂNG TRƯỞNG TỶ VIEWS - XÂY KÊNH VIRAL ĐA NỀN TẢNG",
       description: "Được thiết kế nhằm giúp doanh nghiệp hiểu và khai thác thuật toán như một đòn bẩy tăng trưởng hệ thống. Chương trình tập trung chia sẻ tư duy, mô hình và kinh nghiệm triển khai đã được kiểm chứng, giúp doanh nghiệp xây dựng hệ thống kênh truyền thông tăng trưởng bền vững, thay vì phụ thuộc vào các kết quả ngắn hạn.",
       detailedDescription: "Hiểu rõ thuật toán phi tập chung trên các nền tảng social (Tiktok, Youtube, Instagram,..)\n- Tổng quan xu hướng thuật toán các nền tảng mạng xã hội hiện nay\n- Cách thuật toán “quả cầu tuyết” vận hành và phân phối nội dung\n- Ứng dụng mô hình quả cầu tuyết để xây dựng hệ thống kênh vệ tinh cho thương hiệu",
-      speaker: { name: "Mr. Đỗ Hải", image: "/do_hai.jpg" },
+      speaker: { name: "Mr. Đỗ Hải", image: "/do_hai.webp" },
     },
     {
       time: "10:35 - 11:35",
       title: "Chuyển Đổi Số Trong Quản Lý Thuế: Từ Tuân Thủ Đến Tối Ưu Vận Hành",
       description: "Chia sẻ những thông tin cập nhật mới nhất về chính sách thuế, đồng thời phân tích các khó khăn phổ biến mà hộ kinh doanh F&B thường gặp phải.",
       detailedDescription: "Chia sẻ những thông tin cập nhật mới nhất về chính sách thuế, đồng thời phân tích các khó khăn phổ biến mà hộ kinh doanh F&B thường gặp phải. Bên cạnh đó, nội dung cũng đề cập đến cách chủ hộ ứng dụng công nghệ vào quy trình vận hành nhằm tối ưu thời gian và hạn chế sai sót.",
-      speaker: { name: "Mrs. Đinh Thị Lan Phương", image: "/lan_phuong.jpg" },
+      speaker: { name: "Mrs. Đinh Thị Lan Phương", image: "/lan_phuong.webp" },
     },
     { time: "12:00 - 13:25", title: "Nghỉ Trưa", description: "Các gian hàng vẫn hoạt động" },
     {
@@ -41,13 +41,13 @@ export default function ScheduleSection() {
       title: "Sự trỗi dậy của trà hoa ướp hương trong làn sóng đồ uống Trung Quốc",
       description: "Lý giải vì sao kỹ thuật ướp hương tự nhiên đang trở thành yếu tố tạo nên khác biệt trong trải nghiệm khách hàng.",
       detailedDescription: "Đưa ra góc nhìn dự đoán về tiềm năng bùng nổ của dòng trà này tại thị trường F&B Việt Nam trong thời gian tới.\nĐồng thời, phân tích cách các thương hiệu F&B có thể ứng dụng xu hướng này vào menu và vận hành, thông qua những giải pháp nguyên liệu giúp đảm bảo chất lượng hương vị một cách ổn định và tinh gọn.",
-      speaker: { name: "Mr. Hán Cương", image: "/han_cuong.jpg" },
+      speaker: { name: "Mr. Hán Cương", image: "/han_cuong.webp" },
     },
     {
       time: "14:40 - 15:40",
       title: "Đóng Gói Để Nhân Bản Thương Hiệu FnB",
       description: "Chia sẻ cách chuẩn hoá nhân sự, vận hành và quy trình thành hệ thống rõ ràng, giúp chủ quán mở rộng và nhân bản thương hiệu bền vững",
-      speaker: { name: "Phạm Văn Tuấn Anh", image: "/tuan_anh.jpg" },
+      speaker: { name: "Phạm Văn Tuấn Anh", image: "/tuan_anh.webp" },
     },
     { time: "15:50 - 16:00", title: "Giao Lưu Kết Nối", description: "Kết thúc sự kiện" },
   ];
