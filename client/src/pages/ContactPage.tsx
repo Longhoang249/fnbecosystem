@@ -57,7 +57,7 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
-const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycby02CON5xPoePykTVHVk9XtmIQdFcJUu7pmxl4zssiec9l2Jk0KDx2r4AYPyGNfX0c/exec";
+const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbyQ8csKhPILgS1dc_RmBx6KbZJg-DbfBL6ltOP_DlMS-1im0H8wtFA-fsMOEYKro7i6Ww/exec";
 
 export default function ContactPage() {
   const { toast } = useToast();
@@ -88,7 +88,7 @@ export default function ContactPage() {
         .filter(Boolean)
         .join(", ");
 
-      const formData = new window.FormData();
+      const formData = new URLSearchParams();
       formData.append("fullName", data.fullName);
       formData.append("phone", data.phone);
       formData.append("area", data.area);
@@ -96,7 +96,14 @@ export default function ContactPage() {
       formData.append("notes", data.notes || "");
       formData.append("source", "QR-LienHe");
 
-      await fetch(GOOGLE_SHEET_URL, { method: "POST", mode: "no-cors", body: formData });
+      // Ensure explicit headers and stringified body
+      fetch(GOOGLE_SHEET_URL, { 
+        method: "POST", 
+        mode: "no-cors", 
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formData.toString() 
+      }).catch(console.error);
+
       setSubmitted(true);
       toast({ title: "Gửi Thành Công! 🎉", description: "Cảm ơn bạn đã để lại thông tin." });
     } catch {

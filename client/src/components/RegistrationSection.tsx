@@ -1,12 +1,12 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { useRegistration } from "@/hooks/use-registration";
-import { Calendar, Clock, MapPin, Ticket, Gift, Store, Users, MessageSquare, Phone, ArrowRight, Send } from "lucide-react";
+import { Calendar, Clock, MapPin, Ticket, Gift, Utensils, Users, MessageSquare, Phone, ArrowRight, Send, Armchair } from "lucide-react";
 
 const registrationSchema = z.object({
   fullName: z.string().min(2, { message: "Họ và tên phải có ít nhất 2 ký tự" }),
@@ -41,17 +41,22 @@ export default function RegistrationSection({
   const onSubmit = async (data: RegistrationFormData) => {
     try {
       try {
-        await registerUser({ ...data, email: "", company: "", position: "", interest: "" });
+        registerUser({ ...data, email: "", company: "", position: "", interest: "" });
       } catch { /* continue */ }
 
       try {
-        const url = "https://script.google.com/macros/s/AKfycbwRq8jrxnxMOe90xR2Jm8IbwLY4KveRVkaw616nhg4gOi9jP7CIIq2Xwj7JezjRvHIhLQ/exec";
-        const formData = new FormData();
+        const url = "https://script.google.com/macros/s/AKfycbyQ8csKhPILgS1dc_RmBx6KbZJg-DbfBL6ltOP_DlMS-1im0H8wtFA-fsMOEYKro7i6Ww/exec";
+        const formData = new URLSearchParams();
         formData.append("fullName", data.fullName);
         formData.append("phone", data.phone);
         formData.append("ticketCount", data.ticketCount);
         formData.append("message", data.message || "");
-        await fetch(url, { method: "POST", mode: "no-cors", body: formData });
+        fetch(url, { 
+          method: "POST", 
+          mode: "no-cors", 
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: formData.toString() 
+        }).catch(console.error);
       } catch { /* continue */ }
 
       toast({ title: "Đăng Ký Thành Công! 🎉", description: "Chúng tôi sẽ liên hệ với bạn sớm nhất." });
@@ -62,9 +67,52 @@ export default function RegistrationSection({
     }
   };
 
+  const totalSeats = 700;
+  const [registeredSeats, setRegisteredSeats] = useState(260);
+
+  useEffect(() => {
+    const targetDate = new Date("2026-04-22T09:00:00+07:00").getTime();
+    const fakeNames = [
+      "Nguyễn Văn An", "Trần Thị Bé", "Lê Hoàng Công", "Phạm Đình Duy",
+      "Hoàng Thu Hằng", "Phan Tuấn Kiệt", "Vũ Minh Quân", "Đặng Thùy Trang",
+      "Bùi Xuân Trường", "Đỗ Hải Yến", "Ngô Thành Nam", "Dương Phương Anh",
+      "Lý Thu Hà", "Mai Kim Liên", "Đào Văn Cường", "Đoàn Thị Lệ",
+      "Đặng Văn Tường", "Võ Kim Thanh", "Vũ Thị Hương", "Lâm Đình Tuấn"
+    ];
+
+    let timeoutId: NodeJS.Timeout;
+
+    const runFakeRegistration = () => {
+      const now = Date.now();
+      if (now >= targetDate) return;
+
+      setRegisteredSeats(prev => {
+        if (prev >= totalSeats - 4) return prev;
+        const tickets = Math.floor(Math.random() * 4) + 1;
+        
+        const randomName = fakeNames[Math.floor(Math.random() * fakeNames.length)];
+        toast({
+          title: "Đăng ký thành công! 🎉",
+          description: `${randomName} vừa đăng ký ${tickets} vé.`,
+        });
+
+        return prev + tickets;
+      });
+
+      const nextDelay = Math.floor(Math.random() * 12000) + 4000;
+      timeoutId = setTimeout(runFakeRegistration, nextDelay);
+    };
+
+    timeoutId = setTimeout(runFakeRegistration, Math.floor(Math.random() * 4000) + 2000);
+
+    return () => clearTimeout(timeoutId);
+  }, [toast, totalSeats]);
+  const remainingSeats = totalSeats - registeredSeats;
+  const progressPercent = (registeredSeats / totalSeats) * 100;
+
   const highlights = [
     { icon: Gift, text: "Đến là có quà, 1000+ phần quà giá trị và thiết thực" },
-    { icon: Store, text: "Trải nghiệm 5+ gian hàng giải pháp kinh doanh đồ uống" },
+    { icon: Utensils, text: "Trải nghiệm xu hướng đồ ăn, uống mới nhất 2026" },
     { icon: Users, text: "Kết nối hàng ngàn chủ quán, đại lý kinh doanh" },
     { icon: MessageSquare, text: "Lắng nghe chuyên gia và được giải đáp mọi vấn đề" },
   ];
@@ -140,7 +188,26 @@ export default function RegistrationSection({
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="bg-white rounded-2xl border border-border p-8 shadow-xl shadow-black/5">
-              <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Đăng Ký Ngay</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-1 text-center">Đăng Ký Ngay</h3>
+              <p className="text-muted-foreground text-sm text-center mb-5">Để chắc chắn có chỗ ngồi</p>
+
+              {/* Seat counter */}
+              <div className="bg-gradient-to-r from-primary/5 to-secondary/5 border border-primary/15 rounded-xl p-4 mb-6">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <Ticket className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-semibold text-foreground">Vé còn lại</span>
+                  </div>
+                  <span className="text-lg font-extrabold text-primary">{remainingSeats}<span className="text-sm font-medium text-muted-foreground">/{totalSeats}</span></span>
+                </div>
+                <div className="w-full h-2.5 bg-gray-200 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-1000"
+                    style={{ width: `${progressPercent}%` }}
+                  />
+                </div>
+                <p className="text-xs text-muted-foreground mt-2 text-center">⚡ {registeredSeats} người đã đăng ký</p>
+              </div>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
                   <FormField control={form.control} name="fullName" render={({ field }) => (

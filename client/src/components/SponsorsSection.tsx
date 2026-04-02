@@ -95,7 +95,7 @@ export default function SponsorsSection() {
 
         {/* Row 2: Guest Brands */}
         <div>
-          <h3 className="text-center font-bold text-foreground/60 text-sm uppercase tracking-widest mt-2 mb-4">Thương Hiệu Khách Mời</h3>
+          <h3 className="text-center font-bold text-foreground/60 text-sm uppercase tracking-widest mt-2 mb-4">Thương Hiệu Đồng Hành</h3>
           <div className="relative w-full flex overflow-hidden py-4 border-b border-border bg-secondary/5">
             <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />

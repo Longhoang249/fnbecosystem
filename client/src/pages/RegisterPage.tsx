@@ -17,7 +17,7 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
-const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycby02CON5xPoePykTVHVk9XtmIQdFcJUu7pmxl4zssiec9l2Jk0KDx2r4AYPyGNfX0c/exec";
+const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbyQ8csKhPILgS1dc_RmBx6KbZJg-DbfBL6ltOP_DlMS-1im0H8wtFA-fsMOEYKro7i6Ww/exec";
 
 const eventInfo = [
   { icon: Calendar, text: "22 tháng 4, 2026" },
@@ -39,13 +39,19 @@ export default function RegisterPage() {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
-      const formData = new FormData();
+      const formData = new URLSearchParams();
       formData.append("fullName", data.fullName);
       formData.append("phone", data.phone);
       formData.append("ticketCount", data.ticketCount);
       formData.append("message", data.message || "");
       formData.append("source", "QR-DangKy");
-      await fetch(GOOGLE_SHEET_URL, { method: "POST", mode: "no-cors", body: formData });
+      fetch(GOOGLE_SHEET_URL, { 
+        method: "POST", 
+        mode: "no-cors", 
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formData.toString() 
+      }).catch(console.error);
+      
       setSubmitted(true);
       toast({ title: "Đăng Ký Thành Công! 🎉", description: "Chúng tôi sẽ liên hệ với bạn sớm nhất." });
     } catch {
