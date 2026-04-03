@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { CheckCircle, ArrowRight, Coffee, CakeSlice, CupSoda, Monitor, Paintbrush } from "lucide-react";
+import { CheckCircle, ArrowRight, Coffee, CakeSlice, CupSoda, Monitor, Paintbrush, FileText, Users, Gift } from "lucide-react";
 
 export default function AboutSection() {
   const ref = useRef(null);
