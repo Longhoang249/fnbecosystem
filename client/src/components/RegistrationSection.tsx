@@ -68,7 +68,40 @@ export default function RegistrationSection({
   };
 
   const totalSeats = 700;
-  const [registeredSeats, setRegisteredSeats] = useState(260);
+  const [registeredSeats, setRegisteredSeats] = useState(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("fnb_registered_seats");
+      if (saved) return parseInt(saved, 10);
+    }
+    return 260;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("fnb_registered_seats", registeredSeats.toString());
+  }, [registeredSeats]);
+
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const deadline = new Date("2026-04-21T23:59:59+07:00").getTime();
+    
+    // Initial call
+    const calcTime = () => {
+      const difference = deadline - Date.now();
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60)
+        });
+      }
+    };
+    calcTime();
+    
+    const timer = setInterval(calcTime, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const targetDate = new Date("2026-04-22T09:00:00+07:00").getTime();
@@ -189,7 +222,25 @@ export default function RegistrationSection({
           >
             <div className="bg-white rounded-2xl border border-border p-8 shadow-xl shadow-black/5">
               <h3 className="text-2xl font-bold text-foreground mb-1 text-center">Đăng Ký Ngay</h3>
-              <p className="text-muted-foreground text-sm text-center mb-5">Để chắc chắn có chỗ ngồi</p>
+              <p className="text-muted-foreground text-sm text-center mb-5">Đếm ngược thời gian ưu đãi</p>
+
+              {/* Countdown Timer */}
+              <div className="flex gap-2 sm:gap-3 justify-center mb-6">
+                {[
+                  { label: "Ngày", value: timeLeft.days },
+                  { label: "Giờ", value: timeLeft.hours },
+                  { label: "Phút", value: timeLeft.minutes },
+                  { label: "Giây", value: timeLeft.seconds }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex flex-col items-center">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center bg-gray-50 rounded-xl border border-gray-100 shadow-sm relative overflow-hidden">
+                      <div className="absolute top-0 w-full h-1/2 bg-black/5" />
+                      <span className="text-xl sm:text-2xl font-extrabold text-primary z-10">{item.value.toString().padStart(2, '0')}</span>
+                    </div>
+                    <span className="text-xs text-muted-foreground mt-2 font-semibold uppercase tracking-wider">{item.label}</span>
+                  </div>
+                ))}
+              </div>
 
               {/* Seat counter */}
               <div className="bg-gradient-to-r from-primary/5 to-secondary/5 border border-primary/15 rounded-xl p-4 mb-6">
