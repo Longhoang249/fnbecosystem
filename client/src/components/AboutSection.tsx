@@ -8,33 +8,28 @@ export default function AboutSection() {
 
   const speakerTopics = [
     {
-      icon: FileText,
-      title: "Cập nhật chính sách thuế, hoá đơn điện tử, chuẩn hoá mô hình kinh doanh và xu hướng kinh doanh ngành FnB",
-      bullets: [
-        // Thêm gạch đầu dòng ở đây sau
-      ],
-      image: "/images/feature1.webp",
-      accent: "from-emerald-500/20 to-emerald-600/5",
+      avatar: "/do_hai.jpg",
+      title: "Lợi Dụng Thuật Toán Tăng Trưởng Tỷ Views, Xây Kênh Viral Đa Nền Tảng",
+      question: "Muốn xây kênh hút khách mà không biết bắt đầu từ đâu?",
+      desc: "Bí quyết từ chuyên gia sở hữu 6 tỷ views và 1 nút vàng YouTube, giúp quán của bạn bùng nổ trên mạng xã hội.",
     },
     {
-      icon: Users,
-      title: "Gặp mặt chuyên gia đầu ngành: Giải đáp về thuế, vận hành và marketing thời chuyển đổi",
-      bullets: [],
-      image: "/images/feature2.webp",
-      accent: "from-amber-500/20 to-amber-600/5",
+      avatar: "/lan_phuong.jpg",
+      title: "Ứng Dụng Công Nghệ Trong Quản Lý Thuế Và Hóa Đơn Điện Tử Cho Hộ Kinh Doanh F&B",
+      question: "Không biết quán đã chuẩn hoá pháp lý và thuế chưa, cần lưu ý gì để kinh doanh đúng pháp luật?",
+      desc: "21 năm kinh nghiệm kế toán FnB, cập nhật chính sách thuế mới nhất, hoá đơn điện tử và cách tối ưu chi phí vận hành.",
     },
     {
-      avatar: "/han_cuong.webp",
+      avatar: "/han_cuong.jpg",
       title: "Giải Mã Cơn Sốt Trà Hoa Ướp Hương Tại Trung Quốc 2026",
       question: "Muốn nâng cấp menu, cập nhật đồ uống mới mà chưa biết cái nào ra tiền?",
       desc: "Xu hướng đang chiếm sóng thị trường tỷ đô. Phân tích từ nhà cung cấp trà hàng đầu cho Mixue, Chagee, Guming.",
     },
     {
-      icon: Gift,
-      title: "Hàng ngàn phần quà hấp dẫn: Hơn 1000+ phần quà từ ban tổ chức",
-      bullets: [],
-      image: "/images/feature3.webp",
-      accent: "from-rose-500/20 to-rose-600/5",
+      avatar: "/tuan_anh.jpg",
+      title: "Đóng Gói Để Nhân Chuỗi Thương Hiệu F&B",
+      question: "Quán có khách nhưng vận hành cực quá, làm một quán không nổi sao mở thêm cơ sở mới?",
+      desc: "Kinh nghiệm thực chiến vận hành 15+ cửa hàng chuỗi, từ 1 quán nhỏ đến mô hình nhượng quyền bài bản.",
     },
   ];
 
@@ -112,19 +107,13 @@ export default function AboutSection() {
                   </div>
                 </div>
 
-                {/* Speaker/Topic Icon or Avatar */}
+                {/* Speaker Box */}
                 <div className="relative z-10 flex items-start gap-4 md:gap-5 bg-gray-50 rounded-xl p-5 md:p-6 border border-gray-100 hover:border-primary/20 hover:bg-white hover:shadow-lg transition-all duration-300">
-                  {topic.avatar ? (
-                    <img
-                      src={topic.avatar}
-                      alt="Diễn giả"
-                      className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-primary/20 flex-shrink-0"
-                    />
-                  ) : topic.icon ? (
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary/10 flex items-center justify-center border-2 border-primary/20 flex-shrink-0">
-                      <topic.icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
-                    </div>
-                  ) : null}
+                  <img
+                    src={topic.avatar}
+                    alt="Diễn giả"
+                    className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-primary/20 flex-shrink-0"
+                  />
                   <div className="flex-1 min-w-0 md:pt-1">
                     <h4 className="font-bold text-foreground text-[15px] md:text-base leading-snug mb-1.5">{topic.title}</h4>
                     <p className="text-muted-foreground text-sm leading-relaxed">{topic.desc}</p>
