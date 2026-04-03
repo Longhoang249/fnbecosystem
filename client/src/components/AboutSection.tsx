@@ -24,7 +24,7 @@ export default function AboutSection() {
       accent: "from-amber-500/20 to-amber-600/5",
     },
     {
-      avatar: "/han_cuong.jpg",
+      avatar: "/han_cuong.webp",
       title: "Giải Mã Cơn Sốt Trà Hoa Ướp Hương Tại Trung Quốc 2026",
       question: "Muốn nâng cấp menu, cập nhật đồ uống mới mà chưa biết cái nào ra tiền?",
       desc: "Xu hướng đang chiếm sóng thị trường tỷ đô. Phân tích từ nhà cung cấp trà hàng đầu cho Mixue, Chagee, Guming.",
@@ -112,13 +112,19 @@ export default function AboutSection() {
                   </div>
                 </div>
 
-                {/* Speaker Box */}
+                {/* Speaker/Topic Icon or Avatar */}
                 <div className="relative z-10 flex items-start gap-4 md:gap-5 bg-gray-50 rounded-xl p-5 md:p-6 border border-gray-100 hover:border-primary/20 hover:bg-white hover:shadow-lg transition-all duration-300">
-                  <img
-                    src={topic.avatar}
-                    alt="Diễn giả"
-                    className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-primary/20 flex-shrink-0"
-                  />
+                  {topic.avatar ? (
+                    <img
+                      src={topic.avatar}
+                      alt="Diễn giả"
+                      className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-primary/20 flex-shrink-0"
+                    />
+                  ) : topic.icon ? (
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary/10 flex items-center justify-center border-2 border-primary/20 flex-shrink-0">
+                      <topic.icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
+                    </div>
+                  ) : null}
                   <div className="flex-1 min-w-0 md:pt-1">
                     <h4 className="font-bold text-foreground text-[15px] md:text-base leading-snug mb-1.5">{topic.title}</h4>
                     <p className="text-muted-foreground text-sm leading-relaxed">{topic.desc}</p>
