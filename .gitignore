@@ -8,3 +8,4 @@ dist/
 attached_assets/
 .vercel/
 .vercel
+error_log.txt

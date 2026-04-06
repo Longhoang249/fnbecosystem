@@ -19,6 +19,14 @@ export function useRegistration() {
     onSuccess: () => {
       // Invalidate relevant queries
       queryClient.invalidateQueries({ queryKey: ["/api/registrations"] });
+
+      // Facebook Pixel - Track registration as Lead conversion
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        (window as any).fbq('track', 'Lead', {
+          content_name: 'F&B Connect 2026 Registration',
+          content_category: 'Event Registration',
+        });
+      }
     },
   });
 
