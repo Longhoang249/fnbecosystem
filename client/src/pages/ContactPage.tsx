@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
+import { getTrackingFormParams, getTrackingData } from "@/lib/lead-tracker";
 import { Send, CheckCircle2, Sparkles, User, Phone, MapPin, StickyNote } from "lucide-react";
 import { useState } from "react";
 
@@ -94,15 +95,28 @@ export default function ContactPage() {
       formData.append("area", data.area);
       formData.append("brands", brandNames);
       formData.append("notes", data.notes || "");
-      formData.append("source", "QR-LienHe");
+      const tracking = getTrackingFormParams();
+      tracking.forEach((value, key) => {
+        formData.append(key, value);
+      });
 
       // Ensure explicit headers and stringified body
-      fetch(GOOGLE_SHEET_URL, { 
-        method: "POST", 
-        mode: "no-cors", 
+      fetch(GOOGLE_SHEET_URL, {
+        method: "POST",
+        mode: "no-cors",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: formData.toString() 
+        body: formData.toString()
       }).catch(console.error);
+
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        const trackingData = getTrackingData();
+        (window as any).fbq('track', 'Lead', {
+          content_name: 'F&B Connect 2026 Contact',
+          content_category: 'Contact Form',
+          source: trackingData.utm_source,
+          campaign: trackingData.utm_campaign,
+        });
+      }
 
       setSubmitted(true);
       toast({ title: "Gửi Thành Công! 🎉", description: "Cảm ơn bạn đã để lại thông tin." });

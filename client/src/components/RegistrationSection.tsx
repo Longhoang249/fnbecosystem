@@ -6,6 +6,7 @@ import { z } from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { useRegistration } from "@/hooks/use-registration";
+import { getTrackingFormParams } from "@/lib/lead-tracker";
 import { Calendar, Clock, MapPin, Ticket, Gift, Utensils, Users, MessageSquare, Phone, ArrowRight, Send, Armchair } from "lucide-react";
 
 const registrationSchema = z.object({
@@ -51,6 +52,10 @@ export default function RegistrationSection({
         formData.append("phone", data.phone);
         formData.append("ticketCount", data.ticketCount);
         formData.append("message", data.message || "");
+        const tracking = getTrackingFormParams();
+        tracking.forEach((value, key) => {
+          formData.append(key, value);
+        });
         fetch(url, { 
           method: "POST", 
           mode: "no-cors", 
