@@ -8,6 +8,7 @@ export interface TrackingData {
   landing_page: string;
   click_id: string;
   first_visit: string;
+  tracking_url: string;
 }
 
 const STORAGE_KEY = "fnb_tracking";
@@ -62,6 +63,7 @@ export function captureTrackingParams(): void {
     const landingPage = window.location.pathname;
     const clickId = detectClickId();
     const firstVisit = existingData ? JSON.parse(existingData).first_visit : new Date().toISOString();
+    const trackingUrl = window.location.href;
     const tracking: TrackingData = {
       utm_source: utmSource,
       utm_medium: utmMedium,
@@ -72,6 +74,7 @@ export function captureTrackingParams(): void {
       landing_page: landingPage,
       click_id: clickId,
       first_visit: firstVisit,
+      tracking_url: trackingUrl,
     };
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(tracking));
   } else if (existingData) {
@@ -85,6 +88,7 @@ export function captureTrackingParams(): void {
     const autoDetected = detectSourceFromReferrer(referrer);
     const landingPage = window.location.pathname;
     const clickId = detectClickId();
+    const trackingUrl = window.location.href;
     const tracking: TrackingData = {
       utm_source: autoDetected.utm_source,
       utm_medium: autoDetected.utm_medium,
@@ -95,6 +99,7 @@ export function captureTrackingParams(): void {
       landing_page: landingPage,
       click_id: clickId,
       first_visit: new Date().toISOString(),
+      tracking_url: trackingUrl,
     };
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(tracking));
   }
@@ -113,6 +118,7 @@ export function getTrackingData(): TrackingData {
       landing_page: "",
       click_id: "",
       first_visit: "",
+      tracking_url: "",
     };
   }
   try {
@@ -128,6 +134,7 @@ export function getTrackingData(): TrackingData {
       landing_page: "",
       click_id: "",
       first_visit: "",
+      tracking_url: "",
     };
   }
 }
@@ -163,5 +170,6 @@ export function getTrackingFormParams(): URLSearchParams {
   params.append("referrer", data.referrer);
   params.append("landing_page", data.landing_page);
   params.append("click_id", data.click_id);
+  params.append("tracking_url", data.tracking_url);
   return params;
 }
