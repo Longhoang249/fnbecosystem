@@ -22,7 +22,7 @@ const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbyQ8csKhPILgS1
 
 const eventInfo = [
   { icon: Calendar, text: "22 tháng 4, 2026" },
-  { icon: Clock, text: "9:00 - 17:00" },
+  { icon: Clock, text: "8:30 - 17:00" },
   { icon: MapPin, text: "Tầng 3 toà nhà The Zei, Số 8 Lê Đức Thọ, Hà Nội" },
   { icon: Ticket, text: "Miễn phí" },
 ];

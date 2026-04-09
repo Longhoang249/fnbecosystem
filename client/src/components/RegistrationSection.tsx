@@ -109,7 +109,7 @@ export default function RegistrationSection({
   }, []);
 
   useEffect(() => {
-    const targetDate = new Date("2026-04-22T09:00:00+07:00").getTime();
+    const targetDate = new Date("2026-04-22T08:30:00+07:00").getTime();
     const fakeNames = [
       "Nguyễn Văn An", "Trần Thị Bé", "Lê Hoàng Công", "Phạm Đình Duy",
       "Hoàng Thu Hằng", "Phan Tuấn Kiệt", "Vũ Minh Quân", "Đặng Thùy Trang",

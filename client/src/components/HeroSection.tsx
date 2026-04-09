@@ -9,7 +9,7 @@ interface HeroSectionProps {
 }
 
 function CountdownTimer() {
-  const targetDate = new Date("2026-04-22T09:00:00+07:00").getTime();
+  const targetDate = new Date("2026-04-22T08:30:00+07:00").getTime();
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, mins: 0, secs: 0 });
 
   useEffect(() => {

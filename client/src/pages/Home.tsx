@@ -6,6 +6,7 @@ import { lazy, Suspense, useState } from "react";
 import ThankYouModal from "@/components/ThankYouModal";
 
 // Lazy load below-fold sections to reduce initial bundle
+const EventVideoSection = lazy(() => import("@/components/EventVideoSection"));
 const VenueSection = lazy(() => import("@/components/VenueSection"));
 const SpeakersSection = lazy(() => import("@/components/SpeakersSection"));
 const ScheduleSection = lazy(() => import("@/components/ScheduleSection"));
@@ -38,12 +39,13 @@ export default function Home() {
       <Navbar />
       <HeroSection
         eventDate="22 tháng 4, 2026"
-        eventTime="9:00 - 17:00"
+        eventTime="8:30 - 17:00"
         eventLocation="Tầng 3 toà nhà The Zei - Số 8 Lê Đức Thọ, Tp.Hà Nội"
       />
       <AboutSection />
 
       <Suspense fallback={null}>
+        <EventVideoSection />
         <VenueSection />
         <SpeakersSection />
         <ScheduleSection />
@@ -52,7 +54,7 @@ export default function Home() {
         <TestimonialsSection />
         <RegistrationSection
           eventDate="22 tháng 4, 2026"
-          eventTime="9:00 - 17:00"
+          eventTime="8:30 - 17:00"
           eventLocation="Tầng 3 toà nhà The Zei - Số 8 Lê Đức Thọ, Tp.Hà Nội"
           eventPrice="Miễn phí"
           onSuccessfulRegistration={() => setShowThankYouModal(true)}
