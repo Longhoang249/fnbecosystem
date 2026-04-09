@@ -49,12 +49,16 @@ export default function RegisterPage() {
       tracking.forEach((value, key) => {
         formData.append(key, value);
       });
-      fetch(GOOGLE_SHEET_URL, {
+      if (!formData.has("source")) {
+        formData.append("source", "QR-DangKy");
+      }
+      
+      await fetch(GOOGLE_SHEET_URL, {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: formData.toString()
-      }).catch(console.error);
+      });
 
       if (typeof window !== 'undefined' && (window as any).fbq) {
         const trackingData = getTrackingData();
@@ -65,7 +69,6 @@ export default function RegisterPage() {
           campaign: trackingData.utm_campaign,
         });
       }
-
       setSubmitted(true);
       toast({ title: "Đăng Ký Thành Công! 🎉", description: "Chúng tôi sẽ liên hệ với bạn sớm nhất." });
     } catch {

@@ -101,12 +101,12 @@ export default function ContactPage() {
       });
 
       // Ensure explicit headers and stringified body
-      fetch(GOOGLE_SHEET_URL, {
+      await fetch(GOOGLE_SHEET_URL, {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: formData.toString()
-      }).catch(console.error);
+      });
 
       if (typeof window !== 'undefined' && (window as any).fbq) {
         const trackingData = getTrackingData();
@@ -117,7 +117,6 @@ export default function ContactPage() {
           campaign: trackingData.utm_campaign,
         });
       }
-
       setSubmitted(true);
       toast({ title: "Gửi Thành Công! 🎉", description: "Cảm ơn bạn đã để lại thông tin." });
     } catch {

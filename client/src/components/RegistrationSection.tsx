@@ -56,12 +56,12 @@ export default function RegistrationSection({
         tracking.forEach((value, key) => {
           formData.append(key, value);
         });
-        fetch(url, { 
+        await fetch(url, { 
           method: "POST", 
           mode: "no-cors", 
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: formData.toString() 
-        }).catch(console.error);
+        });
       } catch { /* continue */ }
 
       toast({ title: "Đăng Ký Thành Công! 🎉", description: "Chúng tôi sẽ liên hệ với bạn sớm nhất." });
