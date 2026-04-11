@@ -21,7 +21,7 @@ export default function SponsorsSection() {
     { name: "VBM PROSPERITY JSC", logo: "/logos/vbm____chuy_n_thi_t_k__thi_c_ng_f__b.png" },
     { name: "Minh Hạnh Food", logo: "/logos/minh_h_nh_food.png" },
     { name: "Nobita Food", logo: "https://placehold.co/150x150/1B4332/D4A853?text=NOBITA" },
-    { name: "Cốc Giấy KK", logo: "/logos/c_c_gi_y_kk.png" }
+    { name: "KK Group", logo: "/logos/c_c_gi_y_kk.png" }
   ];
 
   // Repeat the arrays to ensure it's wide enough for large screens
